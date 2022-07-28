@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>利用Cloudflare Workers搭建镜像网站</title>
+    <url>/2020/05/03/20/</url>
+    <content><![CDATA[<p>还是要使用之前搭建反向代理的平台，依然使用cloudflare workers平台搭建，不懂的翻之前的教程</p>
+<span id="more"></span>
+
+<h1 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h1><ol>
+<li>此处选择以镜像维基百科为演示</li>
+<li>原作者的代码为谷歌镜像，有相应模板</li>
+<li>说了这么多，无非是粘贴代码，然后点击“保存并部署”的事情</li>
+<li>源码很简单，可以自己更改</li>
+</ol>
+<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><ol>
+<li>新建workers</li>
+</ol>
+<p><img src="https://i.loli.net/2020/07/26/OLiZ3f5YIHUwJFm.png" alt="1.png" loading="lazy"></p>
+<ol start="2">
+<li>复制一个你感兴趣的镜像网站脚本</li>
+</ol>
+<p><img src="https://i.loli.net/2020/07/26/vaWQtscjPzdgpoT.png" alt="2.png" loading="lazy"></p>
+<ol start="3">
+<li>删除初始代码并将镜像脚本复制进去</li>
+</ol>
+<p><img src="https://i.loli.net/2020/07/26/lKdpcitTfqjCbnr.png" alt="3.png" loading="lazy"></p>
+<ol start="4">
+<li>最后一步，成功后就是你的镜像啦~</li>
+</ol>
+<p><img src="https://i.loli.net/2020/07/26/Z4uT82PYVzI9kwA.png" alt="4.png" loading="lazy"></p>
+<ol start="5">
+<li>突破：实际上你可以依据脚本自己改的，具体操作在此不做演示，自行摸索。</li>
+</ol>
+<h1 id="警告⚠"><a href="#警告⚠" class="headerlink" title="警告⚠"></a>警告⚠</h1><ol>
+<li>每天免费调用额度仅十万次！</li>
+<li>本项目中镜像均不可登录账号，请悉知。</li>
+<li>镜像网站中YouTube几乎不可用，就是个摆设；镜像网站中Google可以打开不可用，会被谷歌认为是机器人，目前该问题得不到有效解决；且Cloudflare Workers官方已识别，在大陆不可使用。</li>
+<li>不保证可行性，更新时间为：2020年4月29日</li>
+<li>请自行在<a href="https://github.com/">Github</a>中搜索此项目</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>浅谈一些常用网盘</title>
+    <url>/2020/04/21/13/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>众所周知，我等被某度网盘早期的“优惠”蒙蔽了双眼，资源基本都上传到了某度网盘，这就导致了悲剧的发生——资本主义露出了它丑陋的嘴脸后，广大劳动人民受其压迫，加之资源分享者均使用某度网盘，导致使用某度网盘的人越来越多。</p>
+<span id="more"></span>
+
+<h1 id="某度网盘"><a href="#某度网盘" class="headerlink" title="某度网盘"></a>某度网盘</h1><p>之前虽说限速，但还是有2T空间呢，如今只有100G，还限速，这家伙是被国内消费者惯坏了。</p>
+<h1 id="替代品"><a href="#替代品" class="headerlink" title="替代品"></a>替代品</h1><p>就目前形势来看，有以下几个，各有优缺点，此处尽量一一列出</p>
+<ol>
+<li><p>天翼云：背后有电信撑腰，跑路是不用担心的，问题是：现在它的操作与几年前某度网盘的操作如出一辙，有可能会走上某度的老路，上车需谨慎；而且分享有难度，之前有一位大佬写出来了天翼云的挂载网盘，但是现在他已经删库跑路了…</p>
+</li>
+<li><p>OneDrive国际版：<br>问题：<s>下载（这个问题搭建网盘可以解决一些）</s>，微软开放了对中国大陆的CDN，速度在墙不高的地区完全可以媲美中国版、上传速度不快（此问题使用非大陆地区的VPS可以解决）；除非花钱卖，不然所有的非正规许可会随时被撤销；<br>好处：直接分享可以，搭建网盘分享也可以，空间大（可以调到5T，用到4.9T可以让管理员扩容到25T）；如果是教育版，SP网站的空间也很大<br><img src="https://i.loli.net/2021/02/08/296kVPGHhT3aLXz.png" alt="图片.png" loading="lazy"><em>国际版教育全局，sharepoint网站空间</em></p>
+</li>
+<li><p>OneDrive中国版：<br>问题明显，而且致命：中国版没有像国际版这么多种类，仅家庭版、商务版、（不知道注册入口已久的）教育版，前二者只有花钱卖，教育版目前无论是子号还是全局，市场价都不是一般的贵，而且随时翻车；<br>优点：上传，下载速度快，具体根据网速定，但绝对不会限速</p>
+</li>
+<li><p>Google Drive：主要是可以照顾一下海外的同胞，其次就是技术大佬有钱人（不限流量VPS）用，无限空间可以使用挂载团队盘的方式实现，还可以拉人进入团队，速度取决于你的梯子、VPS。买一个教育子号也不是太贵，全局也有卖的，就是贵些，下面我会给出参考价格。</p>
+</li>
+<li><p>阿里云网盘：套路，和它家卖服务器的时候一样坑；目前注册（需邀请码）送1T空间，速度方面还行；目前又开展了一系列活动来吸引用户，不知道会不会走百度网盘的老路子</p>
+</li>
+<li><p><s>Teambition网盘：也是阿里旗下的，不过似乎良心一些？邀请码等的时间长一些，注册送2T空间，功能还不是很全</s><br>惨遭被打脸，Teambition网盘已经下架<br><img src="https://i.loli.net/2021/02/08/7yLRXjlxibgns6I.png" alt="图片.png" loading="lazy"><em><s>已经凉凉的</s>Teambition网盘界面</em></p>
+</li>
+<li><p>115网盘、城通网盘、奶牛快传等等其他小网盘：缺点：小众、各种莫名奇妙的限速（也许没有某度网盘严重）、时间问题（有些是有时间限制的，比如说Firefox Send，好用，就是时间问题还有上传文件大小的限制）</p>
+</li>
+<li><p>国外一众网盘：呵呵</p>
+</li>
+</ol>
+<h1 id="善后"><a href="#善后" class="headerlink" title="善后"></a>善后</h1><p>说了这么多网盘，终究要回到一个问题：资源大部分在某度网盘中，这个就是仁者见仁智者见智了，我是买了一个月大会员下载的，推荐大家以后的资源都不要放在某度网盘，开始是痛苦的，但一旦良性循环形成，诸君就会发现其好处</p>
+<h1 id="价格参考及方法论"><a href="#价格参考及方法论" class="headerlink" title="价格参考及方法论"></a>价格参考及方法论</h1><h2 id="价格参考"><a href="#价格参考" class="headerlink" title="价格参考"></a>价格参考</h2><h3 id="天翼云"><a href="#天翼云" class="headerlink" title="天翼云"></a>天翼云</h3><p>10T个人盘可以考虑，价格大约在30~100之间，超出不推荐</p>
+<h3 id="OneDrive国际版"><a href="#OneDrive国际版" class="headerlink" title="OneDrive国际版"></a>OneDrive国际版</h3><p>因为现在国际版的上传、下载速度和中国版差不多了，也不知道价格会不会升，以下价格是在2020年初时统计的，<strong>仅作参考</strong></p>
+<p>教育版A1子号：0至3之间，不知道什么时候被Microsoft查<br>教育版A1P子号：0至30之间，比A1好点，也不知道什么时候被Microsoft查<br>教育版A1全局（一万用户）：100至200之间，主要用途是转存<br>教育版A1全局（一百五十万用户）：300至500之间，有时候碰上急着出售的，价格还可以压一压<br>教育版A1P全局：0至2000之间，这个没多少人卖，一般比较贵，不推荐，除了比A1多了桌面版Office 365，其他的都差不多<br>开发者MSDN E3子号：20至50之间，目前比较稳的类型，就是微软这边一说停止注册，一群商人就炒作起来，还是有撤销订阅的风险<br>开发者MSDN E3全局：目前先不要买，价格太高了，我问过一个卖号的，他手里有300+的号卖不出去，相信会降下来，目前价格：600~2000之间<br>开发者E5子号&#x2F;全局：0，卖的都是骗子；申请E5全局的文章：<a href="https://www.skxlz.top/2020/04/05/07/">Office E5申请及续订</a></p>
+<h3 id="OneDrive中国版"><a href="#OneDrive中国版" class="headerlink" title="OneDrive中国版"></a>OneDrive中国版</h3><p>教育版子号：20~200之间</p>
+<p>教育版全局：价格未知，现在也没见过有人卖</p>
+<h3 id="Google-Drive"><a href="#Google-Drive" class="headerlink" title="Google Drive"></a>Google Drive</h3><p>团队盘直接上网找，懒的话看这里：<a href="https://wangdalao.com/1949.html">Google Drive：在线创建谷歌团队无限网盘（持续更新）</a></p>
+<p>教育版：无限空间，40~99之间，和团队盘一样无限，被谷歌查到的概率也差不多<br>非盈利版：没人卖，也不要买，因为每个用户只有30G</p>
+<h3 id="NAS"><a href="#NAS" class="headerlink" title="NAS"></a>NAS</h3><p>没弄过，不敢说</p>
+<h2 id="方法论"><a href="#方法论" class="headerlink" title="方法论"></a>方法论</h2><h3 id="天翼云-1"><a href="#天翼云-1" class="headerlink" title="天翼云"></a>天翼云</h3><p>只要有大陆手机号就行，无技术要求。按要求完成任务，可以领到：三个月会员、2T家庭云空间；<s>如果完成教师认证还能再领一年会员</s>，教师活动已结束。</p>
+<h3 id="OneDrive"><a href="#OneDrive" class="headerlink" title="OneDrive"></a>OneDrive</h3><p>有钱你就买正版，家庭版现在已经很便宜了。没钱可以去申请E5：<a href="https://www.skxlz.top/2020/04/05/07/">Office E5申请及续订</a><br>至于中国版，我的态度的再观望一下，毕竟现在部分地区国际版的下载速度和中国版差不多了。</p>
+<h3 id="Google-Drive-1"><a href="#Google-Drive-1" class="headerlink" title="Google Drive"></a>Google Drive</h3><p>要是你连Google官网都不能访问的话还是别买了</p>
+<h3 id="NAS-1"><a href="#NAS-1" class="headerlink" title="NAS"></a>NAS</h3><p>没搞过</p>
+]]></content>
+      <tags>
+        <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Office E5申请及续订</title>
+    <url>/2020/04/05/07/</url>
+    <content><![CDATA[<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ol>
+<li>确保你的网络地址处于<strong>非封锁国际互联网地区</strong></li>
+<li>一个微软个人账户</li>
+<li>一个正常使用的实体手机号码</li>
+<li>如果英语不太好，尽量准备一个翻译工具</li>
+<li>灵活的脑子和随机应变的能力以及一点点运气</li>
+<li>挑一个好的时间段；微软已经开始限制注册了</li>
+</ol>
+<h1 id="开始申请"><a href="#开始申请" class="headerlink" title="开始申请"></a>开始申请</h1><p>点击<a href="https://developer.microsoft.com/zh-cn/office">此处</a>，进入Office 365开发人员中心</p>
+<p><img src="https://i.loli.net/2020/04/06/aCnorKBOGfgqFt4.png" alt="批注 2020-04-06 083130.png" loading="lazy"></p>
+<p><img src="https://i.loli.net/2020/04/05/dakiz6jDV4HlWbI.png" alt="7Y_6@BM1VWZS_7BDMWTI_FC.jpg" loading="lazy"></p>
+<p>输入你的微软账号、密码，登录；现场注册也可以</p>
+<p><img src="https://i.loli.net/2020/04/05/QyzcI8BEawTtFKD.png" alt="mcicjxvmc.jpg" loading="lazy"></p>
+<p>国家尽量选离你所在地理位置最近的地方；如果位置选中国，组织存储位置可能会被分配到东亚的某个小国，并<strong>不会分配到中国地区</strong>（从下图开始，我将借用他人的图片；<s>手里没微软账号了</s>）</p>
+<p><img src="https://i.loli.net/2020/04/05/lp69NzFVCYJtQGn.png" alt="a1c41fdca65c37dd6e36632be169799e_2_3_art.jpg" loading="lazy"></p>
+<p>按需填写即可</p>
+<p><img src="https://i.loli.net/2020/04/05/TdmOc57DMYQjolL.jpg" alt="d96736fdcc28d6be0559214b05a7bbb6_2_3_art.jpg" loading="lazy"></p>
+<p>添加订阅，填好无误后点击“继续”</p>
+<p><img src="https://i.loli.net/2020/04/05/SuBKindq8146bPg.png" alt="c6a286057712ff9c8498a3ca2713c7a4_2_3_art.jpg" loading="lazy"></p>
+<p>此时，会有一个窗口弹出，这是微软为避免恶意注册而设置的；填上手机号码，<strong>然后再次确保你的网络地址处于非封锁国际互联网地区</strong>，点击“发送代码”；如若<strong>未弹出谷歌验证系统，则您的网络地址仍处于封锁国际互联网地区</strong>，将无法收到验证码</p>
+<p><img src="https://i.loli.net/2020/04/05/j8BzGeLnWfVi6wA.jpg" alt="a34dd68de99f33d1f2c9ea38b602eb60_2_3_art.jpg" loading="lazy"></p>
+<p>如果到了这一步，恭喜，你躲过了微软的风控系统，并且薅了微软一把羊毛</p>
+<p><img src="https://i.loli.net/2020/04/05/pwsl9zQCrEcNBj4.png" alt="批注 2020-04-05 132130.jpg" loading="lazy"></p>
+<h1 id="开发活动"><a href="#开发活动" class="headerlink" title="开发活动"></a>开发活动</h1><blockquote>
+<p>首先明确一个概念：微软的初衷是奖励开发人员，所以才会有“开发者订阅”<br>因而，开发者只会天天使用Office吗？当然不，他们会开发一系列有关Office的产品，如：可以自动接收邮件并回复的程序、无需打开OneDrive就可以查看并修改其内的文件等等，这些，都需要一个“接口”，也就是“API”；微软正是通过监视调用接口，从而判断你是否在从事开发工作。<br>也就是说，想要白嫖Office的开发人员许可，就必须让微软认为你是“开发者”。<br>但微软的续期其实也是个玄学问题，有人什么都没干无限续期，有人用遍了目前可以调用的API，结果还是连第一个续期都没过</p>
+</blockquote>
+<p>需要一点点运气，以及一些脑子；<s>还有翻译</s></p>
+<h2 id="搭建OneIndex"><a href="#搭建OneIndex" class="headerlink" title="搭建OneIndex"></a>搭建OneIndex</h2><p>搭建OneIndex，调用OneDrive API；</p>
+<ul>
+<li>优点：简单、调用API的同时还可以当作私人网盘使用</li>
+<li>缺点：需要服务器</li>
+</ul>
+<p>土豪可以直接买服务器搭建OneIndex</p>
+<h3 id="Gearhost免费空间"><a href="#Gearhost免费空间" class="headerlink" title="Gearhost免费空间"></a>Gearhost免费空间</h3><p>细心的我已经为你准备好了教程：<a href="https://blog.csdn.net/qq_44768248/article/details/99671695">绝对免费搭建不限速私人网盘5T存储空间:Gearhost免费空间+OneIndex程序+Onedrive免费账号</a></p>
+<p>教程写的还不错，第一步Onedrive免费账号可以直接忽略。只是只有100MB的储存空间，还不能设置定时任务（Gearhost免费套餐需绑定信用卡才可以设置定时任务），导致缓存需要时常手动清理，但毕竟是免费的。</p>
+<h3 id="Heroku免费套餐"><a href="#Heroku免费套餐" class="headerlink" title="Heroku免费套餐"></a>Heroku免费套餐</h3><p>细心的我又给你准备了一个教程：<a href="https://banma.ac.cn/65.html">免服务器用heroku+OneDrive搭建OneManager网盘</a></p>
+<p>我的外链中有一个“My Drive”，就是那个小云，点击就可以进入我的私人网盘。<br>免费有免费的限制，那就是如果三十分钟内无人访问就会进入休眠。。。</p>
+<h3 id="腾讯SCF"><a href="#腾讯SCF" class="headerlink" title="腾讯SCF"></a>腾讯SCF</h3><p><a href="https://www.mad-coding.cn/2019/12/02/%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AFSCF-onedrive%E6%90%AD%E5%BB%BA5T%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%9B%98/">使用腾讯SCF+onedrive搭建5T个人网盘</a></p>
+<p>上面这篇文章写的很清楚：腾讯开始收费了；没钱买服务器但又想花钱买平安的小伙伴可以选择这种方法</p>
+<h2 id="大佬开发的E5自动续订程序"><a href="#大佬开发的E5自动续订程序" class="headerlink" title="大佬开发的E5自动续订程序"></a>大佬开发的E5自动续订程序</h2><p>只有这一篇教程：<a href="https://blog.curlc.com/archives/687.html">E5 自动订阅程序</a></p>
+<p>优点：简单、免费<br>缺点：很明显，用的人很多；人多了，自然容易出问题，不喜欢折腾的小伙伴可以使用这种方法</p>
+<h2 id="GitHub开源程序AutoApi系列"><a href="#GitHub开源程序AutoApi系列" class="headerlink" title="GitHub开源程序AutoApi系列"></a>GitHub开源程序AutoApi系列</h2><p>教程在GitHub上，已开源。</p>
+<blockquote>
+<ul>
+<li><a href="https://github.com/wangziyingwen/AutoApi">普通版</a></li>
+<li><a href="https://github.com/wangziyingwen/AutoApiSecret">加密版</a></li>
+<li><a href="https://github.com/wangziyingwen/AutoApiSR">仿人为开发版</a></li>
+<li><a href="https://github.com/wangziyingwen/AutoApiS">超级版</a>（截至本文写成仍在测试，但已开源）</li>
+</ul>
+</blockquote>
+<p>优点：专门调用API，为调用API而开发，自动调用，可调节调用间隔<br>缺点：麻烦</p>
+<p>我踩到的坑：好像全程只能使用管理员账号操作；我首先使用的子账号，出现了错误，后期又用管理员账户授权就可以用了，可能是权限问题？<br>喜欢折腾的可以去看一看</p>
+<h1 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h1><h2 id="关于OFFICE-365（MICROSOFT-365）的种类"><a href="#关于OFFICE-365（MICROSOFT-365）的种类" class="headerlink" title="关于OFFICE 365（MICROSOFT 365）的种类"></a>关于OFFICE 365（MICROSOFT 365）的种类</h2><p>简单写一下，如果想要了解更多，可以参考：<a href="https://img.moedog.org/images/2019/08/21/3653.png">犬’s Blog 免费订阅思维导图</a>、<a href="https://peachcat.org/archives/584">蜜桃猫 office365毕业全家福</a></p>
+<ol>
+<li>教育系列（A）：A1、A1Plus、A3、A5；其中A1无桌面版OFFICE，MICROSOFT 365 A3、A5有教育版Windows许可，每一种订阅又分学生版和教师版</li>
+<li>商务系列（E、F）：E3、E5、F1、F3，均为企业大量购买，其中包括商业高级版及大部分单独订阅</li>
+<li>开发者系列（E）：E3 开发者（已绝版；一年期限，不可续订）、E5 开发者（撸废了，有停止注册的迹象；每90天一次续订）、E3 MSDN（绝版）</li>
+<li>个人系列：家庭版、商业版等，微软官方在购买页写的很清楚，不在此过多赘述</li>
+<li>单独订阅：太多了……如：OFFICE 365 Pro Plus</li>
+<li>政府系列（G）：G1、G3、G5（没见过；不知道有没有大佬敢撸）</li>
+</ol>
+<h2 id="关于翻车"><a href="#关于翻车" class="headerlink" title="关于翻车"></a>关于翻车</h2><p>翻车没什么好说的，以下两种情况：</p>
+<ol>
+<li>被微软风控，全局之类的给你封喽</li>
+<li>如果是子号，可能是管理员把你的号删了</li>
+</ol>
+<h2 id="关于onedrive无法使用"><a href="#关于onedrive无法使用" class="headerlink" title="关于onedrive无法使用"></a>关于onedrive无法使用</h2><p>网页版如果出现“正在为您设置onedrive”类似情况，请等待24小时后登录；如果还不行，请联系你的管理员、百度\谷歌\必应一下（最简单）、联系微软（管理员账号）<br>onedrive里的资源要多重备份，私人资料最好不要放（如果你是管理员就当我没说），可以多撸几个不同全局的账号。</p>
+<h2 id="关于外国教育邮箱"><a href="#关于外国教育邮箱" class="headerlink" title="关于外国教育邮箱"></a>关于外国教育邮箱</h2><p>不保稳，翻车几率甚至可以超过A1、A1P，主要还是我大天朝薅羊毛的太多了。<br>外国edu邮箱主要薅的是社区大学（大概相当于国内的大专）</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p><strong>所有方法都不能保证续订！只是可以增加续订概率！</strong><br>听说现在有OneNote API的调用方式，不知道是不是真的<br>哪位大佬有其他方法的可以写在评论区！感谢您的无私奉献！</p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用Cloudflare Workers搭建反向代理</title>
+    <url>/2020/05/02/19/</url>
+    <content><![CDATA[<h1 id="一-限制"><a href="#一-限制" class="headerlink" title="一.限制"></a>一.限制</h1><p>先讲限制</p>
+<ol>
+<li>该免费套餐一天十万请求量，如果你除了日常需求，还想装逼，造福网友，让他们上外国网站（其实不只是外国网站，任何网站都可以），请做好欠费账单准备</li>
+<li>测试时出现了一些意外，反代的网站没问题，就是主站上不去了。过一段时间就好了（win10专业版X64、火狐国际版75.0、联通20M家庭宽带）</li>
+<li>速度嘛，我测试的不怎么好，因为正好是高峰期，油管勉勉强强720P</li>
+</ol>
+<h1 id="二-准备"><a href="#二-准备" class="headerlink" title="二.准备"></a>二.准备</h1><p>还是老一套，从注册账号开始，不要翻墙，<a href="https://www.cloudflare.com/">点击注册</a> 。</p>
+<h1 id="三-开始"><a href="#三-开始" class="headerlink" title="三.开始"></a>三.开始</h1><ol>
+<li>点击Workers，因为我自己已经注册并弄好了，所以用的是别人的图</li>
+</ol>
+<p><img src="https://i.loli.net/2020/07/26/DrM59TL2OZJQkqG.png" alt="1.png" loading="lazy"></p>
+<ol start="2">
+<li>点进去后选择“Free”免费套餐</li>
+</ol>
+<p><img src="https://i.loli.net/2020/07/26/d4aSXPQ9FHA1wmJ.png" alt="2.png" loading="lazy"></p>
+<ol start="3">
+<li>创建Workers，名字随便取，会成为你的二级域名前缀</li>
+</ol>
+<p><img src="https://i.loli.net/2020/07/26/gPDehUALJ5YIl2i.png" alt="3.png" loading="lazy"></p>
+<ol start="4">
+<li>进入编辑页面（用的自己的图，已经编辑好了，不要在意）无论编辑栏中有什么，全部删除</li>
+</ol>
+<p><img src="https://i.loli.net/2020/07/26/FpMXU59mCDdlxsO.png" alt="4.png" loading="lazy"></p>
+<ol start="5">
+<li><a href="https://github.com/EtherDream/jsproxy/blob/master/cf-worker/index.js">点击进入GitHub源代码地址</a></li>
+</ol>
+<p>我倒是要看看谁能把代码块之外的也给复制喽</p>
+<ol start="6">
+<li><p>粘贴（我想应该不会有人把代码复制到命令提示符里吧），点击<code>保存并部署</code></p>
+</li>
+<li><p>测试，如图</p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2020/07/26/WnTR51Czr9lDsyA.png" alt="5.png" loading="lazy"></p>
+<ol start="8">
+<li>输入网址就能用，挺便捷</li>
+</ol>
+<h1 id="四-注意"><a href="#四-注意" class="headerlink" title="四.注意"></a>四.注意</h1><p>免费一天十万的额度不是一个项目的调用次数，而是你的全部项目调用次数。</p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于这个Blog的一两点思考</title>
+    <url>/2020/07/08/22/</url>
+    <content><![CDATA[<p>过去好长时间了啊</p>
+<span id="more"></span>
+
+<h1 id="早期"><a href="#早期" class="headerlink" title="早期"></a>早期</h1><h2 id="曾经的曾经"><a href="#曾经的曾经" class="headerlink" title="曾经的曾经"></a>曾经的曾经</h2><p>其实早期我是把萌百的个人页当博客用的，退出萌百前就已经清空了，还留有一部分供大家参观</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;&#123;背景图片|https://img.moegirl.org/common/8/8d/037.jpg|position=center&#125;&#125;</span><br><span class="line">&#123;&#123;Cquote|&#x27;&#x27;&#x27;若能避开猛烈的欢喜，自然也不会有悲痛的来袭。&#x27;&#x27;&#x27;|太宰治《人间失格》&#125;&#125;</span><br><span class="line">&#123;&#123;Cquote|&#x27;&#x27;&#x27;发展的实质是事物的前进和上升，是新事物的产生和旧事物的消亡。&#x27;&#x27;&#x27;|马克思、恩格斯《唯物辩证法》&#125;&#125;</span><br><span class="line">&lt;/table&gt;</span><br><span class="line">&#123;&#123;User Infobox</span><br><span class="line">|image=[[File:|200px]]</span><br><span class="line">|色带=Turquoise</span><br><span class="line">|年龄= &#123;&#123;模糊|███&#125;&#125;</span><br><span class="line">|血型=万能血</span><br><span class="line">|星座=上面有啊，自己去看</span><br><span class="line">|体重= &#123;&#123;模糊|███&#125;&#125;</span><br><span class="line">|发色= 黑</span><br><span class="line">|萌点= 好像，没有吧</span><br><span class="line">|瞳色= &#123;&#123;黑幕|自己也&#125;&#125;不知道</span><br><span class="line">|个人状态= 苟活</span><br><span class="line">|出身地区=</span><br><span class="line">|活动范围=全世界</span><br><span class="line">|好友=全世界无产阶级！（[[御姐控]]及所[[御姐|控]]除外）</span><br><span class="line">|敌人=[[御姐控]]及所[[御姐|控]]</span><br><span class="line">&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;User_zh|N&#125;&#125;</span><br><span class="line">&#123;&#123;用户_吴语&#125;&#125;</span><br><span class="line">&#123;&#123;用户 简体中文编辑&#125;&#125;</span><br><span class="line">&#123;&#123;Userbox </span><br><span class="line">|id=[[File:FFFdan.jpeg|50px]]&lt;!-- 此栏亦可以直接填写文字 --&gt; </span><br><span class="line">|id-c=black&lt;!-- 图片底色 --&gt; </span><br><span class="line">|id-s=&lt;!-- 若id一栏使用文字，此处数字为字号 --&gt; </span><br><span class="line">|info=这个用户是忠实的[[FFF团]]团员。</span><br><span class="line">|info-c=# &lt;!-- 文字栏背景色 --&gt; </span><br><span class="line">|info-s=10&lt;!-- 文字栏字号 --&gt; </span><br><span class="line">|border-c=black&lt;!-- 边框色 --&gt; </span><br><span class="line">&#125;&#125;</span><br><span class="line">&#123;&#123;用户 CSCA&#125;&#125;</span><br><span class="line">&#123;&#123;用户 借鉴&#125;&#125;</span><br><span class="line">&#123;&#123;用户 萝莉控&#125;&#125;</span><br><span class="line">&#123;&#123;用户_萌百九宫格&#125;&#125;</span><br><span class="line">&#123;&#123;用户 小编辑&#125;&#125;</span><br><span class="line">&#123;&#123;用户 中二恋&#125;&#125;</span><br><span class="line">&#123;&#123;用户 缘之空&#125;&#125;</span><br><span class="line">&#123;&#123;用户 魔法少女&#125;&#125;</span><br><span class="line">&#123;&#123;用户 懒|info=这个用户有&#123;&#123;color|black|拖延症&#125;&#125;&#125;&#125;</span><br><span class="line">&#123;&#123;用户 强迫症&#125;&#125;</span><br><span class="line">&#123;&#123;用户 广泛收集&#125;&#125;</span><br><span class="line">&#123;&#123;用户 学生党|UserName=FXHJ|CallName=此用户|Time=没课的时候&#125;&#125;</span><br><span class="line">&#123;&#123;用户 技术宅&#125;&#125;</span><br><span class="line">&#123;&#123;用户 Minecraft&#125;&#125;</span><br><span class="line">&#123;&#123;用户 莫谈国事&#125;&#125;</span><br><span class="line">&#123;&#123;User Windows|10&#125;&#125;</span><br><span class="line">&#123;&#123;Userbox|white|#66ccff|缺乏幽默|该用户比较耿直，说话语气比较正经。&#125;&#125;</span><br><span class="line">&#123;&#123;用户 等等&#125;&#125;</span><br><span class="line">&#123;&#123;clear&#125;&#125;</span><br><span class="line"></span><br><span class="line">== 个人简介 ==</span><br><span class="line"></span><br><span class="line">精通推倒墙娘方法及理论，且每天都会推倒墙娘。。。</span><br><span class="line"></span><br><span class="line">喜欢[[病娇]]，[[萝莉]]，[[妹妹]]；最喜欢[[病娇]][[萝莉]][[妹妹]]。</span><br><span class="line"></span><br><span class="line">讨厌[[巨乳]]，[[御姐]]；最讨厌[[巨乳]][[御姐]]。</span><br><span class="line"></span><br><span class="line">&#123;&#123;黑幕|一个&#123;&#123;黑幕|&lt;del&gt;没有妹妹的&lt;/del&gt;&#125;&#125;[[妹控]]。&#125;&#125;</span><br><span class="line"></span><br><span class="line">== 看过的动漫 ==</span><br><span class="line"></span><br><span class="line">&#123;&#123;Cquote|&#x27;&#x27;&#x27;&#123;&#123;ruby|她可以褪色，可以枯萎|She could fade and wither.&#125;&#125;，&#123;&#123;ruby|我不在乎|I didn&#x27;t care.&#125;&#125;，&#123;&#123;ruby|但只要看她一眼，万般柔情，涌上心头|I would still go mad with tenderness at the mere sight other face.&#125;&#125;。 &#x27;&#x27;&#x27;|&#123;&#123;ruby|弗拉基米尔·纳博科夫|&#x27;&#x27;Vladimir Vladimirovich Nabokov&#x27;&#x27;&#125;&#125;&#123;&#123;ruby|《[[洛丽塔]]》| &#x27;&#x27;Lolita&#x27;&#x27;&#125;&#125;&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;LinksShow|*[[缘之空]]</span><br><span class="line">*[[埃罗芒阿老师]]</span><br><span class="line">*[[魔法少女小圆]]</span><br><span class="line">……</span><br><span class="line">&#125;&#125;</span><br><span class="line"></span><br><span class="line">== 至理名言 ==</span><br><span class="line">&#123;&#123;Cquote|&#x27;&#x27;&#x27;&#123;&#123;ruby|自从她到来之后，|Ever Since she came,&#125;&#125;&#123;&#123;ruby|生活便被染上了生动的颜色。|Iife is dyed in vivid color.&#125;&#125;&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;Cquote|</span><br><span class="line">&#x27;&#x27;&#x27;&lt;poem&gt;</span><br><span class="line">&#123;&#123;ruby|“我會娶你，等你長大後。”|&quot;I will marry you when you grow up.&quot;&#125;&#125;</span><br><span class="line">&#123;&#123;ruby|她走過來，依靠一個天真的諾言。|She came over,relying on an innocent promise.&#125;&#125;</span><br><span class="line">&#123;&#123;ruby|在同一個屋簷下，只有彼此相互不安，|Under the same roof,with on one to disturb us,&#125;&#125;</span><br><span class="line">&#123;&#123;ruby|我們在溫暖中融化，沉浸在愛與汗水之中。|Iet us melt in our warmth,drawn in love and sweat.&#125;&#125;</span><br><span class="line">&#123;&#123;ruby|沒有我，你很快就會無法生活......|You will soon be unable to live without me...&#125;&#125;</span><br><span class="line">&#123;&#123;ruby|你甚至都不會注意。|and you won&#x27;t even notice it.&#125;&#125;</span><br><span class="line">&lt;/poem&gt;&#x27;&#x27;&#x27;</span><br><span class="line">&#125;&#125;</span><br><span class="line"></span><br><span class="line">&lt;templatestyles src=&quot;Template:Tategaki/page.css&quot; /&gt;</span><br><span class="line">&lt;div lang=&quot;ja&quot; class=&quot;tategaki&quot; style=&quot;background:#0;color:#KKK;font-family:Times New Roman,serif&quot;&gt;</span><br><span class="line">&#123;&#123;Cquote|</span><br><span class="line">&#x27;&#x27;&#x27;&lt;poem&gt;</span><br><span class="line">&#123;&#123;font|size=21.65|-&#123;</span><br><span class="line">即便如此我們還是坐在對方的身旁，靜靜地保持現狀。</span><br><span class="line">這是拋棄與拾起的迴圈。</span><br><span class="line">我們之間的關係其實隨時都可能被破壞，隨時都可能被拋棄。</span><br><span class="line">同時這種關係隨時都能再次建立起來，隨時都能重新拾起來。</span><br><span class="line">但是，無法永遠同在。畢竟人與其所有物永遠無法融為一體。</span><br><span class="line">人永遠孤獨。</span><br><span class="line">財富也好，權力也好，名譽也好，能力也好。這些東西即便被所有世人讚美，但擁有它們的人和它們之間其實並無絕對關聯。</span><br><span class="line">所以，只能用失去去證明擁有過。</span><br><span class="line">買東西的時候花掉的錢就是擁有一件新東西最好的證明。</span><br><span class="line">所以，擁有並不是擁有。就比如愛，不管是你還是我，愛只是作為一種情感存在於這個世界。只是我在這裡，而你就在我的身邊罷了。</span><br><span class="line">只有悲傷的一半是最痛苦的。但是，如果積極地尋求，把快樂的那一半也加在自己身上的話，由這些心態的不同，心情也會變得開朗起來。</span><br><span class="line">即便是再悲傷的事也有快樂的一面。</span><br><span class="line">相生，相成。我一直為此所左右。</span><br><span class="line">首先會有二者之一存在。人們會想在它發生之前就讓它有所改變。然而在想讓它發生改變之前，這樣的做法也同樣被另一半所影響，偏移。在這種情況下人們又會想辦法去超前地改變它——周而復始，目標就如地平線般可望而不可及。</span><br><span class="line">於是只能切入某個瞬間並尋求改變。</span><br><span class="line">但是——有時又會猛然驚覺。</span><br><span class="line">以至於驚慌失措。</span><br><span class="line">我覺得這樣有什麼地方錯了。</span><br><span class="line">有什麼東西粗暴地闖入了我的認知，讓我對自己驚訝不已。你也一定對自身的存在感到過驚訝吧。</span><br><span class="line">對自己還未死去感到驚訝。</span><br><span class="line">會被那不知何處突然冒出來的情緒拉扯著，捫心自問究竟為何還活著。</span><br><span class="line">&#125;-&#125;&#125;</span><br><span class="line">&lt;/poem&gt;&#x27;&#x27;&#x27;</span><br><span class="line">|&#x27;&#x27;&#x27;夜のひつじ &#x27;&#x27;『&#123;&#123;lj|お泊まり恋人ロリータ&#125;&#125;』&#x27;&#x27; &#x27;&#x27;&#x27;</span><br><span class="line">&#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其实那时也还算快活；</p>
+<p>直到萌百宣布域名更换为<code>moegirl.org.cn</code>，才知道H萌娘才是我所追求的；又或许，萌百没有变，变的是我。</p>
+<p>无论如何，我在萌百积累了最基础的语法，还是忘不了那里，也时常会到我编辑过的条目看看，看着看着就忽然觉得，其实自己也有这么有文采的时候啊</p>
+<h2 id="过去"><a href="#过去" class="headerlink" title="过去"></a>过去</h2><p>最迟在二〇一九年罢，我就尝试搞过博客，但当时是误入了某个商业网站（我也记不清是哪个网站了），专门为个人和企业用户提供博客服务，但是这个博客只活了不到一个星期，毕竟也只是玩物而已。</p>
+<p>大致在二〇二〇年初，我当时在某度贴吧开贴解决大家使用office 365（现在该叫Microsoft 365了）中遇到的问题，忽然有人问我有没有博客，我：？？？，只好说没有；但经他如此一说，爱折腾的心又活跃了起来，为何不试试呢？</p>
+<p>于是乎，本着廉价的原则，我选择了GitHub静态网页托管；账号是有的，基本的电脑操作也还是会的，本博客（道之远兮）就这样诞生了，至于名字嘛~只是脸滚键盘的产物，与任何人、事件亦或是组织都无关。</p>
+<p>Github账号被封后，转到了服务器上，Blog域名也转移到了Porkbun。</p>
+<h1 id="现在"><a href="#现在" class="headerlink" title="现在"></a>现在</h1><p>这个博客属于个人博客，实际上也是我用来练手的网站；WP固然方便，无论从哪一个方面来说，WP完胜静态博客；那么我依旧为什么坚持Hexo？只是Hexo带给我的快乐远非WP可比。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>主要还是域名问题，域名要付费，可惜我穷，哪天大家用这个网址<code>www.skxlz.top</code>不能指向我的博客，请大家自行使用<code>skxlz.top</code>或<code>blog.skxlz.top</code></p>
+<p><s>还有就是服务器的问题（其实还是穷的问题），本来手中有好多好玩的项目，只可惜没有服务器……</s><br>最近买了腾讯云学生轻量，花了432大洋，似乎还是比较便宜的？不过地区在中国大陆，搭建网站还得备案。</p>
+<h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>关于友链；直接在友链页面申请就行了，您所要提供的内容有：</p>
+<ol>
+<li>您的博客地址</li>
+<li>您的头像地址</li>
+<li>您的名字</li>
+<li>您博客的名字</li>
+<li>关于您&#x2F;您博客的简介（一句话就行）</li>
+<li>您的代表色（颜色代码）</li>
+</ol>
+<p>平时放假了自然会添加。我的资料如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">url: https://www.skxlz.top</span><br><span class="line">   avatar: https://www.skxlz.top/images/timg.jpg</span><br><span class="line">   name: 元姬</span><br><span class="line">   blog: 道之远兮</span><br><span class="line">   desc: 二十丽姝，请来吻我</span><br><span class="line">   color: &quot;#00FFFF&quot; # 代表色</span><br><span class="line">   email: me@skxlz.top # 非必须</span><br></pre></td></tr></table></figure>
+
+<p>您可以在我添加您之后添加我的友链，也可以在此之前添加</p>
+<p>关于禁止申请友链的几种人：</p>
+<ul>
+<li>小粉红</li>
+<li>反华分子</li>
+<li>脑残粉（包括二次元、三次元）</li>
+<li>宗教狂热分子（特别是新儒家）</li>
+<li>不承认大陆、香港、澳门、台湾地区同属一个中国的港、澳、台独分子</li>
+</ul>
+<h1 id="将来"><a href="#将来" class="headerlink" title="将来"></a>将来</h1><p>算下来：GitHub提供博客的免费容器（姑且让我这样说，因为GitHub提供的我也不好说是服务器还是容器），域名也是免费的，套的CF也是免费的，配套网盘用的是免费虚拟主机。<br>也就说，现在除了用的域名以及博客网盘外，用的都是免费且稳定的服务；博客网盘的域名还是<code>pan.skxlz.top</code>，就是免费虚拟主机令人担心。<br>本来也是去试了德国免费的IP6主机，但奈何无论如何都无法链接到SSH，所以暂时放弃折腾。</p>
+<p>以后的计划：</p>
+<ol>
+<li>博客主体由GitHub托管，只要Microsoft方面资金给够，博客主体能活个几十年</li>
+<li>免费域名<code>.eu.org</code>或者<code>.pp.ua</code>，一个是老牌子免费域名，一个是乌克兰的个人域名（一不小心成了乌克兰人呢&#x2F;笑），都还算稳定</li>
+<li>博客网盘属于附属产品<s>（顺便给我的E5续期）</s>，暂时还是用免费虚拟主机，说不准主机商啥时候跑路</li>
+</ol>
+<h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><p>域名已经续到了2024年，暂时不用担心了，但我确实不喜欢这个域名。<br>域名还是要换的，考虑较多的有以下几点：</p>
+<ol>
+<li>便宜<s>（还是穷）</s></li>
+<li>最好是一级域名，但像<code>.eu.org</code>这样的类一级域名也在考虑中</li>
+<li>用烂的免费域名，如：<code>.tk</code>、<code>.ml</code>、<code>.ga</code>、<code>.cf</code>、<code>.gp</code>等不再考虑</li>
+<li>续费要简单，最好一下续十年，也就是短期买断啦</li>
+<li>最好不要备案就可以使用</li>
+</ol>
+<p>以我个人喜好和实际情况综合考虑，<code>dzyx.eu.org</code>是免费域名的首选，但<code>.pp.ua</code>本来就是个人域名，所以<code>dzyx.pp.ua</code>也是可以考虑用以应急的；现在新冠疫情全球肆虐，大家的日子都不好过，我家的情况也没好到哪去，如果不是新冠疫情，我本来是考虑<code>.org</code>域名的<s>（别问为啥，问就是喜欢）</s>，世事难料啊。</p>
+<p>其实我也是考虑了付费域名的可能性，但一件事情打消了我购买付费域名——我的一位朋友，也是我这个没人来看的小博客第一个友链，他的博客不再更新了；他自然有他的苦衷，而我亦有我的考虑；这个使用GitHub和免费域名的站点，很可能将是我最后的屏障，今后这个站点必将会沦为备用站，进，可以买服务器，买域名，搞一个WP站点；退，还有自己的小站点，就算我不管，也可以坚持到GitHub倒闭或者免费域名提供商收回免费域名。</p>
+<h2 id="捐赠"><a href="#捐赠" class="headerlink" title="捐赠"></a>捐赠</h2><p>我是不想开的，不过我确实穷，所以以后会在特定的文章里开捐赠，至于捐或不捐，那就是每个人自己的意愿了，我也不会搞什么“捐赠”才能看文章的套路。<br>至于以后的资金来源嘛~也想过当号贩子，但是奈何要啥没啥，只能是小部分资金捐赠，大部分资金自己掏吧（以后也许会在WP站点上开打赏）</p>
+<h2 id="以后写文章的方向"><a href="#以后写文章的方向" class="headerlink" title="以后写文章的方向"></a>以后写文章的方向</h2><p>以后写文章的方向？还是以如何分享资源为主吧，挂载OneDrive、Google Drive、天翼云之类的，还会慢慢的写一些白嫖教程；如果可以，也会写一些文章，纯文学性的；追番推荐、番剧评鉴这一类二次元的文章以后也会写。</p>
+<p>至于文章更新的时间？不用担心，我只是平时在上学而已，放寒、暑假自然会写的，所以我的文章更新主要集中在2至3月份、7至8月份放假期间，勿催。</p>
+]]></content>
+      <tags>
+        <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Heroku搭建V2Ray并用CF加速</title>
+    <url>/2020/07/26/25/</url>
+    <content><![CDATA[<p><strong>更新：此方法已失效，请另寻高明</strong></p>
+<p><strong>注意！本教程仅且只能用于研究与学习</strong></p>
+<p>合并了<em>利用Heroku搭建V2Ray</em>与<em>使用Cloudflare Workers加速V2Ray</em>两篇文章，加以修饰、润色后发出</p>
+<p><s>Heroku最近开始查封此类应用了，据说一部署就会被封，不过我的号倒是啥事没有，都还能用，可能也是我上学没时间用的缘故，月流量极少，因此苟活至今…</s></p>
+<span id="more"></span>
+
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>先讲清楚限制，再开始教程，免得有些人找事</p>
+<ol>
+<li>Heroku免费套餐每月只有550小时的免费时间，适合中重度用户（每天18小时以内），重度用户（24小时）请左转付费VPN</li>
+<li>速度视时间而定；当然，主要取决于你家的网络</li>
+<li>建议问问题之前先谷歌一下</li>
+<li>教程仅适用于PC端，其他平台暂未试验</li>
+<li>Heroku免费容器未使用超过一段时间（三十分钟左右）就会休眠</li>
+<li>更新时间为：<strong>2020年07月26日</strong>，不希望2100年有人突然问我：“博主！你的方法失效了，怎么回事！？”</li>
+</ol>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol>
+<li>一个非国内邮箱地址，没有的请右转Microsoft注册（用来注册Heroku以及Cloudflare账户）</li>
+<li>确保自身处在非封锁国际互联网地区</li>
+<li>实时在线的脑子</li>
+<li>翻译工具，也可以使用Google Chrome浏览器</li>
+<li>V2Ray软件；没有！？好吧，<a href="https://skx.herokuapp.com/Software/v2rayN-Core.rar">点击下载</a></li>
+</ol>
+<h2 id="基础教程"><a href="#基础教程" class="headerlink" title="基础教程"></a>基础教程</h2><ol>
+<li><a href="https://www.heroku.com/">注册Heroku账户</a></li>
+</ol>
+<p>注意：请使用外网IP注册，且请准备好翻译工具，并在收到邮件后激活账户；注册时不能使用QQ邮箱</p>
+<ol start="2">
+<li><a href="https://dashboard.heroku.com/new?template=https://github.com/bclswl0827/v2ray-heroku">点击部署V2Ray</a></li>
+</ol>
+<p>数据中心就是你的服务器地址；名称就是你的二级域名前缀，如果出现红色说明该名称不可用，多换几个就好；然后点击<code>Deploy app</code>系统会自动部署</p>
+<p><img src="https://i.loli.net/2020/07/26/yuwSI3ZDH2Al1zv.png" alt="1.png" loading="lazy"></p>
+<ol start="3">
+<li>稍微等待一会儿，几秒的样子，直到全部打勾变绿</li>
+</ol>
+<p><img src="https://i.loli.net/2020/04/27/fd57AHMpIRzcjVS.png" alt="_QDSTESMS7_O0J_NW@EPTAY.png" loading="lazy"></p>
+<ol start="4">
+<li><a href="https://dashboard.heroku.com/apps">点击进入你的项目</a></li>
+</ol>
+<p>注意：你会看到一个项目，点击上方的Settings进入，查看你的V2Ray具体配置，如图</p>
+<p><img src="https://i.loli.net/2020/04/27/7JFduiOGqoAkfwv.png" alt="5WX8E66XLEB3@LR~ZSZE_FI.png" loading="lazy"></p>
+<ol start="5">
+<li>点击Reveal Config Vars显示V2RrayN相关配置信息，如图</li>
+</ol>
+<p><img src="https://i.loli.net/2020/04/27/4PkEfC9JbWz1hZ2.png" alt="skacxfnu.png" loading="lazy"></p>
+<p><img src="https://i.loli.net/2020/04/27/eJ5CXcOkRKs2oD3.png" alt="zjxnhcfu.png" loading="lazy"></p>
+<ol start="6">
+<li>开始配置V2Ray，如果你记好了以上两个（那串字母和二级网域）</li>
+</ol>
+<p>二级网域不用加<code>https://</code>，直接填域名就好</p>
+<p><img src="https://i.loli.net/2020/04/27/xI6y8TYWHjoJftp.png" alt="csxkmfj.png" loading="lazy"></p>
+<ol start="7">
+<li>完成，接下来要是不会使用V2Ray请自裁</li>
+</ol>
+<h2 id="进阶教程"><a href="#进阶教程" class="headerlink" title="进阶教程"></a>进阶教程</h2><p>对速度有要求的人群<s>（强迫症患者）</s>可以看一下；主要是使用Cloudflare Workers加速，免费套餐有调用限制，大家悠着点用就行了</p>
+<ol>
+<li>在<a href="https://dash.cloudflare.com/">Cloudflare Workers</a>中创建一个Workers</li>
+</ol>
+<p><img src="https://i.loli.net/2020/07/26/a3hNf65UD2rsGYT.png" alt="1.png" loading="lazy"></p>
+<p><img src="https://i.loli.net/2020/07/26/ZsGLCQNhjYlzgap.png" alt="2.png" loading="lazy"></p>
+<ol start="2">
+<li>将原有的示例代码全部删除，复制如下代码，并将第四行的汉字替换为你的V2Ray的地址</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">addEventListener(</span><br><span class="line">  &quot;fetch&quot;,event =&gt; &#123;</span><br><span class="line">     let url=new URL(event.request.url);</span><br><span class="line">     url.hostname=&quot;需要反代的 V2Ray 服务器地址&quot;;</span><br><span class="line">     let request=new Request(url,event.request);</span><br><span class="line">     event. respondWith(</span><br><span class="line">       fetch(request)</span><br><span class="line">     )</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>点击右侧的<code>发送</code>按钮，看最后一行是否出现了<code>Bad Request</code>，出现则代表成功</li>
+</ol>
+<p><img src="https://i.loli.net/2020/07/26/Qsd43hIbvXUFYLi.png" alt="3.png" loading="lazy"><em>第二、三两步的示范图</em></p>
+<ol start="4">
+<li><p>成功后，点击<code>保存并部署</code>，并记下你的Workers二级域名</p>
+</li>
+<li><p>其实到第四步已经可以了，把V2Ray中原来的域名改为现在的Workers域名就行了，但是毕竟会有人追求极致完美嘛</p>
+</li>
+</ol>
+<p><strong>对速度有更高追求以及不怕折腾的人可以接着往下看</strong></p>
+<h3 id="对Cloudflare节点的筛选"><a href="#对Cloudflare节点的筛选" class="headerlink" title="对Cloudflare节点的筛选"></a>对Cloudflare节点的筛选</h3><p>点击下载<a href="https://skx.herokuapp.com/Sound/CF%E4%BC%98%E9%80%89%E8%8A%82%E7%82%B9fping-msys2.0.zip">IP自选程序</a>，解压，在Windows系统下运行</p>
+<p>懒得折腾的人请直接运行<code>自动查找最优CF节点-懒人专用.bat</code>程序，但实测选出来的节点不如半自动</p>
+<p>其他的<code>使用说明.txt</code>文件中都有说，在此就不过多赘述</p>
+<p>最后，配置V2Ray：</p>
+<p><img src="https://i.loli.net/2020/07/26/cbnmyoiXAwDMVrE.png" alt="4.png" loading="lazy"></p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>由于各地的网络情况每天都不同，所以每天（甚至是每半天）的最优节点都不尽相同；但对于一个应急用的已经足够了</p>
+<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p>折腾完一圈后的测速：</p>
+<p><img src="https://i.loli.net/2020/07/26/ZxwsWp2XJSRihON.png" alt="7.png" loading="lazy"><em>对于免费的来说已经相当快了</em></p>
+<p>实际使用效果图：</p>
+<p><img src="https://i.loli.net/2020/07/26/is243ERcjyqGuhX.png" alt="9.png" loading="lazy"><em>从YouTube的视频测试来看还是不错的</em></p>
+<p>比某些大部分的机场免费套餐都好，甚至直逼少数机场的初级付费套餐；对于我这样的穷学生来讲已经够用的。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
+<li><a href="https://xlesun.com/v2ray-1.html">Heroku部署免费的V2Ray节点</a>（这个有点老了）2021年02月14日，已阵亡</li>
+<li><a href="https://ibcl.us/Heroku-V2Ray_20191014/">在 Heroku 搭建 V2Ray</a>（有些问题没讲明白）</li>
+<li><a href="https://github.com/CCChieh/IBMYes#cloudflare-%E9%AB%98%E9%80%9F%E8%8A%82%E7%82%B9%E4%B8%AD%E8%BD%AC">IBMYes项目第三小节</a></li>
+<li><a href="https://wangdalao.com/3592.html">Heroku 免费容器服务申请，搭建 V2+CF 方法教程</a>（王大佬这个教程发的比我晚，仅参考了一下他的文案）</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>公共教学用电脑（多媒体）软件推荐</title>
+    <url>/2020/10/01/31/</url>
+    <content><![CDATA[<p>原定2020年的文章，还是推到了2021。</p>
+<span id="more"></span>
+
+<p>公共教学用电脑在软件方面是异常重要的，教师需要使用软件教学，学生则需要从软件演示中接受教育；但是目前互联网上的软件推荐类文章，不仅极少有涉及到教育方面的，而且推荐的软件也是那些小圈子中的，简而言之，此类文章基本对教育教学活动较少有参考价值。<br>本人多年涉及此方面的一些实际应用，就此文章来浅谈一些自己的想法和建议。</p>
+<p>文章的宗旨是以最常见或是较常见的软件作为推荐对象，以最简单的方式，达到我们的教育教学目的；面向读者是初步接触过电脑的学生、教师。<br><strong>注意：无论在何种情况中，都不应在未得到教师&#x2F;上级准许下私自为公用教学用电脑安装任何软件或是更换电脑系统！</strong></p>
+<p>理想的情况是（也是本文的假象情景）：学校给每间教室都配备有多媒体（公用教学用电脑），硬件配置不是很好，大致的硬件参考如下（本文章基于此硬件标准推荐软件）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">显示器：触屏液晶交互屏幕</span><br><span class="line">内存：1GB~4GB</span><br><span class="line">硬盘：机械128GB~256GB</span><br><span class="line">CPU：（杂牌子）</span><br><span class="line">显卡：CPU集成</span><br></pre></td></tr></table></figure>
+
+<p>对于软件情况而言，电脑系统应为Windows系统，也可以是其他Linux系统，最好可运行<code>exe</code>程序</p>
+<h1 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h1><p>对于系统方面，文章会尽量的简洁扼要，不过多赘述。</p>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>Windows作为最常见的电脑桌面操作系统，因而针对Windows系统的计算机病毒比其他操作系统多出许多；对于Windows系统，漏洞补丁尽量及时安装，并安装一些安全软件。</p>
+<h3 id="Windows-XP"><a href="#Windows-XP" class="headerlink" title="Windows XP"></a>Windows XP</h3><p>Windows XP确实是迄今为止最稳定的Windows系统之一，即使有学校依然在使用XP系统也不是意料之外。对于XP系统而言，最大的难题是软件兼容性，所以本文也适当考虑的Windows XP的实际需求，尽量不会推荐有兼容性问题的软件。<br>Windows XP对电脑各方面的要求算是比较低的，所以一般硬件情况比较差的电脑（特别是古董机）还是首推Win XP。<strong>即便如此，此类硬件配置的电脑，应由学校统一更换新设备；电脑硬件老化不仅会影响教育教学质量，并且会在安全方面埋下种种隐患。</strong></p>
+<h3 id="Windows-7"><a href="#Windows-7" class="headerlink" title="Windows 7"></a>Windows 7</h3><p>Windows 7是大部分公共教学用电脑首选操作系统，同时Windows 7也是最容易感染计算机病毒的操作系统；这就得扯一下Win XP，XP系统对于如今的众多计算机病毒都无法兼容，所以实际上受到病毒影响较大的是Windows 7。<br>Windows 7适合机械硬盘，不需要固态硬盘，这是众多学校将其作为首选操作系统的原因之一——固态硬盘比机械硬盘的价格要贵上一些；虽说如今固态硬盘的价格持续走低，但奈何数量巨大，采用机械硬盘诚然可以达到最高性价比。</p>
+<h3 id="Windows-10"><a href="#Windows-10" class="headerlink" title="Windows 10"></a>Windows 10</h3><p>Windows 10对于硬盘要求较高；但即便是固态硬盘，在其余硬件条件不好的情况下，依然不推荐安装Windows 10作为教学用系统；目前针对Windows 10的计算机病毒日渐增多，安全软件的选择迫在眉睫。</p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>Linux作为一款优秀的开源操作系统，其分支众多，不乏某些奇葩学校会安装Linux系统，在此种情形下，需要使用者有一定的Linux操作基础，<strong>如果不想更换操作系统，推荐此类学校为教师提供Linux系统学习平台。</strong><br>Linux的口碑在程序员的小圈子中还是很好的，<strong>但仍然不推荐没有Linux操作基础的人使用Linux作为主力操作系统</strong>。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>如果贵校有定制操作系统，希望此类学校可以向生产厂家索要详细说明书，并教导教师使用。</p>
+<h1 id="安全防护软件"><a href="#安全防护软件" class="headerlink" title="安全防护软件"></a>安全防护软件</h1><p>本小节主要针对Windows系统，Linux等其他系统可以忽略此小节。</p>
+<h2 id="火绒"><a href="#火绒" class="headerlink" title="火绒"></a>火绒</h2><p><a href="https://www.huorong.cn/">火绒</a>仅对一些 PUA&#x2F;PUF、恶意加驱锁主页的木马病毒的查杀方面相比于其他杀毒软件来说较强一些；其他方面还是有缺陷的，所以火绒实际定位是一款弹窗广告拦截软件。<br>依然推荐安装，可以和360搭配使用；如果不需要其杀毒功能，可以下载火绒拦截广告独立版。<br><img src="https://i.loli.net/2021/02/10/PMumG47EwKnUaYS.png" alt="图片.png" loading="lazy"><em>火绒官网</em></p>
+<h2 id="360"><a href="#360" class="headerlink" title="360"></a>360</h2><p><a href="https://www.360.cn/">360</a>诟病已久，主要问题就是全家桶捆绑安装和各种弹窗广告层出不穷，但其杀毒能力毋庸置疑；如想安装360，可以先安装火绒；如此一来，火绒负责拦截360的弹窗广告和捆版安装，360只需负责杀毒即可。<br><a href="http://www.360totalsecurity.com/en/">360国际版</a>同样值得一试，没有广告弹窗以及全家桶。<br><img src="https://i.loli.net/2021/02/10/dy3B2oKh4c87UF6.png" alt="图片.png" loading="lazy"><em>360中国版官网</em><br><img src="https://i.loli.net/2021/02/10/TKAU2aFHZSjQfnL.png" alt="图片.png" loading="lazy"><em>360国际版官网</em></p>
+<h2 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h2><p>学校如果有其他订阅付费软件，可以优先使用学校安装的软件。</p>
+<h1 id="文档、幻灯片演示软件"><a href="#文档、幻灯片演示软件" class="headerlink" title="文档、幻灯片演示软件"></a>文档、幻灯片演示软件</h1><p><strong>请安装正版软件！</strong>本文不提供盗版。</p>
+<h2 id="WPS"><a href="#WPS" class="headerlink" title="WPS"></a>WPS</h2><p><a href="https://www.wps.cn/">WPS</a>几乎可以满足教学需求，并且足够轻量，快速，适合低配电脑；更为重要的是WPS提供免费的校园版，可以一用；与360相同，WPS也有中国版和<a href="https://www.wps.com/">国际版</a>之分，而<a href="https://www.wps.com/">WPS国际版</a>不支持中文，需要手动汉化，可参考这篇文章<a href="https://zhuanlan.zhihu.com/p/79652094">WPS国际版设置中文的方法（无脑汉化2019.08.25）</a>。</p>
+<p>要说明的一点是：我本人是Office的忠诚用户，但在公共教学用电脑软件方面，依然推荐WPS。<br><img src="https://i.loli.net/2021/02/10/IrelWUBOY45AtVN.png" alt="图片.png" loading="lazy"><em>WPS中国（中国大陆地区）</em><br><img src="https://i.loli.net/2021/02/10/2V4Td9DElbkpNXt.png" alt="图片.png" loading="lazy"><em>WPS国际（除中国大陆地区）</em></p>
+<h2 id="Office"><a href="#Office" class="headerlink" title="Office"></a>Office</h2><p>Office过于臃肿，仅且只有在教授office套件使用方法时需要，在其他情况下，不推荐使用office；教育&#x2F;非盈利组织可以联系微软官方取得教育&#x2F;非盈利优惠，购买正版Microsoft 365。<br><img src="https://i.loli.net/2021/02/10/LnvXwUDNPzZGjBT.png" alt="图片.png" loading="lazy"></p>
+<h1 id="中文输入法"><a href="#中文输入法" class="headerlink" title="中文输入法"></a>中文输入法</h1><p>为什么要强调<strong>中文</strong>？因为英文可以不安装输入法。</p>
+<h2 id="微软Windows原生输入法"><a href="#微软Windows原生输入法" class="headerlink" title="微软Windows原生输入法"></a>微软Windows原生输入法</h2><blockquote>
+<p>众里寻他千百度，蓦然回首，那人却在，灯火阑珊处。</p>
+</blockquote>
+<p>尝试过千千万万种输入法，最后还是回归到了原生输入法。</p>
+<h2 id="手心输入法"><a href="#手心输入法" class="headerlink" title="手心输入法"></a>手心输入法</h2><p><a href="http://www.xinshuru.com/">手心输入法</a>许久没有更新了，词库也没有其他输入法大，但对于教学活动来说，绰绰有余。<br><img src="https://i.loli.net/2021/02/10/KHOL9l3YXBz5uZ2.png" alt="图片.png" loading="lazy"></p>
+<h2 id="小狼毫输入法"><a href="#小狼毫输入法" class="headerlink" title="小狼毫输入法"></a>小狼毫输入法</h2><p><a href="https://rime.im/">小狼毫输入法</a>是一款开源输入法，这就意味着它不以“盈利”为目的；诚然，这款输入法并不适合中国大陆地区的人使用，使用习惯上更适合台湾、香港地区的人使用；如何切换为简体可以参考：<a href="https://www.zhihu.com/question/41021597">小狼毫输入法如何设置成简体？</a>。<br><img src="https://i.loli.net/2021/02/10/IWRcQh7wz3KxVaF.png" alt="图片.png" loading="lazy"></p>
+<h2 id="其他-2"><a href="#其他-2" class="headerlink" title="其他"></a>其他</h2><p>输入法因人而异，我推荐的上述三个软件，只是我认为比较好用的软件，有其他意见的可以发在评论区。</p>
+<h1 id="音频播放软件"><a href="#音频播放软件" class="headerlink" title="音频播放软件"></a>音频播放软件</h1><p>配合教师的教学活动。</p>
+<h2 id="一众国产软件"><a href="#一众国产软件" class="headerlink" title="一众国产软件"></a>一众国产软件</h2><p><a href="https://www.kugou.com/">酷狗</a>、<a href="https://y.qq.com/">QQ音乐</a>、<a href="https://music.163.com/">网易云音乐</a>之类的，条件允许的话可以全部安装；毕竟老师常用的音乐软件不一样，如果不全部安装，音乐格式将是一个大问题。</p>
+<h2 id="Pot-Player"><a href="#Pot-Player" class="headerlink" title="Pot Player"></a>Pot Player</h2><p><a href="http://potplayer.daum.net/">Pot Player</a>当然是个很好的软件，如果不了解可以忽略此软件；官网在外网，中国大陆地区的IP连不上属正常现象。<br><img src="https://i.loli.net/2021/02/08/fZqgWSCIebXdw9O.png" alt="图片.png" loading="lazy"><em>Pot Player官网</em></p>
+<h1 id="解压-x2F-压缩软件"><a href="#解压-x2F-压缩软件" class="headerlink" title="解压&#x2F;压缩软件"></a>解压&#x2F;压缩软件</h1><p>有些老师会使用在网络上下载的资源，所以解压软件也是必不可少的了。</p>
+<h2 id="360-压缩"><a href="#360-压缩" class="headerlink" title="360 压缩"></a>360 压缩</h2><p><a href="https://yasuo.360.cn/">360压缩</a>确实不错，足够轻量、简洁，符合我们的需求；以360的尿性，<a href="http://www.360totalsecurity.com/en/360zip/">360压缩国际版</a>也是和360杀毒国际版一样，没有了中国版的花里胡哨；界面也是颇具欧美简约风（其实就是简陋）。<br><img src="https://i.loli.net/2021/02/10/dsb13qpeHfJcnQX.png" alt="图片.png" loading="lazy"><em>360压缩</em><br><img src="https://i.loli.net/2021/02/10/G8NaIusUCFZToPc.png" alt="图片.png" loading="lazy"><em>360zip</em></p>
+<h2 id="Bandizip"><a href="#Bandizip" class="headerlink" title="Bandizip"></a>Bandizip</h2><p><a href="http://www.bandisoft.com/">Bandizip</a>是韩国出产的软件，网络上许多文章是吹它的，实际上功能和win zip差不多，好处是免费，但最近有它想改为收费软件的消息。<br><img src="https://i.loli.net/2021/02/10/q2Sl3wmNPGHFxcp.png" alt="图片.png" loading="lazy"><em>Bandizip</em></p>
+<h2 id="7-zip"><a href="#7-zip" class="headerlink" title="7-zip"></a>7-zip</h2><p><a href="https://www.7-zip.org/">7-zip</a>是一款开源软件，操作起来比较复杂，但轻量简洁。<br><img src="https://i.loli.net/2021/02/10/xyfN25MiWaEHF71.png" alt="图片.png" loading="lazy"><em>典型的欧美风<s>（简陋）</s>网站——7-zip官网</em></p>
+<h1 id="解码器"><a href="#解码器" class="headerlink" title="解码器"></a>解码器</h1><h2 id="微软常用运行库"><a href="#微软常用运行库" class="headerlink" title="微软常用运行库"></a>微软常用运行库</h2><p>网络上有整合版，不做推荐。</p>
+<h1 id="网络浏览器"><a href="#网络浏览器" class="headerlink" title="网络浏览器"></a>网络浏览器</h1><p>学校里通网络可以安装；班级内部搞活动可能会用到。<br>简介我就不写了，主要是下载地址。</p>
+<h2 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h2><p><a href="https://www.mozilla.org/zh-CN/firefox/all/">国际版</a><br><a href="http://www.firefox.com.cn/">中国版</a></p>
+<h2 id="Google-Chrome"><a href="#Google-Chrome" class="headerlink" title="Google Chrome"></a>Google Chrome</h2><p><a href="https://www.google.cn/chrome/">下载地址</a><br>Google Chrome在中国大陆有服务器，所以就不需要上外网了。</p>
+<h2 id="Microsoft-EDGE"><a href="#Microsoft-EDGE" class="headerlink" title="Microsoft EDGE"></a>Microsoft EDGE</h2><p><a href="https://www.microsoft.com/zh-cn/edge">下载地址</a></p>
+<h2 id="其他国产软件"><a href="#其他国产软件" class="headerlink" title="其他国产软件"></a>其他国产软件</h2><p>并不推荐国产浏览器，并且如果只是喜欢国产浏览器的外貌的话，<a href="https://www.runningcheese.com/">奔跑中的奶酪</a>开发的<a href="https://www.runningcheese.com/firefox">RunningCheese Firefox</a>应该会适合你；下两图分别是RunningCheese Firefox和360浏览器的对比图。<br><img src="https://i.loli.net/2021/02/08/WKSUQqeM6ajRnkJ.png" alt="图片.png" loading="lazy"><em>RunningCheese Firefox</em><br><img src="https://i.loli.net/2021/02/08/VKWbk3LXD6H7wN2.png" alt="image.png" loading="lazy"><em>360浏览器</em></p>
+<h1 id="其他软件"><a href="#其他软件" class="headerlink" title="其他软件"></a>其他软件</h1><h2 id="展台软件"><a href="#展台软件" class="headerlink" title="展台软件"></a>展台软件</h2><p>不做推荐</p>
+]]></content>
+      <tags>
+        <tag>经验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>部署Valine-Admin评论系统</title>
+    <url>/2020/08/23/29/</url>
+    <content><![CDATA[<p>网上大部分教程是中国版的，本人做为国际版用户，只好自己折腾。<br><strong>前排提示：本教程不适用于中国版（也就是华南节点、华北节点）</strong></p>
+<span id="more"></span>
+
+<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p><s>没有起因，就是喜欢瞎折腾。</s></p>
+<h1 id="这是正文啦"><a href="#这是正文啦" class="headerlink" title="这是正文啦~"></a>这是正文啦~</h1><p>首先当然要去官方看教程呀；但是官方的教程是中国版的，而且看起来比较老了；只好结合我的一些感觉来了。</p>
+<p>那么，开始吧！</p>
+<p><img src="https://i.loli.net/2020/08/23/W6RUmLv81nSZ7fT.png" alt="image.png" loading="lazy"><em>首先进入控制台</em></p>
+<p><img src="https://i.loli.net/2020/08/23/jJmF2tARzk3uc1q.png" alt="image.png" loading="lazy"></p>
+<p><img src="https://i.loli.net/2020/08/23/ZRx3wYMdJLmoB4Q.png" alt="image.png" loading="lazy"></p>
+<p>此处填写的网址是<code>https://github.com/DesertsP/Valine-Admin.git</code></p>
+<p><img src="https://i.loli.net/2020/08/23/cDfY5FWKSQjk9hm.png" alt="image.png" loading="lazy"></p>
+<p>以下变量摘自官方说明。</p>
+<div class="table-wrap">
+
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SITE_NAME</td>
+<td>Deserts</td>
+<td>[必填]博客名称</td>
+</tr>
+<tr>
+<td>SITE_URL</td>
+<td><a href="https://deserts.io/">https://deserts.io</a></td>
+<td>[必填]首页地址</td>
+</tr>
+<tr>
+<td><strong>SMTP_SERVICE</strong></td>
+<td>QQ</td>
+<td>[新版支持]邮件服务提供商，支持 QQ、163、126、Gmail 以及 <a href="https://nodemailer.com/smtp/well-known/#supported-services">更多</a></td>
+</tr>
+<tr>
+<td>SMTP_USER</td>
+<td><a href="mailto:&#120;&#120;&#120;&#x78;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;">&#120;&#120;&#120;&#x78;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;</a></td>
+<td>[必填]SMTP登录用户</td>
+</tr>
+<tr>
+<td>SMTP_PASS</td>
+<td>ccxxxxxxxxch</td>
+<td>[必填]SMTP登录密码（QQ邮箱需要获取独立密码）</td>
+</tr>
+<tr>
+<td>SENDER_NAME</td>
+<td>Deserts</td>
+<td>[必填]发件人</td>
+</tr>
+<tr>
+<td>SENDER_EMAIL</td>
+<td><a href="mailto:&#x78;&#120;&#x78;&#120;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#x78;&#120;&#x78;&#120;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;</a></td>
+<td>[必填]发件邮箱</td>
+</tr>
+<tr>
+<td>ADMIN_URL</td>
+<td><a href="https://xxx.leanapp.cn/">https://xxx.leanapp.cn/</a></td>
+<td>[建议]Web主机二级域名，用于自动唤醒</td>
+</tr>
+<tr>
+<td>BLOGGER_EMAIL</td>
+<td><a href="mailto:&#120;&#120;&#x78;&#x78;&#120;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;">&#120;&#120;&#x78;&#x78;&#120;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;</a></td>
+<td>[可选]博主通知收件地址，默认使用SENDER_EMAIL</td>
+</tr>
+<tr>
+<td>AKISMET_KEY</td>
+<td>xxxxxxxxxxxx</td>
+<td>[可选]Akismet Key 用于垃圾评论检测，设为MANUAL_REVIEW开启人工审核，留空不使用反垃圾</td>
+</tr>
+</tbody></table>
+</div>
+
+<p>邮件通知模板在云引擎环境变量中设定，可自定义通知邮件标题及内容模板。</p>
+<table>
+<thead>
+<tr>
+<th>环境变量</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MAIL_SUBJECT</td>
+<td>${PARENT_NICK}，您在${SITE_NAME}上的评论收到了回复</td>
+<td>[可选]@通知邮件主题（标题）模板</td>
+</tr>
+<tr>
+<td>MAIL_TEMPLATE</td>
+<td>见下文</td>
+<td>[可选]@通知邮件内容模板</td>
+</tr>
+<tr>
+<td>MAIL_SUBJECT_ADMIN</td>
+<td>${SITE_NAME}上有新评论了</td>
+<td>[可选]博主邮件通知主题模板</td>
+</tr>
+<tr>
+<td>MAIL_TEMPLATE_ADMIN</td>
+<td>见下文</td>
+<td>[可选]博主邮件通知内容模板</td>
+</tr>
+</tbody></table>
+<p>邮件通知包含两种，分别是被@通知和博主通知，这两种模板都可以完全自定义。默认使用经典的蓝色风格模板（样式来源未知）。</p>
+<p>默认被@通知邮件内容模板如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span> <span class="attr">style</span>=<span class="string">&quot;border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;&quot;</span>&gt;</span>您在<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">&quot;text-decoration:none;color: #12ADDB;&quot;</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;SITE_URL&#125;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>            $&#123;SITE_NAME&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span>上的评论有了新的回复<span class="tag">&lt;/<span class="name">h2</span>&gt;</span> $&#123;PARENT_NICK&#125; 同学，您曾发表评论：<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;padding:0 12px 0 12px;margin-top:18px&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;&quot;</span>&gt;</span>            $&#123;PARENT_COMMENT&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>$&#123;NICK&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>回复说：<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;&quot;</span>&gt;</span> $&#123;COMMENT&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>您可以点击<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">&quot;text-decoration:none; color:#12addb&quot;</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;POST_URL&#125;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>查看回复的完整內容<span class="tag">&lt;/<span class="name">a</span>&gt;</span>，欢迎再次光临<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">&quot;text-decoration:none; color:#12addb&quot;</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;SITE_URL&#125;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>$&#123;SITE_NAME&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span>。<span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>@通知模板中的可用变量如下（注，这是邮件模板变量，请勿与云引擎环境变量混淆）：</p>
+<table>
+<thead>
+<tr>
+<th>模板变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SITE_NAME</td>
+<td>博客名称</td>
+</tr>
+<tr>
+<td>SITE_URL</td>
+<td>博客首页地址</td>
+</tr>
+<tr>
+<td>POST_URL</td>
+<td>文章地址（完整路径）</td>
+</tr>
+<tr>
+<td>PARENT_NICK</td>
+<td>收件人昵称（被@者，父级评论人）</td>
+</tr>
+<tr>
+<td>PARENT_COMMENT</td>
+<td>父级评论内容</td>
+</tr>
+<tr>
+<td>NICK</td>
+<td>新评论者昵称</td>
+</tr>
+<tr>
+<td>COMMENT</td>
+<td>新评论内容</td>
+</tr>
+</tbody></table>
+<p>默认博主通知邮件内容模板如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span> <span class="attr">style</span>=<span class="string">&quot;border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;&quot;</span>&gt;</span>您在<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">&quot;text-decoration:none;color: #12ADDB;&quot;</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;SITE_URL&#125;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>$&#123;SITE_NAME&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span>上的文章有了新的评论<span class="tag">&lt;/<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>$&#123;NICK&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>回复说：<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;&quot;</span>&gt;</span> $&#123;COMMENT&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>您可以点击<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">&quot;text-decoration:none; color:#12addb&quot;</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;POST_URL&#125;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>查看回复的完整內容<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>博主通知邮件模板中的可用变量与@通知中的基本一致，**<code>PARENT_NICK</code> 和 <code>PARENT_COMMENT</code> 变量不再可用。**</p>
+<blockquote>
+<p>Akismet (Automattic Kismet)是应用广泛的一个垃圾留言过滤系统，其作者是大名鼎鼎的WordPress 创始人 Matt Mullenweg，Akismet也是WordPress默认安装的插件，其使用非常广泛，设计目标便是帮助博客网站来过滤留言Spam。有了Akismet之后，基本上不用担心垃圾留言的烦恼了。</p>
+</blockquote>
+<blockquote>
+<p>启用Akismet后，当博客再收到留言会自动将其提交到Akismet并与Akismet上的黑名单进行比对，如果名列该黑名单中，则该条留言会被标记为垃圾评论且不会发布。</p>
+</blockquote>
+<p>如果还没有Akismet Key，你可以去 <a href="https://akismet.com/development/">AKISMET FOR DEVELOPERS</a> 免费申请一个；<br><strong>当AKISMET_KEY设为MANUAL_REVIEW时，开启人工审核模式；</strong><br>如果你不需要反垃圾评论，Akismet Key 环境变量可以忽略。</p>
+<p><strong>为了实现较为精准的垃圾评论识别，采集的判据除了评论内容、邮件地址和网站地址外，还包括评论者的IP地址、浏览器信息等，但仅在云引擎后台使用这些数据，确保隐私和安全。</strong></p>
+<p><strong>如果使用了本站最新的Valine和Valine Admin，并设置了Akismet Key，可以有效地拦截垃圾评论。被标为垃圾的评论可以在管理页面取消标注。</strong></p>
+<table>
+<thead>
+<tr>
+<th>环境变量</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AKISMET_KEY</td>
+<td>xxxxxxxxxxxx</td>
+<td>[可选]Akismet Key 用于垃圾评论检测</td>
+</tr>
+</tbody></table>
+<p>官方的防止休眠教程我并没有放到此处，因为在实际应用时会出现如下图所示的情况：</p>
+<p><img src="https://i.loli.net/2020/08/23/rXTl7WcUzxf5LOe.png" alt="image.png" loading="lazy"></p>
+<p>变量配置好之后，就可以开始部署了</p>
+<p><img src="https://i.loli.net/2020/08/23/1m85AqNwXzRTMt6.png" alt="image.png" loading="lazy"></p>
+<p>部署完成之后，如果是中国版，访问地址：<code>https://二级域名.leanapp.cn/sign-up/</code>；如果是国际版，访问地址：<code>https://二级域名.avosapps.us/sign-up/</code></p>
+<p>若无法进入管理员注册页面，请删除_User表中的全部数据，如下图：</p>
+<p><img src="https://i.loli.net/2020/08/23/VGu2ovDt4SZKUiX.png" alt="image.png" loading="lazy"></p>
+<h2 id="评语"><a href="#评语" class="headerlink" title="评语"></a>评语</h2><p>很好，除了国际版已经不让设置定时任务自动重启之外；以后直接进入<code>https://二级域名.avosapps.us/</code>就可以进行管理评论了，很方便。</p>
+<p><img src="https://i.loli.net/2020/08/23/TdgcqrDStw6Meiy.png" alt="image.png" loading="lazy"></p>
+<h2 id="杂事"><a href="#杂事" class="headerlink" title="杂事"></a>杂事</h2><p>升级了Hexo，稍微配置了主题文件（比如说博客左侧的全局音乐播放器），还捣鼓了评论系统，有什么Bug还希望大家及时反馈。</p>
+]]></content>
+      <tags>
+        <tag>折腾</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于我忘了自己还有个Blog这件事</title>
+    <url>/2022/06/19/34/</url>
+    <content><![CDATA[<p>在近一年没碰Blog之后，无法更新Yun主题导致的一次事故。</p>
+<span id="more"></span>
+
+<p>腾出手来再接触Blog已经是一年的时间了；由于Yun主题已经进入到了新版本，虽然参照了指南却也无法更新以及评论系统的崩溃，加之总感觉服务器上放一个静态网站实在是“杀鸡焉用宰牛刀”，所以，我打算从头再来😀。</p>
+<h1 id="新的开始"><a href="#新的开始" class="headerlink" title="新的开始"></a>新的开始</h1><p>当然先初始化BLog啦<br><img src="https://s2.loli.net/2022/06/19/7zFvpV2yEcmBDKh.png" alt="图片.png" loading="lazy"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>脑抽风往服务器中砸钱的经历</title>
+    <url>/2020/09/08/30/</url>
+    <content><![CDATA[<p><s>脑子抽风了，</s>明天就要上学，再回来就是10月1日了，我居然往vultr里扔了10美刀<br><s>2021年又抽风了，</s>花了432大洋买了腾讯云的4年学生轻量服务器。<br>砸在云服务器上的钱已经到几百大洋了，也算是将资本主义大厂都薅了一把羊毛吧，<s>同时也被各资本主义大厂反薅了不少</s></p>
+<span id="more"></span>
+
+<h1 id="抽风买Vultr"><a href="#抽风买Vultr" class="headerlink" title="抽风买Vultr"></a>抽风买Vultr</h1><h2 id="抽风过程"><a href="#抽风过程" class="headerlink" title="抽风过程"></a><s>抽风过程</s></h2><p>老早就想玩vultr了，但是当时听网络上对vultr的评价都不太好（vultr当时大部分IP地址被封锁），我也就没有再考虑，何况这可是真金白银的10美刀，于是也仅仅只是在vultr注册了个账号，邮箱都没验证。</p>
+<p><s>也许是学习压力太大了，</s>我一放假回来，满脑子想的都是想搞个服务器玩玩，起因是上次我说的三台德国IPv6 only小鸡（<a href="https://www.skxlz.top/2020/08/17/27/">EUserv德国免费VPS(ipv6 only)</a>）全部连不上了…</p>
+<p>于是乎，沉寂许久的vultr进入了我的视野，10美刀？100美刀！好像赚了！</p>
+<p>于是我就往里扔了10美刀；<s>真鸡儿令人心痛&#x2F;(ㄒoㄒ)&#x2F;~~</s></p>
+<p><img src="https://i.loli.net/2020/09/08/bwIQ8jWAUaGzN2d.png" alt="image.png" loading="lazy"><em>抽风的结果，大家不要学我</em></p>
+<h2 id="披甲上马"><a href="#披甲上马" class="headerlink" title="披甲上马"></a>披甲上马</h2><p>钱都付了，何况用的也是免费送的30天100美刀，虽说看了一下诸位前辈的经历都说不要卖他家的win服务器（以建站为前提），然，我还是买了win服务器，下载用途。</p>
+<p>别和我说啥Linux的下载工具比win更好用，我就是想转运百度网盘里的资源而已。</p>
+<p>卖！管他什么IP地址被封锁，管他什么win系统授权费！</p>
+<p><img src="https://i.loli.net/2020/09/08/msp2zgtRBwcrYA1.png" alt="图片.png" loading="lazy"></p>
+<p>20美刀的win服务器（实际上是按小时收费），还可以…</p>
+<p>可能是我比较幸运，也可能是没遇到重大政治节日，我买的这台日本服务器并没有被封锁，win10自带的远程桌面连接感觉挺好的。</p>
+<p><img src="https://i.loli.net/2020/09/08/WoHgXUP7lRQErOC.png" alt="批注 2020-09-08 152939.png" loading="lazy"></p>
+<p>也没有用来作为科学上网的需要，拿来下载资源用的，配合上IDM，速度可以达到70+MB&#x2F;s。</p>
+<p><img src="https://i.loli.net/2020/09/08/bpzBLkwcTq2oKSy.png" alt="批注 2020-09-08 154641.png" loading="lazy"></p>
+<p>最后只薅了Vultr三十多美金的羊毛，应该赚了吧（陷入思考🤔…）</p>
+<h1 id="抽风买腾讯云"><a href="#抽风买腾讯云" class="headerlink" title="抽风买腾讯云"></a>抽风买腾讯云</h1><p>偶然看见了这则消息，本着“买到就是赚到”的心理，买了腾讯云的4年轻量学生服务器，然后又免费升了一下套餐。配置如下：</p>
+<ul>
+<li>2核</li>
+<li>内存：4G</li>
+<li>带宽：6M</li>
+<li>硬盘：80G SSD</li>
+</ul>
+<p>吐槽一下，中国大陆服务器的带宽是真小。<br>买之前热血澎湃，买之后却又陷入了迷茫之中——买了个服务器，该干啥呢？建站？好主意，于是搭建宝塔，上来就是Cloudreve，第二天：<br><img src="https://i.loli.net/2021/02/06/Uz54oaGxweKgJXO.png" alt="图片.png" loading="lazy"></p>
+<p>￥#……￥&amp;%%￥*&amp;……，心中百万草泥马奔过，于是只好闲置下来；上外网？呵！离线下载？就这带宽，就这硬盘！云电脑刷网课？似乎是它唯一的用途了，但我觉得腾讯免费送的一个月体验服务器就够了，那台服务器也可以参加免费升级活动，配置和上面的一样，于是装了windows，刷上了网课…</p>
+<p><a href="https://tzchz.home.blog/">TCHZ</a>倒是给了我四种解决方法，大家也可以参考一下（转载已获授权）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">总结一下，给你四种解决方案，应该可以不备案：</span><br><span class="line">1、用frp访问（我推荐的方法），你试一下www.natfrp.com这个行不行，cloudreve的话直接穿透5212端口；</span><br><span class="line">2、带端口访问，应该不会被拦截，还是举cloudreve的例子，比如直接访问ip:5212看能不能打开cloudreve网页；</span><br><span class="line">3、使用支持异端口回源的cdn（在第二种方法“不拦截普通端口”的假设成立的基础上），从域名的443端口回源到ip的5212端口，这个我暂时没有找到免费的，收费的应该有；</span><br><span class="line">4、用其他人提供的二级已备案域名试试，比如：dns.l1nks.us，这个是免费的，网上还有其他收费的（不一定成功，因为注册人可能没有将已备案的域名接入）。</span><br></pre></td></tr></table></figure>
+
+<p>其实有想过装个V2Ray之类的，不过服务器在国内欸…</p>
+<p>大佬们有啥好玩有趣的项目可以留言啊！</p>
+<h1 id="现在拥有且正在吃灰的VPS"><a href="#现在拥有且正在吃灰的VPS" class="headerlink" title="现在拥有且正在吃灰的VPS"></a>现在拥有<s>且正在吃灰</s>的VPS</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>台数&#x2F;钱数</th>
+<th>注备</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>腾讯云广州</td>
+<td>一</td>
+<td>目前用来刷网课</td>
+</tr>
+<tr>
+<td>EUserv德国</td>
+<td>三</td>
+<td>吃灰ing~</td>
+</tr>
+<tr>
+<td>Oracle东京</td>
+<td>二</td>
+<td>目前还没有开出来ARM服务器</td>
+</tr>
+<tr>
+<td>Google Cloud Platform</td>
+<td>$300</td>
+<td>用Paypal验证过去的，吃灰ing~</td>
+</tr>
+<tr>
+<td>AWS香港</td>
+<td>一</td>
+<td>免费12个月，每月15GB流量，吃灰ing~</td>
+</tr>
+<tr>
+<td>Azure for students</td>
+<td>二&#x2F;$100</td>
+<td>每月15GB流量，吃灰ing~</td>
+</tr>
+<tr>
+<td>Vultr</td>
+<td>$10.65</td>
+<td>听说它家IP被墙了不少？</td>
+</tr>
+<tr>
+<td>Windows 365</td>
+<td>三</td>
+<td>三个月后试用订阅过期</td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>教训</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>EUserv德国免费VPS(ipv6 only)</title>
+    <url>/2020/08/17/27/</url>
+    <content><![CDATA[<p>如题，这个免费VPS出来好久了，是骡子是马，咱今天就拉出来溜溜。</p>
+<span id="more"></span>
+
+<h1 id="我的VPS呢"><a href="#我的VPS呢" class="headerlink" title="我的VPS呢!?"></a>我的VPS呢!?</h1><p>连不上，死活都连不上，我家的网络不支持IP6，听别人说嘿呦终端可以当跳板，我试了又试，差点把我搞抑郁，最后折腾了四个月才连上</p>
+<p>没啥要注意的地方，就是连接方式填手动就对了，不然会有玄学问题产生；我用他家的日本节点才连上IP6 VPS</p>
+<p>更新：嘿哟终端好像不提供日本节点了，大家仁者见仁智者见智吧；我是用Oracle的免费云服务器当跳板连接EUserv服务器的<s>（无限套娃）</s></p>
+<h1 id="连上VPS后第一件事"><a href="#连上VPS后第一件事" class="headerlink" title="连上VPS后第一件事"></a>连上VPS后第一件事</h1><p>有些人想也不想，直接把V2Ray的一键脚本命令丢上去run了……恕我直言，这玩意连IP4都不能访问，咋这么蜜汁自信，把V2一键脚本丢上去run？虽说有个<s>屌大的</s>MJJ说过：“下载了直接run啊, python xxx.py就完事了, 缘分到了就不会报错”只是，人家也不是IP6环境呀，是吧</p>
+<p>至于接下来要干什么……嗯~ o(<em>￣▽￣</em>)o，咱也是咨询了<a href="https://tzchz.home.blog/">朋友</a>才知道的不是吗。</p>
+<p>我是想搞宝塔的说，但其实无论搭不搭建宝塔面板，都要干一件事：改nameserver，以便让小鸡能访问到IPv4的资源</p>
+<p>先运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /etc/resolv.conf</span><br></pre></td></tr></table></figure>
+
+<p>运行之后，不管这个文件上面有啥，都按英文字母 <code>i</code> 进入编辑，删掉所有内容，没有就不用删了，然后填上：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nameserver 2001:67c:2b0::4</span><br><span class="line">nameserver 2001:67c:2b0::6</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/08/16/zLeGiDOhpRsmvM4.png" alt="图片.png" loading="lazy"><em>大抵如此</em></p>
+<p>之后，按 <code>Esc</code> ，输入 <code>:wq</code> 回车，完事，改好，能访问IP4了。<br>我知道有些人到这步又要兴冲冲跑去run脚本了……<br>你不知道先套个CF嘛？它能访问IP4，但它自己依然是IP6啊……<br>可以用AAAA记录，也可以用CNAME记录，前者直接填IP6地址就行，后者用服务商给的三级域名（如：×××××.blue.kundencontroller.de）；记住，不要开强制HTTPS！我被这玩意坑惨了，搞了好久都不知道为啥访问不了，差点自闭，多亏<a href="https://tzchz.home.blog/">TzCHZ</a>（PY交易），然后他和我说关上强制HTTPS就行……</p>
+<h1 id="搭建宝塔面板"><a href="#搭建宝塔面板" class="headerlink" title="搭建宝塔面板"></a>搭建宝塔面板</h1><p>这个德国的免费VPS，流量只有1TB&#x2F;月，我也看了一下前辈们的实战感言，据说用来科学上网速度感人，于是我只能用来干些别的事情了；要是只想科学上网的话，其实还不如多注册几个Heroku账号呢，人家2TB&#x2F;月的流量，套上CF可谓是“真香”的典范，具体的话请看<a href="https://yenpou.github.io/2020/07/26/25/">Heroku搭建V2Ray并用CF加速</a>这篇文章</p>
+<p>宝塔嘛~使用方法和其他普通服务器上一致，但还是把命令贴出来照顾小白（谁不是从小白过来的呢？）</p>
+<p>先运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">screen -S baota</span><br></pre></td></tr></table></figure>
+
+<p>然后（注意，此处是官方版，非破解版）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure>
+
+<p>之后如果没有失误的话应该是以下界面</p>
+<p><img src="https://i.loli.net/2020/08/16/6UeCgzWlXyN748c.png" alt="图片.png" loading="lazy"></p>
+<p>输入 <code>y</code> 就行，有其他想法的朋友随意。<br>然后就是长达几分钟的跑代码阶段…</p>
+<p>宝塔是中国人研发的，所以结束界面是中文，不要说你看不懂，正确的话皆大欢喜，套上CF，改个8080端口（至于为什么非要8080端口？可以参考CHZ的<a href="https://tzchz.home.blog/2020/08/15/17-euserv1i/">Euserv纯IPv6VPS实战踩坑记录</a>这篇文章），就可以愉快的使用了，关键是，如果错误了呢？</p>
+<blockquote>
+<p>答：重新运行安装命令，直到正确。</p>
+</blockquote>
+<p>随后就是各种折腾…有什么：软件安装但不显示啊，启动错误啊…</p>
+<p>但是大部分错误用这个方法都可以解决：</p>
+<blockquote>
+<p>重装系统</p>
+</blockquote>
+<p>这是我的成品图：</p>
+<p><img src="https://i.loli.net/2020/08/16/BjslZv1NdMXkSPg.png" alt="图片.png" loading="lazy"></p>
+<p>如图，免费IP6 VPS的配置如下：</p>
+<ul>
+<li>CPU：1 Core @ 1 GHz</li>
+<li>内存：1 GB</li>
+<li>硬盘：10 GB HDD</li>
+<li>带宽：1 Gbit</li>
+<li>I  P：1 IPv6</li>
+</ul>
+<p>要我看，搭建个网盘还不错，结果Cloudreve程序用的是5212端口，不行了，弃</p>
+<p>然后又经过<a href="https://www.acebacg.top/">烟火</a>与<a href="https://tzchz.home.blog/">CHZ</a>惨痛的教训，OneIndex也是搞不得了，转念一想，其实虚拟主机搭建的网盘也挺好，毕竟OneIndex、OneManager都只需要PHP就行了，就是Cloudreve搞不得有点失望。</p>
+<p>IPv6小鸡成功被我玩坏</p>
+<p><s>以我的性格，肯定不会让这台小鸡闲着，既然科学上网也搞不得，网盘也搞不得，只好……“那就来一个发卡站吧！”</s><br><s>欢迎参观我用这台IP6 VPS搭建出来的<a href="https://shop.skxlz.top/">测试商店程序</a>，也欢迎捐款，用以表示对我的鼓励。</s><br><s>（发卡站收款接口其实还可以水一篇文章，只不过我太懒了，就不写了，嘻嘻）</s></p>
+]]></content>
+      <tags>
+        <tag>折腾</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微软教育版A3订阅是不是钓鱼？</title>
+    <url>/2020/05/05/21/</url>
+    <content><![CDATA[<p>微软自己的锅，配置错误。本订阅会在六月末撤销；本文旨在记录一个<s>伟大</s>订阅的诞生。</p>
+<p><s>诸位只要对Office的事情关注一下，就知道现在忽然出来一阵撸教育版免费A3的风；有一部分人裤子都来不及穿就去薅微软羊毛了，而有一部分人则担心这是否是微软在钓鱼。</s><br><s>首先，要知道微软是否在钓鱼，我们就要弄清楚A3是什么订阅，这次的免费A3又是什么订阅。</s></p>
+<span id="more"></span>
+
+<h1 id="Microsoft-365-A3"><a href="#Microsoft-365-A3" class="headerlink" title="Microsoft 365 A3"></a>Microsoft 365 A3</h1><p>以下的英文部分是我摘抄自微软官网，中文部分来自谷歌翻译；其中，Microsoft 365 A3 for students HK$33.00&#x2F;用户&#x2F;月、HK$396.00&#x2F;用户&#x2F;年；Microsoft 365 A3 for faculty HK$45.00&#x2F;用户&#x2F;月、HK$540.00&#x2F;用户&#x2F;年；显然，此次的免费A3绝对不是这个订阅。</p>
+<h2 id="Microsoft-365-A3-for-students"><a href="#Microsoft-365-A3-for-students" class="headerlink" title="Microsoft 365 A3 for students"></a>Microsoft 365 A3 for students</h2><p>Office 365 A3, Enterprise Mobility + Security E3, Windows 10 Education E3, and Minecraft: Education Edition. This per-user licensed suite of Education products offers users best-in-class productivity across devices while providing IT security and control.</p>
+<p>Office 365 A3，企业移动性和安全性E3，Windows 10教育版E3和Minecraft教育版。 此按用户许可的教育产品套件可为用户提供跨设备的一流生产力，同时提供IT安全性和控制力。</p>
+<h2 id="Microsoft-365-A3-for-faculty"><a href="#Microsoft-365-A3-for-faculty" class="headerlink" title="Microsoft 365 A3 for faculty"></a>Microsoft 365 A3 for faculty</h2><p>Office 365 A3, Enterprise Mobility + Security E3, Windows 10 Education E3, and Minecraft: Education Edition. This per-user licensed suite of Education products offers users best-in-class productivity across devices while providing IT security and control.</p>
+<p>Office 365 A3，企业移动性和安全性E3，Windows 10教育版E3和Minecraft教育版。 此按用户许可的教育产品套件可为用户提供跨设备的一流生产力，同时提供IT安全性和控制力。</p>
+<h1 id="此次的免费教育版A3订阅"><a href="#此次的免费教育版A3订阅" class="headerlink" title="此次的免费教育版A3订阅"></a>此次的免费教育版A3订阅</h1><p>此次的免费教育版A3全称为：Microsoft 365 A3 - Unattended License for students use benefit，微软官方翻译是Microsoft 365 A3 - 适用于学生使用权益的无人参与许可</p>
+<p><img src="https://i.loli.net/2020/05/05/FHPfkWUzxuwGidl.png" alt="_89ZPI83RVAY1Y___LG8_XO.png" loading="lazy"><em>Microsoft 365 A3 - Unattended License for students use benefit</em></p>
+<p>上图的一百五十万用户订阅就是此次的免费教育版A3许可证；</p>
+<p>需要注意的是，此次A3订阅用户的数量一定程度上要和A1相匹配，比如我手里有一个一百五十万许可证的A1订阅，那么我最多只弄一百五十万许可证的A3订阅，多了<s>可能</s>会被微软风控。</p>
+<p><s>但是也有大佬填一亿许可证，据说直到今早上午才翻车，存活时间超过了24小时</s></p>
+<h2 id="此订阅的特点"><a href="#此订阅的特点" class="headerlink" title="此订阅的特点"></a>此订阅的特点</h2><p>玄学，没错，微软最近的产品都挺玄学，从E5开发者到A3学生免费使用许可。</p>
+<p>如此玄学：</p>
+<ol>
+<li>早上购买此订阅被风控的概率比下午低；</li>
+<li>存活时间再创记录，一小时之内被撤销许可的大有人在；</li>
+<li>二零二零年五月四日是存活率最高的一天，往后的存活率基本是越来越低；</li>
+<li><s>有缘人</s>（有钱人）专属订阅；</li>
+<li>订阅的许可数量其实并不影响风控概率（？）</li>
+</ol>
+<h2 id="此次免费订阅带来的影响"><a href="#此次免费订阅带来的影响" class="headerlink" title="此次免费订阅带来的影响"></a>此次免费订阅带来的影响</h2><p>可以说非常巨大；E3 MSDN绝版只是前奏，此次的A3许可带来的影响比E3绝版带来的影响更加巨大，因为E3 MSDN绝版也仅仅是拉高了自己的身价，这次A3订阅直接把国际版Office 365<del>黑</del>市场重新洗牌了，下面我列举几个：</p>
+<ol>
+<li>由于A3许可不仅存活率比E3（没错，就是那个350万订阅专坑小白的）高，而且在功能上完爆A1 PLUS（A3&#x3D;Office 365桌面版+Win10企业版+我的世界教育版），导致A1 PLUS的价格暴跌，目前市场价在10至20元之间（子号），全局是可以订阅A3的，目前又升了（存疑？）</li>
+<li>原来爹不疼妈不爱、鸡肋般的A1全局价格飙升，一个小时内狂翻七倍有余，从市场价50至300元之间升到了1200至5000元之间，目前仅有翻车A1（A3订阅被撤销的A1订阅，已被风控）有售（有传闻说A1全局要绝版，这也是A1全局价格飙升的原因之一）</li>
+<li>E3 MSDN这个香饽饽瞬间不香了，但目前价格还是偏高</li>
+<li>现在有人出售A3子号了，由于暂不确定是否稳定，价格在20至100之间</li>
+<li><s>有一大批人因此发家致富，2020年度最佳理财产品</s></li>
+</ol>
+<p>综上所述，E3绝版仅仅是它自己的身价高了，而此次A3的横空出世，直接使A1 PLUS子号价格狂跌、A1全局价格暴涨、动摇了E3 MSDN的根基、<s>养活了一大批仓鼠佬</s>、E5开发者也变得无人问津</p>
+<p>手里有A1 PLUS的可以当收藏用了，那可是曾经的性价比之王</p>
+<h1 id="推荐？"><a href="#推荐？" class="headerlink" title="推荐？"></a>推荐？</h1><p>暂不，因为出来的时间太短了，某些坐等A3许可被撤销的可以收一批低价A1 P全局；现在有两类人：一类是裤子都不顾的去撸A3，一类趁机低价收翻车A1、A1 PLUS全局，最后鹿死谁手，不得定论。</p>
+<h1 id="钓鱼？"><a href="#钓鱼？" class="headerlink" title="钓鱼？"></a>钓鱼？</h1><p>暂不认为是钓鱼，因为此订阅在使用订阅链接购买前，购买面板上无此订阅的显示（截至2020年05月03日）；且有电子发票存在</p>
+<p><img src="https://i.loli.net/2020/05/05/chfuNwg2WQ3tSrG.png" alt="FU2PG@6@FAJ5RT_H_XTZ2DF.png" loading="lazy"><em>A3订阅的电子发票</em></p>
+<h1 id="购买链接"><a href="#购买链接" class="headerlink" title="购买链接"></a>购买链接</h1><p>有一部分博主已经公布了，所以我算是比较晚的了，在此多放几个免费订阅购买链接，不怕被撤销、风控一条龙服务的可以买</p>
+<ol>
+<li><a href="https://portal.office.com/SubscriptionDetails?OfferId=FDA70919-1F10-4DF6-9249-A77473011840">A3订阅链接</a></li>
+<li><a href="https://admin.microsoft.com/SubscriptionDetails?OfferId=A89F6463-1F7B-4f51-90DD-8C182637B002">E1订阅链接</a></li>
+<li><a href="https://admin.microsoft.com/SubscriptionDetails?OfferId=C18B235E-8366-48b8-AE41-6E596C44944D">E3订阅链接</a>（就是那个臭名远扬的350万订阅购买链接，被风控几率极高）</li>
+<li><a href="https://www.microsoft.com/zh-cn/microsoft-365/compare-all-microsoft-365-products?&activetab=tab:primaryr2">商业版试用</a>（配合E1、E3食用）</li>
+<li><a href="https://signup.microsoft.com/Signup?OfferId=953c773d-e732-42cf-9d37-645ee688173d,ce475220-3edb-45b4-a1ac-4d100b5f4059&DL=ENTERPRISEPREMIUM_NOPSTNCONF_FACULTY&culture=zh-CN&country=CN&ali=1">教育版试用</a></li>
+<li><a href="https://signup.microsoft.com/Signup?offerid=e56a8505-feea-4b75-bd30-bd2959d77943&culture=zh-cn&isPolaris=0&country=CN&ali=1&alo=1&culture=zh-cn&country=CN">E3商务版试用</a></li>
+<li><a href="https://admin.microsoft.com/Adminportal/Home?source=applauncher#/Domains/SOWizard">教育资格认证</a>（注意调到旧面板，目前大部分edu域名无效）</li>
+</ol>
+<p><s>不推荐大家购买以上的全局订阅，广大羊毛党已经将风控撸到了历史峰值，在我看来，现在去买A3订阅无疑就是送死行为，头铁用户可以去买，之后全局订阅翻车不要找我</s><br><s>目前头铁的用户也不要去随意购买A3订阅了，现在除了05月04日及之前的订阅大部分还在，05月04日之后注册的几乎没有“存活率”一词可言。</s><br><s>现在A1+A3各一百五十万用户全局稳定后很贵的，起码可以肩比A1 PLUS全局的价格，所以别想买全局的事情了。</s></p>
+<h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>此处追踪更新Microsoft A3现状</p>
+<p>2021年二月更新：Microsoft A3最近又出来了，价格极其高，一般在1000元以上；过了5月份如果可以续订恐怕有价无市了；最近买A3的都是想赌一把的MJJ们<br>2021年六月更新：Microsoft A3续订成功，MJJ们“几家欢喜几家愁”；有人的Microsoft A3确实续订了，可惜管理员账号被封了，有人的Microsoft A3也续订了，只恨当年买的少<br><img src="https://i.loli.net/2021/08/21/TbCdxUL6GjhW7XO.png" alt="图片.png" loading="lazy"><em>Microsoft A3续订邮件</em><br>2021年八月更新：Microsoft A3已经可以光明正大的售卖了；但MJJ们各执一词，有MJJ执意要免费赠送，有MJJ想趁机大发黑心财</p>
+]]></content>
+      <tags>
+        <tag>解答</tag>
+      </tags>
+  </entry>
+</search>

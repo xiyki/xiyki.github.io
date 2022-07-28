@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#103E65"><meta name="author" content="XiYKi"><meta name="copyright" content="XiYKi"><meta name="generator" content="Hexo 6.2.0"><meta name="theme" content="hexo-theme-yun"><title>部署Valine-Admin评论系统 | 道之远兮</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/star-markdown-css@0.3.3/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="https://fastly.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/png" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#103E65"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"dzyx.uk","root":"/","title":"道之遠兮","version":"1.10.6","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"想找些什么呢~","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194","187, 255, 255","174, 238, 238","152, 245, 255","0, 245, 255","0, 255, 255"]},"waline":{"config":{"enable":true,"serverURL":"https://blog-waline-chi-six.vercel.app","comment":false,"el":"#waline","lang":"zh-CN"},"cdn":"https://fastly.jsdelivr.net/npm/@waline/client@v2/dist/waline.js","dark":"html.dark"},"vendors":{"host":"https://fastly.jsdelivr.net/npm/","darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=UA-176089464-1"></script><script>if (CONFIG.hostname === location.hostname) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-176089464-1');
+}</script><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();</script><meta name="description" content="网上大部分教程是中国版的，本人做为国际版用户，只好自己折腾。前排提示：本教程不适用于中国版（也就是华南节点、华北节点）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="部署Valine-Admin评论系统">
+<meta property="og:url" content="https://dzyx.uk/2020/08/23/29/index.html">
+<meta property="og:site_name" content="道之远兮">
+<meta property="og:description" content="网上大部分教程是中国版的，本人做为国际版用户，只好自己折腾。前排提示：本教程不适用于中国版（也就是华南节点、华北节点）">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/08/23/W6RUmLv81nSZ7fT.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/23/jJmF2tARzk3uc1q.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/23/ZRx3wYMdJLmoB4Q.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/23/cDfY5FWKSQjk9hm.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/23/rXTl7WcUzxf5LOe.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/23/1m85AqNwXzRTMt6.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/23/VGu2ovDt4SZKUiX.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/23/TdgcqrDStw6Meiy.png">
+<meta property="article:published_time" content="2020-08-23T01:00:52.000Z">
+<meta property="article:modified_time" content="2021-10-02T01:49:12.000Z">
+<meta property="article:author" content="XiYKi">
+<meta property="article:tag" content="折腾">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/08/23/W6RUmLv81nSZ7fT.png"><script>(function() {
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="XiYKi"><img width="96" loading="lazy" src="/images/timg.jpg" alt="XiYKi"></a><div class="site-author-name"><a href="/about/">XiYKi</a></div><a class="site-name" href="/about/site.html">道之远兮</a><sub class="site-subtitle"></sub><div class="site-description">休对故人思故国</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">12</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">6</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">6</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://pan.skxlz.top/" title="My Drive"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:cloud-line"></span></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><span class="icon iconify" data-icon="ri:rss-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/xiyki" title="GitHub" target="_blank" style="color:#181717"><span class="icon iconify" data-icon="ri:github-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:i@dzyx.uk" title="E-Mail" target="_blank" style="color:#8E71C1"><span class="icon iconify" data-icon="ri:mail-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/351940900" title="Bilibili" target="_blank" style="color:#FF8EB3"><span class="icon iconify" data-icon="ri:bilibili-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/ji-yuan-xie-41/" title="知乎" target="_blank" style="color:#0084FF"><span class="icon iconify" data-icon="ri:zhihu-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://twitter.com/yen_pou/" title="Twitter" target="_blank" style="color:#1da1f2"><span class="icon iconify" data-icon="ri:twitter-line"></span></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="小伙伴们" style="color:dodgerblue"><span class="icon iconify" data-icon="ri:genderless-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B5%B7%E5%9B%A0"><span class="toc-number">1.</span> <span class="toc-text">起因</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%99%E6%98%AF%E6%AD%A3%E6%96%87%E5%95%A6"><span class="toc-number">2.</span> <span class="toc-text">这是正文啦~</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E8%AF%AD"><span class="toc-number">2.1.</span> <span class="toc-text">评语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%82%E4%BA%8B"><span class="toc-number">2.2.</span> <span class="toc-text">杂事</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#103E65;"><link itemprop="mainEntityOfPage" href="https://dzyx.uk/2020/08/23/29/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="XiYKi"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="道之远兮"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">部署Valine-Admin评论系统</h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="创建时间：2020-08-23 09:00:52" itemprop="dateCreated datePublished" datetime="2020-08-23T09:00:52+08:00">2020-08-23</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-2-line"></span></span> <time title="修改时间：2021-10-02 09:49:12" itemprop="dateModified" datetime="2021-10-02T09:49:12+08:00">2021-10-02</time></div><div class="post-classify"><span class="post-tag"><a class="tag-item" href="/tags/%E6%8A%98%E8%85%BE/" style="--text-color:#4fc08d"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">折腾</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><p>网上大部分教程是中国版的，本人做为国际版用户，只好自己折腾。<br><strong>前排提示：本教程不适用于中国版（也就是华南节点、华北节点）</strong></p>
+<span id="more"></span>
+
+<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p><s>没有起因，就是喜欢瞎折腾。</s></p>
+<h1 id="这是正文啦"><a href="#这是正文啦" class="headerlink" title="这是正文啦~"></a>这是正文啦~</h1><p>首先当然要去官方看教程呀；但是官方的教程是中国版的，而且看起来比较老了；只好结合我的一些感觉来了。</p>
+<p>那么，开始吧！</p>
+<p><img src="https://i.loli.net/2020/08/23/W6RUmLv81nSZ7fT.png" alt="image.png" loading="lazy"><em>首先进入控制台</em></p>
+<p><img src="https://i.loli.net/2020/08/23/jJmF2tARzk3uc1q.png" alt="image.png" loading="lazy"></p>
+<p><img src="https://i.loli.net/2020/08/23/ZRx3wYMdJLmoB4Q.png" alt="image.png" loading="lazy"></p>
+<p>此处填写的网址是<code>https://github.com/DesertsP/Valine-Admin.git</code></p>
+<p><img src="https://i.loli.net/2020/08/23/cDfY5FWKSQjk9hm.png" alt="image.png" loading="lazy"></p>
+<p>以下变量摘自官方说明。</p>
+<div class="table-wrap">
+
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SITE_NAME</td>
+<td>Deserts</td>
+<td>[必填]博客名称</td>
+</tr>
+<tr>
+<td>SITE_URL</td>
+<td><a target="_blank" rel="noopener" href="https://deserts.io/">https://deserts.io</a></td>
+<td>[必填]首页地址</td>
+</tr>
+<tr>
+<td><strong>SMTP_SERVICE</strong></td>
+<td>QQ</td>
+<td>[新版支持]邮件服务提供商，支持 QQ、163、126、Gmail 以及 <a target="_blank" rel="noopener" href="https://nodemailer.com/smtp/well-known/#supported-services">更多</a></td>
+</tr>
+<tr>
+<td>SMTP_USER</td>
+<td><a href="mailto:&#120;&#120;&#120;&#x78;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;">&#120;&#120;&#120;&#x78;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;</a></td>
+<td>[必填]SMTP登录用户</td>
+</tr>
+<tr>
+<td>SMTP_PASS</td>
+<td>ccxxxxxxxxch</td>
+<td>[必填]SMTP登录密码（QQ邮箱需要获取独立密码）</td>
+</tr>
+<tr>
+<td>SENDER_NAME</td>
+<td>Deserts</td>
+<td>[必填]发件人</td>
+</tr>
+<tr>
+<td>SENDER_EMAIL</td>
+<td><a href="mailto:&#x78;&#120;&#x78;&#120;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#x78;&#120;&#x78;&#120;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;</a></td>
+<td>[必填]发件邮箱</td>
+</tr>
+<tr>
+<td>ADMIN_URL</td>
+<td><a target="_blank" rel="noopener" href="https://xxx.leanapp.cn/">https://xxx.leanapp.cn/</a></td>
+<td>[建议]Web主机二级域名，用于自动唤醒</td>
+</tr>
+<tr>
+<td>BLOGGER_EMAIL</td>
+<td><a href="mailto:&#120;&#120;&#x78;&#x78;&#120;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;">&#120;&#120;&#x78;&#x78;&#120;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;</a></td>
+<td>[可选]博主通知收件地址，默认使用SENDER_EMAIL</td>
+</tr>
+<tr>
+<td>AKISMET_KEY</td>
+<td>xxxxxxxxxxxx</td>
+<td>[可选]Akismet Key 用于垃圾评论检测，设为MANUAL_REVIEW开启人工审核，留空不使用反垃圾</td>
+</tr>
+</tbody></table>
+</div>
+
+<p>邮件通知模板在云引擎环境变量中设定，可自定义通知邮件标题及内容模板。</p>
+<table>
+<thead>
+<tr>
+<th>环境变量</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MAIL_SUBJECT</td>
+<td>${PARENT_NICK}，您在${SITE_NAME}上的评论收到了回复</td>
+<td>[可选]@通知邮件主题（标题）模板</td>
+</tr>
+<tr>
+<td>MAIL_TEMPLATE</td>
+<td>见下文</td>
+<td>[可选]@通知邮件内容模板</td>
+</tr>
+<tr>
+<td>MAIL_SUBJECT_ADMIN</td>
+<td>${SITE_NAME}上有新评论了</td>
+<td>[可选]博主邮件通知主题模板</td>
+</tr>
+<tr>
+<td>MAIL_TEMPLATE_ADMIN</td>
+<td>见下文</td>
+<td>[可选]博主邮件通知内容模板</td>
+</tr>
+</tbody></table>
+<p>邮件通知包含两种，分别是被@通知和博主通知，这两种模板都可以完全自定义。默认使用经典的蓝色风格模板（样式来源未知）。</p>
+<p>默认被@通知邮件内容模板如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span> <span class="attr">style</span>=<span class="string">&quot;border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;&quot;</span>&gt;</span>您在<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">&quot;text-decoration:none;color: #12ADDB;&quot;</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;SITE_URL&#125;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>            $&#123;SITE_NAME&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span>上的评论有了新的回复<span class="tag">&lt;/<span class="name">h2</span>&gt;</span> $&#123;PARENT_NICK&#125; 同学，您曾发表评论：<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;padding:0 12px 0 12px;margin-top:18px&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;&quot;</span>&gt;</span>            $&#123;PARENT_COMMENT&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>$&#123;NICK&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>回复说：<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;&quot;</span>&gt;</span> $&#123;COMMENT&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>您可以点击<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">&quot;text-decoration:none; color:#12addb&quot;</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;POST_URL&#125;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>查看回复的完整內容<span class="tag">&lt;/<span class="name">a</span>&gt;</span>，欢迎再次光临<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">&quot;text-decoration:none; color:#12addb&quot;</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;SITE_URL&#125;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>$&#123;SITE_NAME&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span>。<span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>@通知模板中的可用变量如下（注，这是邮件模板变量，请勿与云引擎环境变量混淆）：</p>
+<table>
+<thead>
+<tr>
+<th>模板变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SITE_NAME</td>
+<td>博客名称</td>
+</tr>
+<tr>
+<td>SITE_URL</td>
+<td>博客首页地址</td>
+</tr>
+<tr>
+<td>POST_URL</td>
+<td>文章地址（完整路径）</td>
+</tr>
+<tr>
+<td>PARENT_NICK</td>
+<td>收件人昵称（被@者，父级评论人）</td>
+</tr>
+<tr>
+<td>PARENT_COMMENT</td>
+<td>父级评论内容</td>
+</tr>
+<tr>
+<td>NICK</td>
+<td>新评论者昵称</td>
+</tr>
+<tr>
+<td>COMMENT</td>
+<td>新评论内容</td>
+</tr>
+</tbody></table>
+<p>默认博主通知邮件内容模板如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span> <span class="attr">style</span>=<span class="string">&quot;border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;&quot;</span>&gt;</span>您在<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">&quot;text-decoration:none;color: #12ADDB;&quot;</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;SITE_URL&#125;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>$&#123;SITE_NAME&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span>上的文章有了新的评论<span class="tag">&lt;/<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>$&#123;NICK&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>回复说：<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;&quot;</span>&gt;</span> $&#123;COMMENT&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>您可以点击<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">&quot;text-decoration:none; color:#12addb&quot;</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;POST_URL&#125;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>查看回复的完整內容<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>博主通知邮件模板中的可用变量与@通知中的基本一致，**<code>PARENT_NICK</code> 和 <code>PARENT_COMMENT</code> 变量不再可用。**</p>
+<blockquote>
+<p>Akismet (Automattic Kismet)是应用广泛的一个垃圾留言过滤系统，其作者是大名鼎鼎的WordPress 创始人 Matt Mullenweg，Akismet也是WordPress默认安装的插件，其使用非常广泛，设计目标便是帮助博客网站来过滤留言Spam。有了Akismet之后，基本上不用担心垃圾留言的烦恼了。</p>
+</blockquote>
+<blockquote>
+<p>启用Akismet后，当博客再收到留言会自动将其提交到Akismet并与Akismet上的黑名单进行比对，如果名列该黑名单中，则该条留言会被标记为垃圾评论且不会发布。</p>
+</blockquote>
+<p>如果还没有Akismet Key，你可以去 <a target="_blank" rel="noopener" href="https://akismet.com/development/">AKISMET FOR DEVELOPERS</a> 免费申请一个；<br><strong>当AKISMET_KEY设为MANUAL_REVIEW时，开启人工审核模式；</strong><br>如果你不需要反垃圾评论，Akismet Key 环境变量可以忽略。</p>
+<p><strong>为了实现较为精准的垃圾评论识别，采集的判据除了评论内容、邮件地址和网站地址外，还包括评论者的IP地址、浏览器信息等，但仅在云引擎后台使用这些数据，确保隐私和安全。</strong></p>
+<p><strong>如果使用了本站最新的Valine和Valine Admin，并设置了Akismet Key，可以有效地拦截垃圾评论。被标为垃圾的评论可以在管理页面取消标注。</strong></p>
+<table>
+<thead>
+<tr>
+<th>环境变量</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AKISMET_KEY</td>
+<td>xxxxxxxxxxxx</td>
+<td>[可选]Akismet Key 用于垃圾评论检测</td>
+</tr>
+</tbody></table>
+<p>官方的防止休眠教程我并没有放到此处，因为在实际应用时会出现如下图所示的情况：</p>
+<p><img src="https://i.loli.net/2020/08/23/rXTl7WcUzxf5LOe.png" alt="image.png" loading="lazy"></p>
+<p>变量配置好之后，就可以开始部署了</p>
+<p><img src="https://i.loli.net/2020/08/23/1m85AqNwXzRTMt6.png" alt="image.png" loading="lazy"></p>
+<p>部署完成之后，如果是中国版，访问地址：<code>https://二级域名.leanapp.cn/sign-up/</code>；如果是国际版，访问地址：<code>https://二级域名.avosapps.us/sign-up/</code></p>
+<p>若无法进入管理员注册页面，请删除_User表中的全部数据，如下图：</p>
+<p><img src="https://i.loli.net/2020/08/23/VGu2ovDt4SZKUiX.png" alt="image.png" loading="lazy"></p>
+<h2 id="评语"><a href="#评语" class="headerlink" title="评语"></a>评语</h2><p>很好，除了国际版已经不让设置定时任务自动重启之外；以后直接进入<code>https://二级域名.avosapps.us/</code>就可以进行管理评论了，很方便。</p>
+<p><img src="https://i.loli.net/2020/08/23/TdgcqrDStw6Meiy.png" alt="image.png" loading="lazy"></p>
+<h2 id="杂事"><a href="#杂事" class="headerlink" title="杂事"></a>杂事</h2><p>升级了Hexo，稍微配置了主题文件（比如说博客左侧的全局音乐播放器），还捣鼓了评论系统，有什么Bug还希望大家及时反馈。</p>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><span class="icon iconify" data-icon="ri:hand-coin-line"></span></span><div id="reward-comment">I'm so cute. Please give me money.</div><div id="qr" style="display:none;"><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.yunyoujun.cn/img/donate/alipay-qrcode.jpg"><img loading="lazy" src="https://cdn.yunyoujun.cn/img/donate/alipay-qrcode.jpg" alt="支付宝" title="支付宝"></a><div><span style="color:#00A3EE"><span class="icon iconify" data-icon="ri:alipay-line"></span></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.yunyoujun.cn/img/donate/qqpay-qrcode.png"><img loading="lazy" src="https://cdn.yunyoujun.cn/img/donate/qqpay-qrcode.png" alt="QQ 支付" title="QQ 支付"></a><div><span style="color:#12B7F5"><span class="icon iconify" data-icon="ri:qq-line"></span></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.yunyoujun.cn/img/donate/wechatpay-qrcode.jpg"><img loading="lazy" src="https://cdn.yunyoujun.cn/img/donate/wechatpay-qrcode.jpg" alt="微信支付" title="微信支付"></a><div><span style="color:#2DC100"><span class="icon iconify" data-icon="ri:wechat-pay-line"></span></span></div></div></div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>XiYKi</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://dzyx.uk/2020/08/23/29/" title="部署Valine-Admin评论系统">https://dzyx.uk/2020/08/23/29/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2020/09/08/30/" rel="prev" title="脑抽风往服务器中砸钱的经历"><span class="icon iconify" data-icon="ri:arrow-left-s-line"></span><span class="post-nav-text">脑抽风往服务器中砸钱的经历</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2020/08/17/27/" rel="next" title="EUserv德国免费VPS(ipv6 only)"><span class="post-nav-text">EUserv德国免费VPS(ipv6 only)</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"><div id="waline"></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@waline/client@v2/dist/waline.css"><script>window.CONFIG.waline.config.path = "/2020/08/23/29/"</script><div class="js-Pjax"><script src="/js/comments/waline.js" type="module" defer></script></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2020 – 2022 </span><span class="with-love" id="animate"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> XiYKi</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.2.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.6</span></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#103E65" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:search-line"></span></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="https://fastly.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js"></script><script src="/js/search/local-search.js" defer type="module"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><span class="icon iconify" data-icon="ri:close-line"></span></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="想找些什么呢~" value=""></div><div class="search-result-container"></div></div><script>function initMourn() {
+  const date = new Date();
+  const today = (date.getMonth() + 1) + "-" + date.getDate()
+  const mourn_days = ["4-4","9-18","12-13"]
+  if (mourn_days.includes(today)) {
+    document.documentElement.style.filter = "grayscale(1)";
+  }
+}
+initMourn();</script></body></html>
