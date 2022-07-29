@@ -1,49 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>利用Cloudflare Workers搭建镜像网站</title>
-    <url>/2020/05/03/20/</url>
-    <content><![CDATA[<p>还是要使用之前搭建反向代理的平台，依然使用cloudflare workers平台搭建，不懂的翻之前的教程</p>
-<span id="more"></span>
-
-<h1 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h1><ol>
-<li>此处选择以镜像维基百科为演示</li>
-<li>原作者的代码为谷歌镜像，有相应模板</li>
-<li>说了这么多，无非是粘贴代码，然后点击“保存并部署”的事情</li>
-<li>源码很简单，可以自己更改</li>
-</ol>
-<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><ol>
-<li>新建workers</li>
-</ol>
-<p><img src="https://i.loli.net/2020/07/26/OLiZ3f5YIHUwJFm.png" alt="1.png" loading="lazy"></p>
-<ol start="2">
-<li>复制一个你感兴趣的镜像网站脚本</li>
-</ol>
-<p><img src="https://i.loli.net/2020/07/26/vaWQtscjPzdgpoT.png" alt="2.png" loading="lazy"></p>
-<ol start="3">
-<li>删除初始代码并将镜像脚本复制进去</li>
-</ol>
-<p><img src="https://i.loli.net/2020/07/26/lKdpcitTfqjCbnr.png" alt="3.png" loading="lazy"></p>
-<ol start="4">
-<li>最后一步，成功后就是你的镜像啦~</li>
-</ol>
-<p><img src="https://i.loli.net/2020/07/26/Z4uT82PYVzI9kwA.png" alt="4.png" loading="lazy"></p>
-<ol start="5">
-<li>突破：实际上你可以依据脚本自己改的，具体操作在此不做演示，自行摸索。</li>
-</ol>
-<h1 id="警告⚠"><a href="#警告⚠" class="headerlink" title="警告⚠"></a>警告⚠</h1><ol>
-<li>每天免费调用额度仅十万次！</li>
-<li>本项目中镜像均不可登录账号，请悉知。</li>
-<li>镜像网站中YouTube几乎不可用，就是个摆设；镜像网站中Google可以打开不可用，会被谷歌认为是机器人，目前该问题得不到有效解决；且Cloudflare Workers官方已识别，在大陆不可使用。</li>
-<li>不保证可行性，更新时间为：2020年4月29日</li>
-<li>请自行在<a href="https://github.com/">Github</a>中搜索此项目</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>教程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>浅谈一些常用网盘</title>
     <url>/2020/04/21/13/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>众所周知，我等被某度网盘早期的“优惠”蒙蔽了双眼，资源基本都上传到了某度网盘，这就导致了悲剧的发生——资本主义露出了它丑陋的嘴脸后，广大劳动人民受其压迫，加之资源分享者均使用某度网盘，导致使用某度网盘的人越来越多。</p>
@@ -85,83 +42,6 @@
 ]]></content>
       <tags>
         <tag>杂谈</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Office E5申请及续订</title>
-    <url>/2020/04/05/07/</url>
-    <content><![CDATA[<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ol>
-<li>确保你的网络地址处于<strong>非封锁国际互联网地区</strong></li>
-<li>一个微软个人账户</li>
-<li>一个正常使用的实体手机号码</li>
-<li>如果英语不太好，尽量准备一个翻译工具</li>
-<li>灵活的脑子和随机应变的能力以及一点点运气</li>
-<li>挑一个好的时间段；微软已经开始限制注册了</li>
-</ol>
-<h1 id="开始申请"><a href="#开始申请" class="headerlink" title="开始申请"></a>开始申请</h1><p>点击<a href="https://developer.microsoft.com/zh-cn/office">此处</a>，进入Office 365开发人员中心</p>
-<p><img src="https://i.loli.net/2020/04/06/aCnorKBOGfgqFt4.png" alt="批注 2020-04-06 083130.png" loading="lazy"></p>
-<p><img src="https://i.loli.net/2020/04/05/dakiz6jDV4HlWbI.png" alt="7Y_6@BM1VWZS_7BDMWTI_FC.jpg" loading="lazy"></p>
-<p>输入你的微软账号、密码，登录；现场注册也可以</p>
-<p><img src="https://i.loli.net/2020/04/05/QyzcI8BEawTtFKD.png" alt="mcicjxvmc.jpg" loading="lazy"></p>
-<p>国家尽量选离你所在地理位置最近的地方；如果位置选中国，组织存储位置可能会被分配到东亚的某个小国，并<strong>不会分配到中国地区</strong>（从下图开始，我将借用他人的图片；<s>手里没微软账号了</s>）</p>
-<p><img src="https://i.loli.net/2020/04/05/lp69NzFVCYJtQGn.png" alt="a1c41fdca65c37dd6e36632be169799e_2_3_art.jpg" loading="lazy"></p>
-<p>按需填写即可</p>
-<p><img src="https://i.loli.net/2020/04/05/TdmOc57DMYQjolL.jpg" alt="d96736fdcc28d6be0559214b05a7bbb6_2_3_art.jpg" loading="lazy"></p>
-<p>添加订阅，填好无误后点击“继续”</p>
-<p><img src="https://i.loli.net/2020/04/05/SuBKindq8146bPg.png" alt="c6a286057712ff9c8498a3ca2713c7a4_2_3_art.jpg" loading="lazy"></p>
-<p>此时，会有一个窗口弹出，这是微软为避免恶意注册而设置的；填上手机号码，<strong>然后再次确保你的网络地址处于非封锁国际互联网地区</strong>，点击“发送代码”；如若<strong>未弹出谷歌验证系统，则您的网络地址仍处于封锁国际互联网地区</strong>，将无法收到验证码</p>
-<p><img src="https://i.loli.net/2020/04/05/j8BzGeLnWfVi6wA.jpg" alt="a34dd68de99f33d1f2c9ea38b602eb60_2_3_art.jpg" loading="lazy"></p>
-<p>如果到了这一步，恭喜，你躲过了微软的风控系统，并且薅了微软一把羊毛</p>
-<p><img src="https://i.loli.net/2020/04/05/pwsl9zQCrEcNBj4.png" alt="批注 2020-04-05 132130.jpg" loading="lazy"></p>
-<h1 id="开发活动"><a href="#开发活动" class="headerlink" title="开发活动"></a>开发活动</h1><blockquote>
-<p>首先明确一个概念：微软的初衷是奖励开发人员，所以才会有“开发者订阅”<br>因而，开发者只会天天使用Office吗？当然不，他们会开发一系列有关Office的产品，如：可以自动接收邮件并回复的程序、无需打开OneDrive就可以查看并修改其内的文件等等，这些，都需要一个“接口”，也就是“API”；微软正是通过监视调用接口，从而判断你是否在从事开发工作。<br>也就是说，想要白嫖Office的开发人员许可，就必须让微软认为你是“开发者”。<br>但微软的续期其实也是个玄学问题，有人什么都没干无限续期，有人用遍了目前可以调用的API，结果还是连第一个续期都没过</p>
-</blockquote>
-<p>需要一点点运气，以及一些脑子；<s>还有翻译</s></p>
-<h2 id="搭建OneIndex"><a href="#搭建OneIndex" class="headerlink" title="搭建OneIndex"></a>搭建OneIndex</h2><p>搭建OneIndex，调用OneDrive API；</p>
-<ul>
-<li>优点：简单、调用API的同时还可以当作私人网盘使用</li>
-<li>缺点：需要服务器</li>
-</ul>
-<p>土豪可以直接买服务器搭建OneIndex</p>
-<h3 id="Gearhost免费空间"><a href="#Gearhost免费空间" class="headerlink" title="Gearhost免费空间"></a>Gearhost免费空间</h3><p>细心的我已经为你准备好了教程：<a href="https://blog.csdn.net/qq_44768248/article/details/99671695">绝对免费搭建不限速私人网盘5T存储空间:Gearhost免费空间+OneIndex程序+Onedrive免费账号</a></p>
-<p>教程写的还不错，第一步Onedrive免费账号可以直接忽略。只是只有100MB的储存空间，还不能设置定时任务（Gearhost免费套餐需绑定信用卡才可以设置定时任务），导致缓存需要时常手动清理，但毕竟是免费的。</p>
-<h3 id="Heroku免费套餐"><a href="#Heroku免费套餐" class="headerlink" title="Heroku免费套餐"></a>Heroku免费套餐</h3><p>细心的我又给你准备了一个教程：<a href="https://banma.ac.cn/65.html">免服务器用heroku+OneDrive搭建OneManager网盘</a></p>
-<p>我的外链中有一个“My Drive”，就是那个小云，点击就可以进入我的私人网盘。<br>免费有免费的限制，那就是如果三十分钟内无人访问就会进入休眠。。。</p>
-<h3 id="腾讯SCF"><a href="#腾讯SCF" class="headerlink" title="腾讯SCF"></a>腾讯SCF</h3><p><a href="https://www.mad-coding.cn/2019/12/02/%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AFSCF-onedrive%E6%90%AD%E5%BB%BA5T%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%9B%98/">使用腾讯SCF+onedrive搭建5T个人网盘</a></p>
-<p>上面这篇文章写的很清楚：腾讯开始收费了；没钱买服务器但又想花钱买平安的小伙伴可以选择这种方法</p>
-<h2 id="大佬开发的E5自动续订程序"><a href="#大佬开发的E5自动续订程序" class="headerlink" title="大佬开发的E5自动续订程序"></a>大佬开发的E5自动续订程序</h2><p>只有这一篇教程：<a href="https://blog.curlc.com/archives/687.html">E5 自动订阅程序</a></p>
-<p>优点：简单、免费<br>缺点：很明显，用的人很多；人多了，自然容易出问题，不喜欢折腾的小伙伴可以使用这种方法</p>
-<h2 id="GitHub开源程序AutoApi系列"><a href="#GitHub开源程序AutoApi系列" class="headerlink" title="GitHub开源程序AutoApi系列"></a>GitHub开源程序AutoApi系列</h2><p>教程在GitHub上，已开源。</p>
-<blockquote>
-<ul>
-<li><a href="https://github.com/wangziyingwen/AutoApi">普通版</a></li>
-<li><a href="https://github.com/wangziyingwen/AutoApiSecret">加密版</a></li>
-<li><a href="https://github.com/wangziyingwen/AutoApiSR">仿人为开发版</a></li>
-<li><a href="https://github.com/wangziyingwen/AutoApiS">超级版</a>（截至本文写成仍在测试，但已开源）</li>
-</ul>
-</blockquote>
-<p>优点：专门调用API，为调用API而开发，自动调用，可调节调用间隔<br>缺点：麻烦</p>
-<p>我踩到的坑：好像全程只能使用管理员账号操作；我首先使用的子账号，出现了错误，后期又用管理员账户授权就可以用了，可能是权限问题？<br>喜欢折腾的可以去看一看</p>
-<h1 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h1><h2 id="关于OFFICE-365（MICROSOFT-365）的种类"><a href="#关于OFFICE-365（MICROSOFT-365）的种类" class="headerlink" title="关于OFFICE 365（MICROSOFT 365）的种类"></a>关于OFFICE 365（MICROSOFT 365）的种类</h2><p>简单写一下，如果想要了解更多，可以参考：<a href="https://img.moedog.org/images/2019/08/21/3653.png">犬’s Blog 免费订阅思维导图</a>、<a href="https://peachcat.org/archives/584">蜜桃猫 office365毕业全家福</a></p>
-<ol>
-<li>教育系列（A）：A1、A1Plus、A3、A5；其中A1无桌面版OFFICE，MICROSOFT 365 A3、A5有教育版Windows许可，每一种订阅又分学生版和教师版</li>
-<li>商务系列（E、F）：E3、E5、F1、F3，均为企业大量购买，其中包括商业高级版及大部分单独订阅</li>
-<li>开发者系列（E）：E3 开发者（已绝版；一年期限，不可续订）、E5 开发者（撸废了，有停止注册的迹象；每90天一次续订）、E3 MSDN（绝版）</li>
-<li>个人系列：家庭版、商业版等，微软官方在购买页写的很清楚，不在此过多赘述</li>
-<li>单独订阅：太多了……如：OFFICE 365 Pro Plus</li>
-<li>政府系列（G）：G1、G3、G5（没见过；不知道有没有大佬敢撸）</li>
-</ol>
-<h2 id="关于翻车"><a href="#关于翻车" class="headerlink" title="关于翻车"></a>关于翻车</h2><p>翻车没什么好说的，以下两种情况：</p>
-<ol>
-<li>被微软风控，全局之类的给你封喽</li>
-<li>如果是子号，可能是管理员把你的号删了</li>
-</ol>
-<h2 id="关于onedrive无法使用"><a href="#关于onedrive无法使用" class="headerlink" title="关于onedrive无法使用"></a>关于onedrive无法使用</h2><p>网页版如果出现“正在为您设置onedrive”类似情况，请等待24小时后登录；如果还不行，请联系你的管理员、百度\谷歌\必应一下（最简单）、联系微软（管理员账号）<br>onedrive里的资源要多重备份，私人资料最好不要放（如果你是管理员就当我没说），可以多撸几个不同全局的账号。</p>
-<h2 id="关于外国教育邮箱"><a href="#关于外国教育邮箱" class="headerlink" title="关于外国教育邮箱"></a>关于外国教育邮箱</h2><p>不保稳，翻车几率甚至可以超过A1、A1P，主要还是我大天朝薅羊毛的太多了。<br>外国edu邮箱主要薅的是社区大学（大概相当于国内的大专）</p>
-<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p><strong>所有方法都不能保证续订！只是可以增加续订概率！</strong><br>听说现在有OneNote API的调用方式，不知道是不是真的<br>哪位大佬有其他方法的可以写在评论区！感谢您的无私奉献！</p>
-]]></content>
-      <tags>
-        <tag>教程</tag>
       </tags>
   </entry>
   <entry>
@@ -276,6 +156,183 @@
       </tags>
   </entry>
   <entry>
+    <title>Office E5申请及续订</title>
+    <url>/2020/04/05/07/</url>
+    <content><![CDATA[<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ol>
+<li>确保你的网络地址处于<strong>非封锁国际互联网地区</strong></li>
+<li>一个微软个人账户</li>
+<li>一个正常使用的实体手机号码</li>
+<li>如果英语不太好，尽量准备一个翻译工具</li>
+<li>灵活的脑子和随机应变的能力以及一点点运气</li>
+<li>挑一个好的时间段；微软已经开始限制注册了</li>
+</ol>
+<h1 id="开始申请"><a href="#开始申请" class="headerlink" title="开始申请"></a>开始申请</h1><p>点击<a href="https://developer.microsoft.com/zh-cn/office">此处</a>，进入Office 365开发人员中心</p>
+<p><img src="https://i.loli.net/2020/04/06/aCnorKBOGfgqFt4.png" alt="批注 2020-04-06 083130.png" loading="lazy"></p>
+<p><img src="https://i.loli.net/2020/04/05/dakiz6jDV4HlWbI.png" alt="7Y_6@BM1VWZS_7BDMWTI_FC.jpg" loading="lazy"></p>
+<p>输入你的微软账号、密码，登录；现场注册也可以</p>
+<p><img src="https://i.loli.net/2020/04/05/QyzcI8BEawTtFKD.png" alt="mcicjxvmc.jpg" loading="lazy"></p>
+<p>国家尽量选离你所在地理位置最近的地方；如果位置选中国，组织存储位置可能会被分配到东亚的某个小国，并<strong>不会分配到中国地区</strong>（从下图开始，我将借用他人的图片；<s>手里没微软账号了</s>）</p>
+<p><img src="https://i.loli.net/2020/04/05/lp69NzFVCYJtQGn.png" alt="a1c41fdca65c37dd6e36632be169799e_2_3_art.jpg" loading="lazy"></p>
+<p>按需填写即可</p>
+<p><img src="https://i.loli.net/2020/04/05/TdmOc57DMYQjolL.jpg" alt="d96736fdcc28d6be0559214b05a7bbb6_2_3_art.jpg" loading="lazy"></p>
+<p>添加订阅，填好无误后点击“继续”</p>
+<p><img src="https://i.loli.net/2020/04/05/SuBKindq8146bPg.png" alt="c6a286057712ff9c8498a3ca2713c7a4_2_3_art.jpg" loading="lazy"></p>
+<p>此时，会有一个窗口弹出，这是微软为避免恶意注册而设置的；填上手机号码，<strong>然后再次确保你的网络地址处于非封锁国际互联网地区</strong>，点击“发送代码”；如若<strong>未弹出谷歌验证系统，则您的网络地址仍处于封锁国际互联网地区</strong>，将无法收到验证码</p>
+<p><img src="https://i.loli.net/2020/04/05/j8BzGeLnWfVi6wA.jpg" alt="a34dd68de99f33d1f2c9ea38b602eb60_2_3_art.jpg" loading="lazy"></p>
+<p>如果到了这一步，恭喜，你躲过了微软的风控系统，并且薅了微软一把羊毛</p>
+<p><img src="https://i.loli.net/2020/04/05/pwsl9zQCrEcNBj4.png" alt="批注 2020-04-05 132130.jpg" loading="lazy"></p>
+<h1 id="开发活动"><a href="#开发活动" class="headerlink" title="开发活动"></a>开发活动</h1><blockquote>
+<p>首先明确一个概念：微软的初衷是奖励开发人员，所以才会有“开发者订阅”<br>因而，开发者只会天天使用Office吗？当然不，他们会开发一系列有关Office的产品，如：可以自动接收邮件并回复的程序、无需打开OneDrive就可以查看并修改其内的文件等等，这些，都需要一个“接口”，也就是“API”；微软正是通过监视调用接口，从而判断你是否在从事开发工作。<br>也就是说，想要白嫖Office的开发人员许可，就必须让微软认为你是“开发者”。<br>但微软的续期其实也是个玄学问题，有人什么都没干无限续期，有人用遍了目前可以调用的API，结果还是连第一个续期都没过</p>
+</blockquote>
+<p>需要一点点运气，以及一些脑子；<s>还有翻译</s></p>
+<h2 id="搭建OneIndex"><a href="#搭建OneIndex" class="headerlink" title="搭建OneIndex"></a>搭建OneIndex</h2><p>搭建OneIndex，调用OneDrive API；</p>
+<ul>
+<li>优点：简单、调用API的同时还可以当作私人网盘使用</li>
+<li>缺点：需要服务器</li>
+</ul>
+<p>土豪可以直接买服务器搭建OneIndex</p>
+<h3 id="Gearhost免费空间"><a href="#Gearhost免费空间" class="headerlink" title="Gearhost免费空间"></a>Gearhost免费空间</h3><p>细心的我已经为你准备好了教程：<a href="https://blog.csdn.net/qq_44768248/article/details/99671695">绝对免费搭建不限速私人网盘5T存储空间:Gearhost免费空间+OneIndex程序+Onedrive免费账号</a></p>
+<p>教程写的还不错，第一步Onedrive免费账号可以直接忽略。只是只有100MB的储存空间，还不能设置定时任务（Gearhost免费套餐需绑定信用卡才可以设置定时任务），导致缓存需要时常手动清理，但毕竟是免费的。</p>
+<h3 id="Heroku免费套餐"><a href="#Heroku免费套餐" class="headerlink" title="Heroku免费套餐"></a>Heroku免费套餐</h3><p>细心的我又给你准备了一个教程：<a href="https://banma.ac.cn/65.html">免服务器用heroku+OneDrive搭建OneManager网盘</a></p>
+<p>我的外链中有一个“My Drive”，就是那个小云，点击就可以进入我的私人网盘。<br>免费有免费的限制，那就是如果三十分钟内无人访问就会进入休眠。。。</p>
+<h3 id="腾讯SCF"><a href="#腾讯SCF" class="headerlink" title="腾讯SCF"></a>腾讯SCF</h3><p><a href="https://www.mad-coding.cn/2019/12/02/%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AFSCF-onedrive%E6%90%AD%E5%BB%BA5T%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%9B%98/">使用腾讯SCF+onedrive搭建5T个人网盘</a></p>
+<p>上面这篇文章写的很清楚：腾讯开始收费了；没钱买服务器但又想花钱买平安的小伙伴可以选择这种方法</p>
+<h2 id="大佬开发的E5自动续订程序"><a href="#大佬开发的E5自动续订程序" class="headerlink" title="大佬开发的E5自动续订程序"></a>大佬开发的E5自动续订程序</h2><p>只有这一篇教程：<a href="https://blog.curlc.com/archives/687.html">E5 自动订阅程序</a></p>
+<p>优点：简单、免费<br>缺点：很明显，用的人很多；人多了，自然容易出问题，不喜欢折腾的小伙伴可以使用这种方法</p>
+<h2 id="GitHub开源程序AutoApi系列"><a href="#GitHub开源程序AutoApi系列" class="headerlink" title="GitHub开源程序AutoApi系列"></a>GitHub开源程序AutoApi系列</h2><p>教程在GitHub上，已开源。</p>
+<blockquote>
+<ul>
+<li><a href="https://github.com/wangziyingwen/AutoApi">普通版</a></li>
+<li><a href="https://github.com/wangziyingwen/AutoApiSecret">加密版</a></li>
+<li><a href="https://github.com/wangziyingwen/AutoApiSR">仿人为开发版</a></li>
+<li><a href="https://github.com/wangziyingwen/AutoApiS">超级版</a>（截至本文写成仍在测试，但已开源）</li>
+</ul>
+</blockquote>
+<p>优点：专门调用API，为调用API而开发，自动调用，可调节调用间隔<br>缺点：麻烦</p>
+<p>我踩到的坑：好像全程只能使用管理员账号操作；我首先使用的子账号，出现了错误，后期又用管理员账户授权就可以用了，可能是权限问题？<br>喜欢折腾的可以去看一看</p>
+<h1 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h1><h2 id="关于OFFICE-365（MICROSOFT-365）的种类"><a href="#关于OFFICE-365（MICROSOFT-365）的种类" class="headerlink" title="关于OFFICE 365（MICROSOFT 365）的种类"></a>关于OFFICE 365（MICROSOFT 365）的种类</h2><p>简单写一下，如果想要了解更多，可以参考：<a href="https://img.moedog.org/images/2019/08/21/3653.png">犬’s Blog 免费订阅思维导图</a>、<a href="https://peachcat.org/archives/584">蜜桃猫 office365毕业全家福</a></p>
+<ol>
+<li>教育系列（A）：A1、A1Plus、A3、A5；其中A1无桌面版OFFICE，MICROSOFT 365 A3、A5有教育版Windows许可，每一种订阅又分学生版和教师版</li>
+<li>商务系列（E、F）：E3、E5、F1、F3，均为企业大量购买，其中包括商业高级版及大部分单独订阅</li>
+<li>开发者系列（E）：E3 开发者（已绝版；一年期限，不可续订）、E5 开发者（撸废了，有停止注册的迹象；每90天一次续订）、E3 MSDN（绝版）</li>
+<li>个人系列：家庭版、商业版等，微软官方在购买页写的很清楚，不在此过多赘述</li>
+<li>单独订阅：太多了……如：OFFICE 365 Pro Plus</li>
+<li>政府系列（G）：G1、G3、G5（没见过；不知道有没有大佬敢撸）</li>
+</ol>
+<h2 id="关于翻车"><a href="#关于翻车" class="headerlink" title="关于翻车"></a>关于翻车</h2><p>翻车没什么好说的，以下两种情况：</p>
+<ol>
+<li>被微软风控，全局之类的给你封喽</li>
+<li>如果是子号，可能是管理员把你的号删了</li>
+</ol>
+<h2 id="关于onedrive无法使用"><a href="#关于onedrive无法使用" class="headerlink" title="关于onedrive无法使用"></a>关于onedrive无法使用</h2><p>网页版如果出现“正在为您设置onedrive”类似情况，请等待24小时后登录；如果还不行，请联系你的管理员、百度\谷歌\必应一下（最简单）、联系微软（管理员账号）<br>onedrive里的资源要多重备份，私人资料最好不要放（如果你是管理员就当我没说），可以多撸几个不同全局的账号。</p>
+<h2 id="关于外国教育邮箱"><a href="#关于外国教育邮箱" class="headerlink" title="关于外国教育邮箱"></a>关于外国教育邮箱</h2><p>不保稳，翻车几率甚至可以超过A1、A1P，主要还是我大天朝薅羊毛的太多了。<br>外国edu邮箱主要薅的是社区大学（大概相当于国内的大专）</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p><strong>所有方法都不能保证续订！只是可以增加续订概率！</strong><br>听说现在有OneNote API的调用方式，不知道是不是真的<br>哪位大佬有其他方法的可以写在评论区！感谢您的无私奉献！</p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用Cloudflare Workers搭建镜像网站</title>
+    <url>/2020/05/03/20/</url>
+    <content><![CDATA[<p>还是要使用之前搭建反向代理的平台，依然使用cloudflare workers平台搭建，不懂的翻之前的教程</p>
+<span id="more"></span>
+
+<h1 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h1><ol>
+<li>此处选择以镜像维基百科为演示</li>
+<li>原作者的代码为谷歌镜像，有相应模板</li>
+<li>说了这么多，无非是粘贴代码，然后点击“保存并部署”的事情</li>
+<li>源码很简单，可以自己更改</li>
+</ol>
+<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><ol>
+<li>新建workers</li>
+</ol>
+<p><img src="https://i.loli.net/2020/07/26/OLiZ3f5YIHUwJFm.png" alt="1.png" loading="lazy"></p>
+<ol start="2">
+<li>复制一个你感兴趣的镜像网站脚本</li>
+</ol>
+<p><img src="https://i.loli.net/2020/07/26/vaWQtscjPzdgpoT.png" alt="2.png" loading="lazy"></p>
+<ol start="3">
+<li>删除初始代码并将镜像脚本复制进去</li>
+</ol>
+<p><img src="https://i.loli.net/2020/07/26/lKdpcitTfqjCbnr.png" alt="3.png" loading="lazy"></p>
+<ol start="4">
+<li>最后一步，成功后就是你的镜像啦~</li>
+</ol>
+<p><img src="https://i.loli.net/2020/07/26/Z4uT82PYVzI9kwA.png" alt="4.png" loading="lazy"></p>
+<ol start="5">
+<li>突破：实际上你可以依据脚本自己改的，具体操作在此不做演示，自行摸索。</li>
+</ol>
+<h1 id="警告⚠"><a href="#警告⚠" class="headerlink" title="警告⚠"></a>警告⚠</h1><ol>
+<li>每天免费调用额度仅十万次！</li>
+<li>本项目中镜像均不可登录账号，请悉知。</li>
+<li>镜像网站中YouTube几乎不可用，就是个摆设；镜像网站中Google可以打开不可用，会被谷歌认为是机器人，目前该问题得不到有效解决；且Cloudflare Workers官方已识别，在大陆不可使用。</li>
+<li>不保证可行性，更新时间为：2020年4月29日</li>
+<li>请自行在<a href="https://github.com/">Github</a>中搜索此项目</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微软教育版A3订阅是不是钓鱼？</title>
+    <url>/2020/05/05/21/</url>
+    <content><![CDATA[<p>微软自己的锅，配置错误。本订阅会在六月末撤销；本文旨在记录一个<s>伟大</s>订阅的诞生。</p>
+<p><s>诸位只要对Office的事情关注一下，就知道现在忽然出来一阵撸教育版免费A3的风；有一部分人裤子都来不及穿就去薅微软羊毛了，而有一部分人则担心这是否是微软在钓鱼。</s><br><s>首先，要知道微软是否在钓鱼，我们就要弄清楚A3是什么订阅，这次的免费A3又是什么订阅。</s></p>
+<span id="more"></span>
+
+<h1 id="Microsoft-365-A3"><a href="#Microsoft-365-A3" class="headerlink" title="Microsoft 365 A3"></a>Microsoft 365 A3</h1><p>以下的英文部分是我摘抄自微软官网，中文部分来自谷歌翻译；其中，Microsoft 365 A3 for students HK$33.00&#x2F;用户&#x2F;月、HK$396.00&#x2F;用户&#x2F;年；Microsoft 365 A3 for faculty HK$45.00&#x2F;用户&#x2F;月、HK$540.00&#x2F;用户&#x2F;年；显然，此次的免费A3绝对不是这个订阅。</p>
+<h2 id="Microsoft-365-A3-for-students"><a href="#Microsoft-365-A3-for-students" class="headerlink" title="Microsoft 365 A3 for students"></a>Microsoft 365 A3 for students</h2><p>Office 365 A3, Enterprise Mobility + Security E3, Windows 10 Education E3, and Minecraft: Education Edition. This per-user licensed suite of Education products offers users best-in-class productivity across devices while providing IT security and control.</p>
+<p>Office 365 A3，企业移动性和安全性E3，Windows 10教育版E3和Minecraft教育版。 此按用户许可的教育产品套件可为用户提供跨设备的一流生产力，同时提供IT安全性和控制力。</p>
+<h2 id="Microsoft-365-A3-for-faculty"><a href="#Microsoft-365-A3-for-faculty" class="headerlink" title="Microsoft 365 A3 for faculty"></a>Microsoft 365 A3 for faculty</h2><p>Office 365 A3, Enterprise Mobility + Security E3, Windows 10 Education E3, and Minecraft: Education Edition. This per-user licensed suite of Education products offers users best-in-class productivity across devices while providing IT security and control.</p>
+<p>Office 365 A3，企业移动性和安全性E3，Windows 10教育版E3和Minecraft教育版。 此按用户许可的教育产品套件可为用户提供跨设备的一流生产力，同时提供IT安全性和控制力。</p>
+<h1 id="此次的免费教育版A3订阅"><a href="#此次的免费教育版A3订阅" class="headerlink" title="此次的免费教育版A3订阅"></a>此次的免费教育版A3订阅</h1><p>此次的免费教育版A3全称为：Microsoft 365 A3 - Unattended License for students use benefit，微软官方翻译是Microsoft 365 A3 - 适用于学生使用权益的无人参与许可</p>
+<p><img src="https://i.loli.net/2020/05/05/FHPfkWUzxuwGidl.png" alt="_89ZPI83RVAY1Y___LG8_XO.png" loading="lazy"><em>Microsoft 365 A3 - Unattended License for students use benefit</em></p>
+<p>上图的一百五十万用户订阅就是此次的免费教育版A3许可证；</p>
+<p>需要注意的是，此次A3订阅用户的数量一定程度上要和A1相匹配，比如我手里有一个一百五十万许可证的A1订阅，那么我最多只弄一百五十万许可证的A3订阅，多了<s>可能</s>会被微软风控。</p>
+<p><s>但是也有大佬填一亿许可证，据说直到今早上午才翻车，存活时间超过了24小时</s></p>
+<h2 id="此订阅的特点"><a href="#此订阅的特点" class="headerlink" title="此订阅的特点"></a>此订阅的特点</h2><p>玄学，没错，微软最近的产品都挺玄学，从E5开发者到A3学生免费使用许可。</p>
+<p>如此玄学：</p>
+<ol>
+<li>早上购买此订阅被风控的概率比下午低；</li>
+<li>存活时间再创记录，一小时之内被撤销许可的大有人在；</li>
+<li>二零二零年五月四日是存活率最高的一天，往后的存活率基本是越来越低；</li>
+<li><s>有缘人</s>（有钱人）专属订阅；</li>
+<li>订阅的许可数量其实并不影响风控概率（？）</li>
+</ol>
+<h2 id="此次免费订阅带来的影响"><a href="#此次免费订阅带来的影响" class="headerlink" title="此次免费订阅带来的影响"></a>此次免费订阅带来的影响</h2><p>可以说非常巨大；E3 MSDN绝版只是前奏，此次的A3许可带来的影响比E3绝版带来的影响更加巨大，因为E3 MSDN绝版也仅仅是拉高了自己的身价，这次A3订阅直接把国际版Office 365<del>黑</del>市场重新洗牌了，下面我列举几个：</p>
+<ol>
+<li>由于A3许可不仅存活率比E3（没错，就是那个350万订阅专坑小白的）高，而且在功能上完爆A1 PLUS（A3&#x3D;Office 365桌面版+Win10企业版+我的世界教育版），导致A1 PLUS的价格暴跌，目前市场价在10至20元之间（子号），全局是可以订阅A3的，目前又升了（存疑？）</li>
+<li>原来爹不疼妈不爱、鸡肋般的A1全局价格飙升，一个小时内狂翻七倍有余，从市场价50至300元之间升到了1200至5000元之间，目前仅有翻车A1（A3订阅被撤销的A1订阅，已被风控）有售（有传闻说A1全局要绝版，这也是A1全局价格飙升的原因之一）</li>
+<li>E3 MSDN这个香饽饽瞬间不香了，但目前价格还是偏高</li>
+<li>现在有人出售A3子号了，由于暂不确定是否稳定，价格在20至100之间</li>
+<li><s>有一大批人因此发家致富，2020年度最佳理财产品</s></li>
+</ol>
+<p>综上所述，E3绝版仅仅是它自己的身价高了，而此次A3的横空出世，直接使A1 PLUS子号价格狂跌、A1全局价格暴涨、动摇了E3 MSDN的根基、<s>养活了一大批仓鼠佬</s>、E5开发者也变得无人问津</p>
+<p>手里有A1 PLUS的可以当收藏用了，那可是曾经的性价比之王</p>
+<h1 id="推荐？"><a href="#推荐？" class="headerlink" title="推荐？"></a>推荐？</h1><p>暂不，因为出来的时间太短了，某些坐等A3许可被撤销的可以收一批低价A1 P全局；现在有两类人：一类是裤子都不顾的去撸A3，一类趁机低价收翻车A1、A1 PLUS全局，最后鹿死谁手，不得定论。</p>
+<h1 id="钓鱼？"><a href="#钓鱼？" class="headerlink" title="钓鱼？"></a>钓鱼？</h1><p>暂不认为是钓鱼，因为此订阅在使用订阅链接购买前，购买面板上无此订阅的显示（截至2020年05月03日）；且有电子发票存在</p>
+<p><img src="https://i.loli.net/2020/05/05/chfuNwg2WQ3tSrG.png" alt="FU2PG@6@FAJ5RT_H_XTZ2DF.png" loading="lazy"><em>A3订阅的电子发票</em></p>
+<h1 id="购买链接"><a href="#购买链接" class="headerlink" title="购买链接"></a>购买链接</h1><p>有一部分博主已经公布了，所以我算是比较晚的了，在此多放几个免费订阅购买链接，不怕被撤销、风控一条龙服务的可以买</p>
+<ol>
+<li><a href="https://portal.office.com/SubscriptionDetails?OfferId=FDA70919-1F10-4DF6-9249-A77473011840">A3订阅链接</a></li>
+<li><a href="https://admin.microsoft.com/SubscriptionDetails?OfferId=A89F6463-1F7B-4f51-90DD-8C182637B002">E1订阅链接</a></li>
+<li><a href="https://admin.microsoft.com/SubscriptionDetails?OfferId=C18B235E-8366-48b8-AE41-6E596C44944D">E3订阅链接</a>（就是那个臭名远扬的350万订阅购买链接，被风控几率极高）</li>
+<li><a href="https://www.microsoft.com/zh-cn/microsoft-365/compare-all-microsoft-365-products?&activetab=tab:primaryr2">商业版试用</a>（配合E1、E3食用）</li>
+<li><a href="https://signup.microsoft.com/Signup?OfferId=953c773d-e732-42cf-9d37-645ee688173d,ce475220-3edb-45b4-a1ac-4d100b5f4059&DL=ENTERPRISEPREMIUM_NOPSTNCONF_FACULTY&culture=zh-CN&country=CN&ali=1">教育版试用</a></li>
+<li><a href="https://signup.microsoft.com/Signup?offerid=e56a8505-feea-4b75-bd30-bd2959d77943&culture=zh-cn&isPolaris=0&country=CN&ali=1&alo=1&culture=zh-cn&country=CN">E3商务版试用</a></li>
+<li><a href="https://admin.microsoft.com/Adminportal/Home?source=applauncher#/Domains/SOWizard">教育资格认证</a>（注意调到旧面板，目前大部分edu域名无效）</li>
+</ol>
+<p><s>不推荐大家购买以上的全局订阅，广大羊毛党已经将风控撸到了历史峰值，在我看来，现在去买A3订阅无疑就是送死行为，头铁用户可以去买，之后全局订阅翻车不要找我</s><br><s>目前头铁的用户也不要去随意购买A3订阅了，现在除了05月04日及之前的订阅大部分还在，05月04日之后注册的几乎没有“存活率”一词可言。</s><br><s>现在A1+A3各一百五十万用户全局稳定后很贵的，起码可以肩比A1 PLUS全局的价格，所以别想买全局的事情了。</s></p>
+<h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>此处追踪更新Microsoft A3现状</p>
+<p>2021年二月更新：Microsoft A3最近又出来了，价格极其高，一般在1000元以上；过了5月份如果可以续订恐怕有价无市了；最近买A3的都是想赌一把的MJJ们<br>2021年六月更新：Microsoft A3续订成功，MJJ们“几家欢喜几家愁”；有人的Microsoft A3确实续订了，可惜管理员账号被封了，有人的Microsoft A3也续订了，只恨当年买的少<br><img src="https://i.loli.net/2021/08/21/TbCdxUL6GjhW7XO.png" alt="图片.png" loading="lazy"><em>Microsoft A3续订邮件</em><br>2021年八月更新：Microsoft A3已经可以光明正大的售卖了；但MJJ们各执一词，有MJJ执意要免费赠送，有MJJ想趁机大发黑心财</p>
+]]></content>
+      <tags>
+        <tag>解答</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Heroku搭建V2Ray并用CF加速</title>
     <url>/2020/07/26/25/</url>
     <content><![CDATA[<p><strong>更新：此方法已失效，请另寻高明</strong></p>
@@ -376,6 +433,65 @@
       </tags>
   </entry>
   <entry>
+    <title>EUserv德国免费VPS(ipv6 only)</title>
+    <url>/2020/08/17/27/</url>
+    <content><![CDATA[<p>如题，这个免费VPS出来好久了，是骡子是马，咱今天就拉出来溜溜。</p>
+<span id="more"></span>
+
+<h1 id="我的VPS呢"><a href="#我的VPS呢" class="headerlink" title="我的VPS呢!?"></a>我的VPS呢!?</h1><p>连不上，死活都连不上，我家的网络不支持IP6，听别人说嘿呦终端可以当跳板，我试了又试，差点把我搞抑郁，最后折腾了四个月才连上</p>
+<p>没啥要注意的地方，就是连接方式填手动就对了，不然会有玄学问题产生；我用他家的日本节点才连上IP6 VPS</p>
+<p>更新：嘿哟终端好像不提供日本节点了，大家仁者见仁智者见智吧；我是用Oracle的免费云服务器当跳板连接EUserv服务器的<s>（无限套娃）</s></p>
+<h1 id="连上VPS后第一件事"><a href="#连上VPS后第一件事" class="headerlink" title="连上VPS后第一件事"></a>连上VPS后第一件事</h1><p>有些人想也不想，直接把V2Ray的一键脚本命令丢上去run了……恕我直言，这玩意连IP4都不能访问，咋这么蜜汁自信，把V2一键脚本丢上去run？虽说有个<s>屌大的</s>MJJ说过：“下载了直接run啊, python xxx.py就完事了, 缘分到了就不会报错”只是，人家也不是IP6环境呀，是吧</p>
+<p>至于接下来要干什么……嗯~ o(<em>￣▽￣</em>)o，咱也是咨询了<a href="https://tzchz.home.blog/">朋友</a>才知道的不是吗。</p>
+<p>我是想搞宝塔的说，但其实无论搭不搭建宝塔面板，都要干一件事：改nameserver，以便让小鸡能访问到IPv4的资源</p>
+<p>先运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /etc/resolv.conf</span><br></pre></td></tr></table></figure>
+
+<p>运行之后，不管这个文件上面有啥，都按英文字母 <code>i</code> 进入编辑，删掉所有内容，没有就不用删了，然后填上：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nameserver 2001:67c:2b0::4</span><br><span class="line">nameserver 2001:67c:2b0::6</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/08/16/zLeGiDOhpRsmvM4.png" alt="图片.png" loading="lazy"><em>大抵如此</em></p>
+<p>之后，按 <code>Esc</code> ，输入 <code>:wq</code> 回车，完事，改好，能访问IP4了。<br>我知道有些人到这步又要兴冲冲跑去run脚本了……<br>你不知道先套个CF嘛？它能访问IP4，但它自己依然是IP6啊……<br>可以用AAAA记录，也可以用CNAME记录，前者直接填IP6地址就行，后者用服务商给的三级域名（如：×××××.blue.kundencontroller.de）；记住，不要开强制HTTPS！我被这玩意坑惨了，搞了好久都不知道为啥访问不了，差点自闭，多亏<a href="https://tzchz.home.blog/">TzCHZ</a>（PY交易），然后他和我说关上强制HTTPS就行……</p>
+<h1 id="搭建宝塔面板"><a href="#搭建宝塔面板" class="headerlink" title="搭建宝塔面板"></a>搭建宝塔面板</h1><p>这个德国的免费VPS，流量只有1TB&#x2F;月，我也看了一下前辈们的实战感言，据说用来科学上网速度感人，于是我只能用来干些别的事情了；要是只想科学上网的话，其实还不如多注册几个Heroku账号呢，人家2TB&#x2F;月的流量，套上CF可谓是“真香”的典范，具体的话请看<a href="https://yenpou.github.io/2020/07/26/25/">Heroku搭建V2Ray并用CF加速</a>这篇文章</p>
+<p>宝塔嘛~使用方法和其他普通服务器上一致，但还是把命令贴出来照顾小白（谁不是从小白过来的呢？）</p>
+<p>先运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">screen -S baota</span><br></pre></td></tr></table></figure>
+
+<p>然后（注意，此处是官方版，非破解版）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure>
+
+<p>之后如果没有失误的话应该是以下界面</p>
+<p><img src="https://i.loli.net/2020/08/16/6UeCgzWlXyN748c.png" alt="图片.png" loading="lazy"></p>
+<p>输入 <code>y</code> 就行，有其他想法的朋友随意。<br>然后就是长达几分钟的跑代码阶段…</p>
+<p>宝塔是中国人研发的，所以结束界面是中文，不要说你看不懂，正确的话皆大欢喜，套上CF，改个8080端口（至于为什么非要8080端口？可以参考CHZ的<a href="https://tzchz.home.blog/2020/08/15/17-euserv1i/">Euserv纯IPv6VPS实战踩坑记录</a>这篇文章），就可以愉快的使用了，关键是，如果错误了呢？</p>
+<blockquote>
+<p>答：重新运行安装命令，直到正确。</p>
+</blockquote>
+<p>随后就是各种折腾…有什么：软件安装但不显示啊，启动错误啊…</p>
+<p>但是大部分错误用这个方法都可以解决：</p>
+<blockquote>
+<p>重装系统</p>
+</blockquote>
+<p>这是我的成品图：</p>
+<p><img src="https://i.loli.net/2020/08/16/BjslZv1NdMXkSPg.png" alt="图片.png" loading="lazy"></p>
+<p>如图，免费IP6 VPS的配置如下：</p>
+<ul>
+<li>CPU：1 Core @ 1 GHz</li>
+<li>内存：1 GB</li>
+<li>硬盘：10 GB HDD</li>
+<li>带宽：1 Gbit</li>
+<li>I  P：1 IPv6</li>
+</ul>
+<p>要我看，搭建个网盘还不错，结果Cloudreve程序用的是5212端口，不行了，弃</p>
+<p>然后又经过<a href="https://www.acebacg.top/">烟火</a>与<a href="https://tzchz.home.blog/">CHZ</a>惨痛的教训，OneIndex也是搞不得了，转念一想，其实虚拟主机搭建的网盘也挺好，毕竟OneIndex、OneManager都只需要PHP就行了，就是Cloudreve搞不得有点失望。</p>
+<p>IPv6小鸡成功被我玩坏</p>
+<p><s>以我的性格，肯定不会让这台小鸡闲着，既然科学上网也搞不得，网盘也搞不得，只好……“那就来一个发卡站吧！”</s><br><s>欢迎参观我用这台IP6 VPS搭建出来的<a href="https://shop.skxlz.top/">测试商店程序</a>，也欢迎捐款，用以表示对我的鼓励。</s><br><s>（发卡站收款接口其实还可以水一篇文章，只不过我太懒了，就不写了，嘻嘻）</s></p>
+]]></content>
+      <tags>
+        <tag>折腾</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>公共教学用电脑（多媒体）软件推荐</title>
     <url>/2020/10/01/31/</url>
     <content><![CDATA[<p>原定2020年的文章，还是推到了2021。</p>
@@ -430,6 +546,105 @@
       </tags>
   </entry>
   <entry>
+    <title>脑抽风往服务器中砸钱的经历</title>
+    <url>/2020/09/08/30/</url>
+    <content><![CDATA[<p><s>脑子抽风了，</s>明天就要上学，再回来就是10月1日了，我居然往vultr里扔了10美刀<br><s>2021年又抽风了，</s>花了432大洋买了腾讯云的4年学生轻量服务器。<br>砸在云服务器上的钱已经到几百大洋了，也算是将资本主义大厂都薅了一把羊毛吧，<s>同时也被各资本主义大厂反薅了不少</s></p>
+<span id="more"></span>
+
+<h1 id="抽风买Vultr"><a href="#抽风买Vultr" class="headerlink" title="抽风买Vultr"></a>抽风买Vultr</h1><h2 id="抽风过程"><a href="#抽风过程" class="headerlink" title="抽风过程"></a><s>抽风过程</s></h2><p>老早就想玩vultr了，但是当时听网络上对vultr的评价都不太好（vultr当时大部分IP地址被封锁），我也就没有再考虑，何况这可是真金白银的10美刀，于是也仅仅只是在vultr注册了个账号，邮箱都没验证。</p>
+<p><s>也许是学习压力太大了，</s>我一放假回来，满脑子想的都是想搞个服务器玩玩，起因是上次我说的三台德国IPv6 only小鸡（<a href="https://www.skxlz.top/2020/08/17/27/">EUserv德国免费VPS(ipv6 only)</a>）全部连不上了…</p>
+<p>于是乎，沉寂许久的vultr进入了我的视野，10美刀？100美刀！好像赚了！</p>
+<p>于是我就往里扔了10美刀；<s>真鸡儿令人心痛&#x2F;(ㄒoㄒ)&#x2F;~~</s></p>
+<p><img src="https://i.loli.net/2020/09/08/bwIQ8jWAUaGzN2d.png" alt="image.png" loading="lazy"><em>抽风的结果，大家不要学我</em></p>
+<h2 id="披甲上马"><a href="#披甲上马" class="headerlink" title="披甲上马"></a>披甲上马</h2><p>钱都付了，何况用的也是免费送的30天100美刀，虽说看了一下诸位前辈的经历都说不要卖他家的win服务器（以建站为前提），然，我还是买了win服务器，下载用途。</p>
+<p>别和我说啥Linux的下载工具比win更好用，我就是想转运百度网盘里的资源而已。</p>
+<p>卖！管他什么IP地址被封锁，管他什么win系统授权费！</p>
+<p><img src="https://i.loli.net/2020/09/08/msp2zgtRBwcrYA1.png" alt="图片.png" loading="lazy"></p>
+<p>20美刀的win服务器（实际上是按小时收费），还可以…</p>
+<p>可能是我比较幸运，也可能是没遇到重大政治节日，我买的这台日本服务器并没有被封锁，win10自带的远程桌面连接感觉挺好的。</p>
+<p><img src="https://i.loli.net/2020/09/08/WoHgXUP7lRQErOC.png" alt="批注 2020-09-08 152939.png" loading="lazy"></p>
+<p>也没有用来作为科学上网的需要，拿来下载资源用的，配合上IDM，速度可以达到70+MB&#x2F;s。</p>
+<p><img src="https://i.loli.net/2020/09/08/bpzBLkwcTq2oKSy.png" alt="批注 2020-09-08 154641.png" loading="lazy"></p>
+<p>最后只薅了Vultr三十多美金的羊毛，应该赚了吧（陷入思考🤔…）</p>
+<h1 id="抽风买腾讯云"><a href="#抽风买腾讯云" class="headerlink" title="抽风买腾讯云"></a>抽风买腾讯云</h1><p>偶然看见了这则消息，本着“买到就是赚到”的心理，买了腾讯云的4年轻量学生服务器，然后又免费升了一下套餐。配置如下：</p>
+<ul>
+<li>2核</li>
+<li>内存：4G</li>
+<li>带宽：6M</li>
+<li>硬盘：80G SSD</li>
+</ul>
+<p>吐槽一下，中国大陆服务器的带宽是真小。<br>买之前热血澎湃，买之后却又陷入了迷茫之中——买了个服务器，该干啥呢？建站？好主意，于是搭建宝塔，上来就是Cloudreve，第二天：<br><img src="https://i.loli.net/2021/02/06/Uz54oaGxweKgJXO.png" alt="图片.png" loading="lazy"></p>
+<p>￥#……￥&amp;%%￥*&amp;……，心中百万草泥马奔过，于是只好闲置下来；上外网？呵！离线下载？就这带宽，就这硬盘！云电脑刷网课？似乎是它唯一的用途了，但我觉得腾讯免费送的一个月体验服务器就够了，那台服务器也可以参加免费升级活动，配置和上面的一样，于是装了windows，刷上了网课…</p>
+<p><a href="https://tzchz.home.blog/">TCHZ</a>倒是给了我四种解决方法，大家也可以参考一下（转载已获授权）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">总结一下，给你四种解决方案，应该可以不备案：</span><br><span class="line">1、用frp访问（我推荐的方法），你试一下www.natfrp.com这个行不行，cloudreve的话直接穿透5212端口；</span><br><span class="line">2、带端口访问，应该不会被拦截，还是举cloudreve的例子，比如直接访问ip:5212看能不能打开cloudreve网页；</span><br><span class="line">3、使用支持异端口回源的cdn（在第二种方法“不拦截普通端口”的假设成立的基础上），从域名的443端口回源到ip的5212端口，这个我暂时没有找到免费的，收费的应该有；</span><br><span class="line">4、用其他人提供的二级已备案域名试试，比如：dns.l1nks.us，这个是免费的，网上还有其他收费的（不一定成功，因为注册人可能没有将已备案的域名接入）。</span><br></pre></td></tr></table></figure>
+
+<p>其实有想过装个V2Ray之类的，不过服务器在国内欸…</p>
+<p>大佬们有啥好玩有趣的项目可以留言啊！</p>
+<h1 id="现在拥有且正在吃灰的VPS"><a href="#现在拥有且正在吃灰的VPS" class="headerlink" title="现在拥有且正在吃灰的VPS"></a>现在拥有<s>且正在吃灰</s>的VPS</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>台数&#x2F;钱数</th>
+<th>注备</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>腾讯云广州</td>
+<td>一</td>
+<td>目前用来刷网课</td>
+</tr>
+<tr>
+<td>EUserv德国</td>
+<td>三</td>
+<td>吃灰ing~</td>
+</tr>
+<tr>
+<td>Oracle东京</td>
+<td>二</td>
+<td>目前还没有开出来ARM服务器</td>
+</tr>
+<tr>
+<td>Google Cloud Platform</td>
+<td>$300</td>
+<td>用Paypal验证过去的，吃灰ing~</td>
+</tr>
+<tr>
+<td>AWS香港</td>
+<td>一</td>
+<td>免费12个月，每月15GB流量，吃灰ing~</td>
+</tr>
+<tr>
+<td>Azure for students</td>
+<td>二&#x2F;$100</td>
+<td>每月15GB流量，吃灰ing~</td>
+</tr>
+<tr>
+<td>Vultr</td>
+<td>$10.65</td>
+<td>听说它家IP被墙了不少？</td>
+</tr>
+<tr>
+<td>Windows 365</td>
+<td>三</td>
+<td>三个月后试用订阅过期</td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>教训</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于我忘了自己还有个Blog这件事</title>
+    <url>/2022/06/19/34/</url>
+    <content><![CDATA[<p>在近一年没碰Blog之后，无法更新Yun主题导致的一次事故。</p>
+<span id="more"></span>
+
+<p>腾出手来再接触Blog已经是一年的时间了；由于Yun主题已经进入到了新版本，虽然参照了指南却也无法更新以及评论系统的崩溃，加之总感觉服务器上放一个静态网站实在是“杀鸡焉用宰牛刀”，所以，我打算从头再来😀。</p>
+<h1 id="新的开始"><a href="#新的开始" class="headerlink" title="新的开始"></a>新的开始</h1><p>当然先初始化BLog啦<br><img src="https://s2.loli.net/2022/06/19/7zFvpV2yEcmBDKh.png" alt="图片.png" loading="lazy"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>部署Valine-Admin评论系统</title>
     <url>/2020/08/23/29/</url>
     <content><![CDATA[<p>网上大部分教程是中国版的，本人做为国际版用户，只好自己折腾。<br><strong>前排提示：本教程不适用于中国版（也就是华南节点、华北节点）</strong></p>
@@ -471,7 +686,7 @@
 </tr>
 <tr>
 <td>SMTP_USER</td>
-<td><a href="mailto:&#120;&#120;&#120;&#x78;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;">&#120;&#120;&#120;&#x78;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;</a></td>
+<td><a href="mailto:&#x78;&#x78;&#x78;&#x78;&#x78;&#120;&#64;&#x71;&#x71;&#46;&#99;&#111;&#x6d;">&#x78;&#x78;&#x78;&#x78;&#x78;&#120;&#64;&#x71;&#x71;&#46;&#99;&#111;&#x6d;</a></td>
 <td>[必填]SMTP登录用户</td>
 </tr>
 <tr>
@@ -486,7 +701,7 @@
 </tr>
 <tr>
 <td>SENDER_EMAIL</td>
-<td><a href="mailto:&#x78;&#120;&#x78;&#120;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#x78;&#120;&#x78;&#120;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;</a></td>
+<td><a href="mailto:&#120;&#120;&#x78;&#120;&#120;&#x78;&#64;&#x71;&#x71;&#46;&#x63;&#x6f;&#109;">&#120;&#120;&#x78;&#120;&#120;&#x78;&#64;&#x71;&#x71;&#46;&#x63;&#x6f;&#109;</a></td>
 <td>[必填]发件邮箱</td>
 </tr>
 <tr>
@@ -496,7 +711,7 @@
 </tr>
 <tr>
 <td>BLOGGER_EMAIL</td>
-<td><a href="mailto:&#120;&#120;&#x78;&#x78;&#120;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;">&#120;&#120;&#x78;&#x78;&#120;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;</a></td>
+<td><a href="mailto:&#x78;&#120;&#120;&#120;&#120;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#x6f;&#x6d;">&#x78;&#120;&#120;&#120;&#120;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#x6f;&#x6d;</a></td>
 <td>[可选]博主通知收件地址，默认使用SENDER_EMAIL</td>
 </tr>
 <tr>
@@ -618,221 +833,6 @@
 ]]></content>
       <tags>
         <tag>折腾</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于我忘了自己还有个Blog这件事</title>
-    <url>/2022/06/19/34/</url>
-    <content><![CDATA[<p>在近一年没碰Blog之后，无法更新Yun主题导致的一次事故。</p>
-<span id="more"></span>
-
-<p>腾出手来再接触Blog已经是一年的时间了；由于Yun主题已经进入到了新版本，虽然参照了指南却也无法更新以及评论系统的崩溃，加之总感觉服务器上放一个静态网站实在是“杀鸡焉用宰牛刀”，所以，我打算从头再来😀。</p>
-<h1 id="新的开始"><a href="#新的开始" class="headerlink" title="新的开始"></a>新的开始</h1><p>当然先初始化BLog啦<br><img src="https://s2.loli.net/2022/06/19/7zFvpV2yEcmBDKh.png" alt="图片.png" loading="lazy"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>脑抽风往服务器中砸钱的经历</title>
-    <url>/2020/09/08/30/</url>
-    <content><![CDATA[<p><s>脑子抽风了，</s>明天就要上学，再回来就是10月1日了，我居然往vultr里扔了10美刀<br><s>2021年又抽风了，</s>花了432大洋买了腾讯云的4年学生轻量服务器。<br>砸在云服务器上的钱已经到几百大洋了，也算是将资本主义大厂都薅了一把羊毛吧，<s>同时也被各资本主义大厂反薅了不少</s></p>
-<span id="more"></span>
-
-<h1 id="抽风买Vultr"><a href="#抽风买Vultr" class="headerlink" title="抽风买Vultr"></a>抽风买Vultr</h1><h2 id="抽风过程"><a href="#抽风过程" class="headerlink" title="抽风过程"></a><s>抽风过程</s></h2><p>老早就想玩vultr了，但是当时听网络上对vultr的评价都不太好（vultr当时大部分IP地址被封锁），我也就没有再考虑，何况这可是真金白银的10美刀，于是也仅仅只是在vultr注册了个账号，邮箱都没验证。</p>
-<p><s>也许是学习压力太大了，</s>我一放假回来，满脑子想的都是想搞个服务器玩玩，起因是上次我说的三台德国IPv6 only小鸡（<a href="https://www.skxlz.top/2020/08/17/27/">EUserv德国免费VPS(ipv6 only)</a>）全部连不上了…</p>
-<p>于是乎，沉寂许久的vultr进入了我的视野，10美刀？100美刀！好像赚了！</p>
-<p>于是我就往里扔了10美刀；<s>真鸡儿令人心痛&#x2F;(ㄒoㄒ)&#x2F;~~</s></p>
-<p><img src="https://i.loli.net/2020/09/08/bwIQ8jWAUaGzN2d.png" alt="image.png" loading="lazy"><em>抽风的结果，大家不要学我</em></p>
-<h2 id="披甲上马"><a href="#披甲上马" class="headerlink" title="披甲上马"></a>披甲上马</h2><p>钱都付了，何况用的也是免费送的30天100美刀，虽说看了一下诸位前辈的经历都说不要卖他家的win服务器（以建站为前提），然，我还是买了win服务器，下载用途。</p>
-<p>别和我说啥Linux的下载工具比win更好用，我就是想转运百度网盘里的资源而已。</p>
-<p>卖！管他什么IP地址被封锁，管他什么win系统授权费！</p>
-<p><img src="https://i.loli.net/2020/09/08/msp2zgtRBwcrYA1.png" alt="图片.png" loading="lazy"></p>
-<p>20美刀的win服务器（实际上是按小时收费），还可以…</p>
-<p>可能是我比较幸运，也可能是没遇到重大政治节日，我买的这台日本服务器并没有被封锁，win10自带的远程桌面连接感觉挺好的。</p>
-<p><img src="https://i.loli.net/2020/09/08/WoHgXUP7lRQErOC.png" alt="批注 2020-09-08 152939.png" loading="lazy"></p>
-<p>也没有用来作为科学上网的需要，拿来下载资源用的，配合上IDM，速度可以达到70+MB&#x2F;s。</p>
-<p><img src="https://i.loli.net/2020/09/08/bpzBLkwcTq2oKSy.png" alt="批注 2020-09-08 154641.png" loading="lazy"></p>
-<p>最后只薅了Vultr三十多美金的羊毛，应该赚了吧（陷入思考🤔…）</p>
-<h1 id="抽风买腾讯云"><a href="#抽风买腾讯云" class="headerlink" title="抽风买腾讯云"></a>抽风买腾讯云</h1><p>偶然看见了这则消息，本着“买到就是赚到”的心理，买了腾讯云的4年轻量学生服务器，然后又免费升了一下套餐。配置如下：</p>
-<ul>
-<li>2核</li>
-<li>内存：4G</li>
-<li>带宽：6M</li>
-<li>硬盘：80G SSD</li>
-</ul>
-<p>吐槽一下，中国大陆服务器的带宽是真小。<br>买之前热血澎湃，买之后却又陷入了迷茫之中——买了个服务器，该干啥呢？建站？好主意，于是搭建宝塔，上来就是Cloudreve，第二天：<br><img src="https://i.loli.net/2021/02/06/Uz54oaGxweKgJXO.png" alt="图片.png" loading="lazy"></p>
-<p>￥#……￥&amp;%%￥*&amp;……，心中百万草泥马奔过，于是只好闲置下来；上外网？呵！离线下载？就这带宽，就这硬盘！云电脑刷网课？似乎是它唯一的用途了，但我觉得腾讯免费送的一个月体验服务器就够了，那台服务器也可以参加免费升级活动，配置和上面的一样，于是装了windows，刷上了网课…</p>
-<p><a href="https://tzchz.home.blog/">TCHZ</a>倒是给了我四种解决方法，大家也可以参考一下（转载已获授权）：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">总结一下，给你四种解决方案，应该可以不备案：</span><br><span class="line">1、用frp访问（我推荐的方法），你试一下www.natfrp.com这个行不行，cloudreve的话直接穿透5212端口；</span><br><span class="line">2、带端口访问，应该不会被拦截，还是举cloudreve的例子，比如直接访问ip:5212看能不能打开cloudreve网页；</span><br><span class="line">3、使用支持异端口回源的cdn（在第二种方法“不拦截普通端口”的假设成立的基础上），从域名的443端口回源到ip的5212端口，这个我暂时没有找到免费的，收费的应该有；</span><br><span class="line">4、用其他人提供的二级已备案域名试试，比如：dns.l1nks.us，这个是免费的，网上还有其他收费的（不一定成功，因为注册人可能没有将已备案的域名接入）。</span><br></pre></td></tr></table></figure>
-
-<p>其实有想过装个V2Ray之类的，不过服务器在国内欸…</p>
-<p>大佬们有啥好玩有趣的项目可以留言啊！</p>
-<h1 id="现在拥有且正在吃灰的VPS"><a href="#现在拥有且正在吃灰的VPS" class="headerlink" title="现在拥有且正在吃灰的VPS"></a>现在拥有<s>且正在吃灰</s>的VPS</h1><table>
-<thead>
-<tr>
-<th>项目</th>
-<th>台数&#x2F;钱数</th>
-<th>注备</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>腾讯云广州</td>
-<td>一</td>
-<td>目前用来刷网课</td>
-</tr>
-<tr>
-<td>EUserv德国</td>
-<td>三</td>
-<td>吃灰ing~</td>
-</tr>
-<tr>
-<td>Oracle东京</td>
-<td>二</td>
-<td>目前还没有开出来ARM服务器</td>
-</tr>
-<tr>
-<td>Google Cloud Platform</td>
-<td>$300</td>
-<td>用Paypal验证过去的，吃灰ing~</td>
-</tr>
-<tr>
-<td>AWS香港</td>
-<td>一</td>
-<td>免费12个月，每月15GB流量，吃灰ing~</td>
-</tr>
-<tr>
-<td>Azure for students</td>
-<td>二&#x2F;$100</td>
-<td>每月15GB流量，吃灰ing~</td>
-</tr>
-<tr>
-<td>Vultr</td>
-<td>$10.65</td>
-<td>听说它家IP被墙了不少？</td>
-</tr>
-<tr>
-<td>Windows 365</td>
-<td>三</td>
-<td>三个月后试用订阅过期</td>
-</tr>
-</tbody></table>
-]]></content>
-      <tags>
-        <tag>教训</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>EUserv德国免费VPS(ipv6 only)</title>
-    <url>/2020/08/17/27/</url>
-    <content><![CDATA[<p>如题，这个免费VPS出来好久了，是骡子是马，咱今天就拉出来溜溜。</p>
-<span id="more"></span>
-
-<h1 id="我的VPS呢"><a href="#我的VPS呢" class="headerlink" title="我的VPS呢!?"></a>我的VPS呢!?</h1><p>连不上，死活都连不上，我家的网络不支持IP6，听别人说嘿呦终端可以当跳板，我试了又试，差点把我搞抑郁，最后折腾了四个月才连上</p>
-<p>没啥要注意的地方，就是连接方式填手动就对了，不然会有玄学问题产生；我用他家的日本节点才连上IP6 VPS</p>
-<p>更新：嘿哟终端好像不提供日本节点了，大家仁者见仁智者见智吧；我是用Oracle的免费云服务器当跳板连接EUserv服务器的<s>（无限套娃）</s></p>
-<h1 id="连上VPS后第一件事"><a href="#连上VPS后第一件事" class="headerlink" title="连上VPS后第一件事"></a>连上VPS后第一件事</h1><p>有些人想也不想，直接把V2Ray的一键脚本命令丢上去run了……恕我直言，这玩意连IP4都不能访问，咋这么蜜汁自信，把V2一键脚本丢上去run？虽说有个<s>屌大的</s>MJJ说过：“下载了直接run啊, python xxx.py就完事了, 缘分到了就不会报错”只是，人家也不是IP6环境呀，是吧</p>
-<p>至于接下来要干什么……嗯~ o(<em>￣▽￣</em>)o，咱也是咨询了<a href="https://tzchz.home.blog/">朋友</a>才知道的不是吗。</p>
-<p>我是想搞宝塔的说，但其实无论搭不搭建宝塔面板，都要干一件事：改nameserver，以便让小鸡能访问到IPv4的资源</p>
-<p>先运行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /etc/resolv.conf</span><br></pre></td></tr></table></figure>
-
-<p>运行之后，不管这个文件上面有啥，都按英文字母 <code>i</code> 进入编辑，删掉所有内容，没有就不用删了，然后填上：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nameserver 2001:67c:2b0::4</span><br><span class="line">nameserver 2001:67c:2b0::6</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://i.loli.net/2020/08/16/zLeGiDOhpRsmvM4.png" alt="图片.png" loading="lazy"><em>大抵如此</em></p>
-<p>之后，按 <code>Esc</code> ，输入 <code>:wq</code> 回车，完事，改好，能访问IP4了。<br>我知道有些人到这步又要兴冲冲跑去run脚本了……<br>你不知道先套个CF嘛？它能访问IP4，但它自己依然是IP6啊……<br>可以用AAAA记录，也可以用CNAME记录，前者直接填IP6地址就行，后者用服务商给的三级域名（如：×××××.blue.kundencontroller.de）；记住，不要开强制HTTPS！我被这玩意坑惨了，搞了好久都不知道为啥访问不了，差点自闭，多亏<a href="https://tzchz.home.blog/">TzCHZ</a>（PY交易），然后他和我说关上强制HTTPS就行……</p>
-<h1 id="搭建宝塔面板"><a href="#搭建宝塔面板" class="headerlink" title="搭建宝塔面板"></a>搭建宝塔面板</h1><p>这个德国的免费VPS，流量只有1TB&#x2F;月，我也看了一下前辈们的实战感言，据说用来科学上网速度感人，于是我只能用来干些别的事情了；要是只想科学上网的话，其实还不如多注册几个Heroku账号呢，人家2TB&#x2F;月的流量，套上CF可谓是“真香”的典范，具体的话请看<a href="https://yenpou.github.io/2020/07/26/25/">Heroku搭建V2Ray并用CF加速</a>这篇文章</p>
-<p>宝塔嘛~使用方法和其他普通服务器上一致，但还是把命令贴出来照顾小白（谁不是从小白过来的呢？）</p>
-<p>先运行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">screen -S baota</span><br></pre></td></tr></table></figure>
-
-<p>然后（注意，此处是官方版，非破解版）：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure>
-
-<p>之后如果没有失误的话应该是以下界面</p>
-<p><img src="https://i.loli.net/2020/08/16/6UeCgzWlXyN748c.png" alt="图片.png" loading="lazy"></p>
-<p>输入 <code>y</code> 就行，有其他想法的朋友随意。<br>然后就是长达几分钟的跑代码阶段…</p>
-<p>宝塔是中国人研发的，所以结束界面是中文，不要说你看不懂，正确的话皆大欢喜，套上CF，改个8080端口（至于为什么非要8080端口？可以参考CHZ的<a href="https://tzchz.home.blog/2020/08/15/17-euserv1i/">Euserv纯IPv6VPS实战踩坑记录</a>这篇文章），就可以愉快的使用了，关键是，如果错误了呢？</p>
-<blockquote>
-<p>答：重新运行安装命令，直到正确。</p>
-</blockquote>
-<p>随后就是各种折腾…有什么：软件安装但不显示啊，启动错误啊…</p>
-<p>但是大部分错误用这个方法都可以解决：</p>
-<blockquote>
-<p>重装系统</p>
-</blockquote>
-<p>这是我的成品图：</p>
-<p><img src="https://i.loli.net/2020/08/16/BjslZv1NdMXkSPg.png" alt="图片.png" loading="lazy"></p>
-<p>如图，免费IP6 VPS的配置如下：</p>
-<ul>
-<li>CPU：1 Core @ 1 GHz</li>
-<li>内存：1 GB</li>
-<li>硬盘：10 GB HDD</li>
-<li>带宽：1 Gbit</li>
-<li>I  P：1 IPv6</li>
-</ul>
-<p>要我看，搭建个网盘还不错，结果Cloudreve程序用的是5212端口，不行了，弃</p>
-<p>然后又经过<a href="https://www.acebacg.top/">烟火</a>与<a href="https://tzchz.home.blog/">CHZ</a>惨痛的教训，OneIndex也是搞不得了，转念一想，其实虚拟主机搭建的网盘也挺好，毕竟OneIndex、OneManager都只需要PHP就行了，就是Cloudreve搞不得有点失望。</p>
-<p>IPv6小鸡成功被我玩坏</p>
-<p><s>以我的性格，肯定不会让这台小鸡闲着，既然科学上网也搞不得，网盘也搞不得，只好……“那就来一个发卡站吧！”</s><br><s>欢迎参观我用这台IP6 VPS搭建出来的<a href="https://shop.skxlz.top/">测试商店程序</a>，也欢迎捐款，用以表示对我的鼓励。</s><br><s>（发卡站收款接口其实还可以水一篇文章，只不过我太懒了，就不写了，嘻嘻）</s></p>
-]]></content>
-      <tags>
-        <tag>折腾</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微软教育版A3订阅是不是钓鱼？</title>
-    <url>/2020/05/05/21/</url>
-    <content><![CDATA[<p>微软自己的锅，配置错误。本订阅会在六月末撤销；本文旨在记录一个<s>伟大</s>订阅的诞生。</p>
-<p><s>诸位只要对Office的事情关注一下，就知道现在忽然出来一阵撸教育版免费A3的风；有一部分人裤子都来不及穿就去薅微软羊毛了，而有一部分人则担心这是否是微软在钓鱼。</s><br><s>首先，要知道微软是否在钓鱼，我们就要弄清楚A3是什么订阅，这次的免费A3又是什么订阅。</s></p>
-<span id="more"></span>
-
-<h1 id="Microsoft-365-A3"><a href="#Microsoft-365-A3" class="headerlink" title="Microsoft 365 A3"></a>Microsoft 365 A3</h1><p>以下的英文部分是我摘抄自微软官网，中文部分来自谷歌翻译；其中，Microsoft 365 A3 for students HK$33.00&#x2F;用户&#x2F;月、HK$396.00&#x2F;用户&#x2F;年；Microsoft 365 A3 for faculty HK$45.00&#x2F;用户&#x2F;月、HK$540.00&#x2F;用户&#x2F;年；显然，此次的免费A3绝对不是这个订阅。</p>
-<h2 id="Microsoft-365-A3-for-students"><a href="#Microsoft-365-A3-for-students" class="headerlink" title="Microsoft 365 A3 for students"></a>Microsoft 365 A3 for students</h2><p>Office 365 A3, Enterprise Mobility + Security E3, Windows 10 Education E3, and Minecraft: Education Edition. This per-user licensed suite of Education products offers users best-in-class productivity across devices while providing IT security and control.</p>
-<p>Office 365 A3，企业移动性和安全性E3，Windows 10教育版E3和Minecraft教育版。 此按用户许可的教育产品套件可为用户提供跨设备的一流生产力，同时提供IT安全性和控制力。</p>
-<h2 id="Microsoft-365-A3-for-faculty"><a href="#Microsoft-365-A3-for-faculty" class="headerlink" title="Microsoft 365 A3 for faculty"></a>Microsoft 365 A3 for faculty</h2><p>Office 365 A3, Enterprise Mobility + Security E3, Windows 10 Education E3, and Minecraft: Education Edition. This per-user licensed suite of Education products offers users best-in-class productivity across devices while providing IT security and control.</p>
-<p>Office 365 A3，企业移动性和安全性E3，Windows 10教育版E3和Minecraft教育版。 此按用户许可的教育产品套件可为用户提供跨设备的一流生产力，同时提供IT安全性和控制力。</p>
-<h1 id="此次的免费教育版A3订阅"><a href="#此次的免费教育版A3订阅" class="headerlink" title="此次的免费教育版A3订阅"></a>此次的免费教育版A3订阅</h1><p>此次的免费教育版A3全称为：Microsoft 365 A3 - Unattended License for students use benefit，微软官方翻译是Microsoft 365 A3 - 适用于学生使用权益的无人参与许可</p>
-<p><img src="https://i.loli.net/2020/05/05/FHPfkWUzxuwGidl.png" alt="_89ZPI83RVAY1Y___LG8_XO.png" loading="lazy"><em>Microsoft 365 A3 - Unattended License for students use benefit</em></p>
-<p>上图的一百五十万用户订阅就是此次的免费教育版A3许可证；</p>
-<p>需要注意的是，此次A3订阅用户的数量一定程度上要和A1相匹配，比如我手里有一个一百五十万许可证的A1订阅，那么我最多只弄一百五十万许可证的A3订阅，多了<s>可能</s>会被微软风控。</p>
-<p><s>但是也有大佬填一亿许可证，据说直到今早上午才翻车，存活时间超过了24小时</s></p>
-<h2 id="此订阅的特点"><a href="#此订阅的特点" class="headerlink" title="此订阅的特点"></a>此订阅的特点</h2><p>玄学，没错，微软最近的产品都挺玄学，从E5开发者到A3学生免费使用许可。</p>
-<p>如此玄学：</p>
-<ol>
-<li>早上购买此订阅被风控的概率比下午低；</li>
-<li>存活时间再创记录，一小时之内被撤销许可的大有人在；</li>
-<li>二零二零年五月四日是存活率最高的一天，往后的存活率基本是越来越低；</li>
-<li><s>有缘人</s>（有钱人）专属订阅；</li>
-<li>订阅的许可数量其实并不影响风控概率（？）</li>
-</ol>
-<h2 id="此次免费订阅带来的影响"><a href="#此次免费订阅带来的影响" class="headerlink" title="此次免费订阅带来的影响"></a>此次免费订阅带来的影响</h2><p>可以说非常巨大；E3 MSDN绝版只是前奏，此次的A3许可带来的影响比E3绝版带来的影响更加巨大，因为E3 MSDN绝版也仅仅是拉高了自己的身价，这次A3订阅直接把国际版Office 365<del>黑</del>市场重新洗牌了，下面我列举几个：</p>
-<ol>
-<li>由于A3许可不仅存活率比E3（没错，就是那个350万订阅专坑小白的）高，而且在功能上完爆A1 PLUS（A3&#x3D;Office 365桌面版+Win10企业版+我的世界教育版），导致A1 PLUS的价格暴跌，目前市场价在10至20元之间（子号），全局是可以订阅A3的，目前又升了（存疑？）</li>
-<li>原来爹不疼妈不爱、鸡肋般的A1全局价格飙升，一个小时内狂翻七倍有余，从市场价50至300元之间升到了1200至5000元之间，目前仅有翻车A1（A3订阅被撤销的A1订阅，已被风控）有售（有传闻说A1全局要绝版，这也是A1全局价格飙升的原因之一）</li>
-<li>E3 MSDN这个香饽饽瞬间不香了，但目前价格还是偏高</li>
-<li>现在有人出售A3子号了，由于暂不确定是否稳定，价格在20至100之间</li>
-<li><s>有一大批人因此发家致富，2020年度最佳理财产品</s></li>
-</ol>
-<p>综上所述，E3绝版仅仅是它自己的身价高了，而此次A3的横空出世，直接使A1 PLUS子号价格狂跌、A1全局价格暴涨、动摇了E3 MSDN的根基、<s>养活了一大批仓鼠佬</s>、E5开发者也变得无人问津</p>
-<p>手里有A1 PLUS的可以当收藏用了，那可是曾经的性价比之王</p>
-<h1 id="推荐？"><a href="#推荐？" class="headerlink" title="推荐？"></a>推荐？</h1><p>暂不，因为出来的时间太短了，某些坐等A3许可被撤销的可以收一批低价A1 P全局；现在有两类人：一类是裤子都不顾的去撸A3，一类趁机低价收翻车A1、A1 PLUS全局，最后鹿死谁手，不得定论。</p>
-<h1 id="钓鱼？"><a href="#钓鱼？" class="headerlink" title="钓鱼？"></a>钓鱼？</h1><p>暂不认为是钓鱼，因为此订阅在使用订阅链接购买前，购买面板上无此订阅的显示（截至2020年05月03日）；且有电子发票存在</p>
-<p><img src="https://i.loli.net/2020/05/05/chfuNwg2WQ3tSrG.png" alt="FU2PG@6@FAJ5RT_H_XTZ2DF.png" loading="lazy"><em>A3订阅的电子发票</em></p>
-<h1 id="购买链接"><a href="#购买链接" class="headerlink" title="购买链接"></a>购买链接</h1><p>有一部分博主已经公布了，所以我算是比较晚的了，在此多放几个免费订阅购买链接，不怕被撤销、风控一条龙服务的可以买</p>
-<ol>
-<li><a href="https://portal.office.com/SubscriptionDetails?OfferId=FDA70919-1F10-4DF6-9249-A77473011840">A3订阅链接</a></li>
-<li><a href="https://admin.microsoft.com/SubscriptionDetails?OfferId=A89F6463-1F7B-4f51-90DD-8C182637B002">E1订阅链接</a></li>
-<li><a href="https://admin.microsoft.com/SubscriptionDetails?OfferId=C18B235E-8366-48b8-AE41-6E596C44944D">E3订阅链接</a>（就是那个臭名远扬的350万订阅购买链接，被风控几率极高）</li>
-<li><a href="https://www.microsoft.com/zh-cn/microsoft-365/compare-all-microsoft-365-products?&activetab=tab:primaryr2">商业版试用</a>（配合E1、E3食用）</li>
-<li><a href="https://signup.microsoft.com/Signup?OfferId=953c773d-e732-42cf-9d37-645ee688173d,ce475220-3edb-45b4-a1ac-4d100b5f4059&DL=ENTERPRISEPREMIUM_NOPSTNCONF_FACULTY&culture=zh-CN&country=CN&ali=1">教育版试用</a></li>
-<li><a href="https://signup.microsoft.com/Signup?offerid=e56a8505-feea-4b75-bd30-bd2959d77943&culture=zh-cn&isPolaris=0&country=CN&ali=1&alo=1&culture=zh-cn&country=CN">E3商务版试用</a></li>
-<li><a href="https://admin.microsoft.com/Adminportal/Home?source=applauncher#/Domains/SOWizard">教育资格认证</a>（注意调到旧面板，目前大部分edu域名无效）</li>
-</ol>
-<p><s>不推荐大家购买以上的全局订阅，广大羊毛党已经将风控撸到了历史峰值，在我看来，现在去买A3订阅无疑就是送死行为，头铁用户可以去买，之后全局订阅翻车不要找我</s><br><s>目前头铁的用户也不要去随意购买A3订阅了，现在除了05月04日及之前的订阅大部分还在，05月04日之后注册的几乎没有“存活率”一词可言。</s><br><s>现在A1+A3各一百五十万用户全局稳定后很贵的，起码可以肩比A1 PLUS全局的价格，所以别想买全局的事情了。</s></p>
-<h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>此处追踪更新Microsoft A3现状</p>
-<p>2021年二月更新：Microsoft A3最近又出来了，价格极其高，一般在1000元以上；过了5月份如果可以续订恐怕有价无市了；最近买A3的都是想赌一把的MJJ们<br>2021年六月更新：Microsoft A3续订成功，MJJ们“几家欢喜几家愁”；有人的Microsoft A3确实续订了，可惜管理员账号被封了，有人的Microsoft A3也续订了，只恨当年买的少<br><img src="https://i.loli.net/2021/08/21/TbCdxUL6GjhW7XO.png" alt="图片.png" loading="lazy"><em>Microsoft A3续订邮件</em><br>2021年八月更新：Microsoft A3已经可以光明正大的售卖了；但MJJ们各执一词，有MJJ执意要免费赠送，有MJJ想趁机大发黑心财</p>
-]]></content>
-      <tags>
-        <tag>解答</tag>
       </tags>
   </entry>
 </search>
