@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#103E65"><meta name="author" content="XiYKi"><meta name="copyright" content="XiYKi"><meta name="generator" content="Hexo 6.2.0"><meta name="theme" content="hexo-theme-yun"><title>从Vercel逃到Railway，再到Docker自建waline | 道之远兮</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/star-markdown-css@0.4.1/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="https://fastly.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link class="aplayer-style-marker" rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script class="aplayer-script-marker" src="https://fastly.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" defer></script><script class="meting-script-marker" src="https://fastly.jsdelivr.net/npm/meting@1/dist/Meting.min.js" defer></script><link rel="icon" type="image/png" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#103E65"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"dzyx.uk","root":"/","title":"道之遠兮","version":"1.10.9","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"想找些什么呢~","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194","187, 255, 255","174, 238, 238","152, 245, 255","0, 245, 255","0, 255, 255"]},"waline":{"config":{"enable":true,"serverURL":"https://comment.dzyx.uk/","comment":false,"tips":"简洁是智慧的灵魂，昂长是肤浅的藻饰","el":"#waline","lang":"zh-CN"},"cdn":"https://fastly.jsdelivr.net/npm/@waline/client@v2/dist/waline.js","dark":"html.dark"},"vendors":{"host":"https://fastly.jsdelivr.net/npm/","darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><link rel="alternate" href="/atom.xml" title="道之远兮" type="application/atom+xml"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=G-KSW0EH0LX6"></script><script>if (CONFIG.hostname === location.hostname) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KSW0EH0LX6');
+}</script><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();</script><meta name="description" content="本文原标题《从Vercel逃到Railway》，由于近日使用Docker部署waline成功，所以改为《从Vercel逃到Railway，再到Docker自建waline》需要着重要说明的一点是，与TzCHZ 逃离WordPress.com的经历与教训：自主建站的重要性 不同，从基于LeanCloud和Vercel的waline转移数据并不产生任何费用😝">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从Vercel逃到Railway，再到Docker自建waline">
+<meta property="og:url" content="https://dzyx.uk/2023/01/22/39/index.html">
+<meta property="og:site_name" content="道之远兮">
+<meta property="og:description" content="本文原标题《从Vercel逃到Railway》，由于近日使用Docker部署waline成功，所以改为《从Vercel逃到Railway，再到Docker自建waline》需要着重要说明的一点是，与TzCHZ 逃离WordPress.com的经历与教训：自主建站的重要性 不同，从基于LeanCloud和Vercel的waline转移数据并不产生任何费用😝">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2023/01/24/C8AXqUhp2dlOLKn.png">
+<meta property="og:image" content="https://s2.loli.net/2023/01/24/Cc7xvPwGM35RlND.png">
+<meta property="og:image" content="https://s2.loli.net/2023/02/08/WusHkPX7DlgOfQx.png">
+<meta property="og:image" content="https://s2.loli.net/2023/02/08/MW1Ux4aLhmY2IPo.png">
+<meta property="og:image" content="https://s2.loli.net/2023/09/09/Sif5MIUDepK96AH.png">
+<meta property="og:image" content="https://s2.loli.net/2023/01/25/fZTc8PVlo9KGq1H.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/83561960/214034630-1f7d268e-70ca-4c8d-97c5-846a1f83506e.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/83561960/214201241-2248afb0-6b72-455e-b828-68809d18f232.png">
+<meta property="article:published_time" content="2023-01-22T10:33:25.000Z">
+<meta property="article:modified_time" content="2023-09-09T02:43:43.652Z">
+<meta property="article:author" content="XiYKi">
+<meta property="article:tag" content="折腾">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2023/01/24/C8AXqUhp2dlOLKn.png"><script>(function() {
+  if (CONFIG.mode !== 'auto') return
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="XiYKi"><img width="96" loading="lazy" src="/images/timg.jpg" alt="XiYKi"></a><div class="site-author-name"><a href="/about/">XiYKi</a></div><a class="site-name" href="/about/site.html">道之远兮</a><sub class="site-subtitle"></sub><div class="site-description">他往黑暗中去了</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">23</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">7</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">7</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://pan.dzyx.uk/" title="My Drive"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:cloud-line"></span></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><span class="icon iconify" data-icon="ri:rss-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/xiyki" title="GitHub" target="_blank" style="color:#181717"><span class="icon iconify" data-icon="ri:github-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:i@dzyx.uk" title="E-Mail" target="_blank" style="color:#8E71C1"><span class="icon iconify" data-icon="ri:mail-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/351940900" title="Bilibili" target="_blank" style="color:#FF8EB3"><span class="icon iconify" data-icon="ri:bilibili-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/ji-yuan-xie-41/" title="知乎" target="_blank" style="color:#0084FF"><span class="icon iconify" data-icon="ri:zhihu-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://twitter.com/xi_yki/" title="Twitter" target="_blank" style="color:#1da1f2"><span class="icon iconify" data-icon="ri:twitter-line"></span></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="小伙伴们" style="color:dodgerblue"><span class="icon iconify" data-icon="ri:genderless-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">前情提要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E9%83%A8%E7%BD%B2waline"><span class="toc-number">2.</span> <span class="toc-text">独立部署waline</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.1.</span> <span class="toc-text">MySQL在服务器上的设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker%E9%83%A8%E7%BD%B2"><span class="toc-number">2.2.</span> <span class="toc-text">Docker部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-compose%E9%83%A8%E7%BD%B2"><span class="toc-number">2.2.1.</span> <span class="toc-text">docker-compose部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4Docker"><span class="toc-number">2.2.2.</span> <span class="toc-text">删除Docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4Docker%E9%95%9C%E5%83%8F"><span class="toc-number">2.2.3.</span> <span class="toc-text">删除Docker镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#systemd"><span class="toc-number">2.3.</span> <span class="toc-text">systemd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8C"><span class="toc-number">2.4.</span> <span class="toc-text">直接运行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Railway"><span class="toc-number">3.</span> <span class="toc-text">Railway</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E7%BD%91%E5%9D%80"><span class="toc-number">3.1.</span> <span class="toc-text">生成网址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E8%AE%BA%E9%80%9A%E7%9F%A5"><span class="toc-number">3.2.</span> <span class="toc-text">评论通知</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E6%8A%A5%E9%94%99"><span class="toc-number">3.3.</span> <span class="toc-text">导入报错</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">4.</span> <span class="toc-text">结语</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#103E65;"><link itemprop="mainEntityOfPage" href="https://dzyx.uk/2023/01/22/39/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="XiYKi"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="道之远兮"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">从Vercel逃到Railway，再到Docker自建waline</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="创建时间：2023-01-22 18:33:25" itemprop="dateCreated datePublished" datetime="2023-01-22T18:33:25+08:00">2023-01-22</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-2-line"></span></span> <time title="修改时间：2023-09-09 10:43:43" itemprop="dateModified" datetime="2023-09-09T10:43:43+08:00">2023-09-09</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><span class="icon iconify" data-icon="ri:file-word-line"></span></span> <span title="本文字数">2.7k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><span class="icon iconify" data-icon="ri:timer-line"></span></span> <span title="阅读时长">10m</span></span></span><div class="post-classify"><span class="post-tag"><a class="tag-item" href="/tags/%E6%8A%98%E8%85%BE/" style="--text-color:#4fc08d"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">折腾</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><p>本文原标题《从Vercel逃到Railway》，由于近日使用Docker部署waline成功，所以改为《从Vercel逃到Railway，再到Docker自建waline》<br>需要着重要说明的一点是，与TzCHZ <a target="_blank" rel="noopener" href="https://www.chz.one/2022/02/06/30-wpcom/">逃离WordPress.com的经历与教训：自主建站的重要性</a> 不同，从基于LeanCloud和Vercel的waline转移数据并不产生任何费用😝</p>
+<span id="more"></span>
+
+<h1 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h1><p>LeanCloud国际版 宣布不为中国大陆用户提供服务之后，我其实一直在想转移评论系统，只不过限于当时的情况，我不得不将计划向后推迟，<i>开学之后，又沉溺于玩乐无法自拔；</i>当然，大家不要学我，我是个反面教材</p>
+<p>Vercel 现在在中国大陆无法访问，所以会选择转移到 Railway ；waline 转移评论还是很简单的，去原来的 waline 后台导出 json 文件后再导入新的 waline 即可，唯一让我不太满意的就是在 Railway 无法使用自己的 MySQL 数据库</p>
+<p>之前选择 Railway 纯粹是因为自建 waline 没有成功，既然现在在服务器上用 Docker 部署成功了，之前的 Railway 就沦为了备胎<i>（请为没用几天Railway默哀一秒）</i>；不过对于没有服务器的博主来讲，Railway 依然不失为一种选择</p>
+<h1 id="独立部署waline"><a href="#独立部署waline" class="headerlink" title="独立部署waline"></a>独立部署waline</h1><p>关于独立部署，官方文档中写的很少，比较适合有一定前端经验的人运行，像我这种刚学会C、Python的大学生就很难部署成功， MySQL 设置就是我在折腾独立部署时的产物，这篇文章本来是想记录一下独立部署waline的，<s>结果因为我没部署成功，所以文章标题变成了《从Vercel逃到Railway》，不过我也会记录自己失败的尝试；</s>现在用 Docker 部署成功了，我也要记录自己成功的经验🤪</p>
+<h2 id="MySQL在服务器上的设置"><a href="#MySQL在服务器上的设置" class="headerlink" title="MySQL在服务器上的设置"></a>MySQL在服务器上的设置</h2><p>我使用的是 MySQL 数据库，其他数据库的设置仅供参考</p>
+<p>导入 <code>waline.sql</code> 之前，要先确认你的 MySQL 版本不低于 5.6 ，因为 MySQL 5.5 不支持两个 timestamp 字段同时为 CURRENT_TIMESTAMP ，导入文件时会报错；新建用户之后要去授予用户数据库的访问权，不然也会报错，尽量不要用 root 用户</p>
+<p>在 <code>账户</code> 中，有两个 <code>user</code> 的权限，独立部署仅修改 <code>localhost</code> 的权限会更加安全，但如果数据库与评论系统不在同一个服务器，就需要授权从任何 IP 登陆的 <code>user</code> 账户都有读写 <code>blog-waline</code> 数据库的权限<br><img src="https://s2.loli.net/2023/01/24/C8AXqUhp2dlOLKn.png" alt="image.png" loading="lazy"></p>
+<p>只需要给 <code>user</code> 需要访问的数据库权限即可<br><img src="https://s2.loli.net/2023/01/24/Cc7xvPwGM35RlND.png" alt="image.png" loading="lazy"></p>
+<h2 id="Docker部署"><a href="#Docker部署" class="headerlink" title="Docker部署"></a>Docker部署</h2><p>尝试 Docker 部署的先决条件：</p>
+<ol>
+<li>确保自己的服务器中已经安装 Docker</li>
+<li>已经按照上一节配置好数据库或使用其他服务商提供的数据库</li>
+</ol>
+<p>查看 Docker 版本（验证是否安装了 Docker ）：</p>
+<blockquote>
+<p>docker -v</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/02/08/WusHkPX7DlgOfQx.png" alt="image.png" loading="lazy"><em>标准输出</em></p>
+<p>之前没有尝试 Docker 部署，是因为<a target="_blank" rel="noopener" href="https://waline.js.org/guide/deploy/vps.html#docker-%E9%83%A8%E7%BD%B2">官方文档</a>给出的示例使用的是 LeanCloud 数据库，而我并不想继续使用 LeanCloud 数据库，因此一直没有尝试 Docker 部署，最近在看 Docker 文档的时候突然想到既然变量直接写在命令里，那么把数据库改成自己的 MySQL 数据库是不是也可以？</p>
+<p>官方给出的 Docker 部署命令如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  -e LEAN_ID=xxx \</span><br><span class="line">  -e LEAN_KEY=xxx \</span><br><span class="line">  -e LEAN_SERVER=https://xxx.com \</span><br><span class="line">  -p 8360:8360 \</span><br><span class="line">  lizheming/waline</span><br></pre></td></tr></table></figure>
+
+<p>只需参考官方文档中<a target="_blank" rel="noopener" href="https://waline.js.org/guide/database.html">多数据库服务支持</a>一节，稍加修改其中的变量，就可以在 Docker 中使用自己的数据库了；比如我使用的数据库是 MySQL ，那么 Docker 部署命令就应当是如下格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  -e MYSQL_DB=xxx \</span><br><span class="line">  -e MYSQL_USER=xxx \</span><br><span class="line">  -e MYSQL_PASSWORD=xxx \</span><br><span class="line">  -p 8360:8360 \</span><br><span class="line">  lizheming/waline</span><br></pre></td></tr></table></figure>
+
+<p>同理，官方文档中写明的其他数据库也可以按照类似格式修改；邮件通知需要另行添加变量，参考官方文档<a target="_blank" rel="noopener" href="https://waline.js.org/guide/features/notification.html#%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5">邮件通知</a>一节</p>
+<p>把修改好的命令丢到服务器中直接运行，等一会儿就好了；如果不介意网址中带端口，那么设置一下防火墙，放开8360端口就能访问你的 waline ，如果想直接使用域名，可以去设置一下反向代理</p>
+<p>参考文章：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.zdynb.cn/2022/shi-yong-docker-bu-shu-waline.html">使用Docker部署waline</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43943642/article/details/126678317">Waline评论服务docker自部署手册 + 无需备案域名配置</a></li>
+</ol>
+<h3 id="docker-compose部署"><a href="#docker-compose部署" class="headerlink" title="docker-compose部署"></a>docker-compose部署</h3><p>直接使用 Docker 部署，在添加其他变量（如：邮件通知相关变量）时可能会发生连接不到数据库的情况，所以我认为有必要采取 docker-compose 部署，它的部署也很简单，数据库使用的是官方示例 SQLite ；要想使用 MySQL数据库，还需进一步设置变量，此处不给予演示</p>
+<p>如果你和我一样，使用 SQLite数据库，那么仅需简单几步就能部署 waline ；<br>首先在网站目录下新建<code>docker-compose.yml</code>文件，然后找个好地方下载官方给的<a target="_blank" rel="noopener" href="https://github.com/walinejs/waline/blob/main/assets/waline.sqlite">waline.sqlite</a>文件，在配置文件中填入变量，连接SSH，在网站目录下，运行</p>
+<blockquote>
+<p>docker compose up</p>
+</blockquote>
+<p>其余就和 Docker 部署是一样的，可以直接跳到配置反向代理一段。</p>
+<p>以下是我自己的<code>docker-compose.yml</code>文件内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># docker-compose.yml</span><br><span class="line">version: &#x27;3&#x27;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  waline:</span><br><span class="line">    container_name: waline # docker名称，可以改成自己喜欢的</span><br><span class="line">    image: lizheming/waline:latest # 镜像，不建议修改</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - 127.0.0.1:8360:8360 #映射到本地的8360端口，可以改</span><br><span class="line">    volumes:</span><br><span class="line">      - $&#123;PWD&#125;/data:/data # SQLite数据库路径，不包含文件，可以改，如我的数据库就放在了/data路径，而不是官方的/app/data路径</span><br><span class="line">    environment:</span><br><span class="line">      TZ: &#x27;Asia/Shanghai&#x27; # 时区，可以改</span><br><span class="line">      SQLITE_PATH: &#x27;/data&#x27; # SQLite数据库路径，不包含文件，可以改，尽量和上面的路径保持统一</span><br><span class="line">      JWT_TOKEN: &#x27;xxx&#x27; # 用户登录密钥，随机字符串即可</span><br><span class="line">      # 以下是邮件通知的变量，参考官方邮件通知一节，可以删改</span><br><span class="line">      SMTP_SERVICE: &#x27;QQ&#x27; # 邮件SMTP 邮件发送服务提供商</span><br><span class="line">      SMTP_USER: &#x27;xxx@example.com&#x27; # SMTP 邮件发送服务的用户名，一般为登录邮箱</span><br><span class="line">      SMTP_PASS: &#x27;xxx&#x27; # SMTP 邮件发送服务的密码，一般为邮箱登录密码，部分邮箱(例如 163)是单独的 SMTP 密码</span><br><span class="line">      SMTP_SECURE: &#x27;true&#x27; # 是否使用 SSL 连接 SMTP，不使用则填写‘false’</span><br><span class="line">      SITE_NAME: &#x27;道之远兮&#x27; # 站点名称</span><br><span class="line">      SITE_URL: &#x27;https://dzyx.uk&#x27; # 站点网址，无论是否启用邮件通知，都建议添加该变量</span><br><span class="line">      SECURE_DOMAINS: &#x27;dzyx.uk&#x27; # 与站点网址保持一致即可，无需https://</span><br><span class="line">      AUTHOR_EMAIL: &#x27;xxx@example.com&#x27; # 博主邮箱，用来接收通知邮件</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除Docker"><a href="#删除Docker" class="headerlink" title="删除Docker"></a>删除Docker</h3><p>倘若安装了类似宝塔面板之类的 Linux 面板，那么操作会简单得多，我在此处就不多加介绍，仅给出命令行删除 Docker 的方法；</p>
+<p>首先查看所有 Docker 找到 waline ，记下它的 ID：</p>
+<blockquote>
+<p>docker ps -a</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/02/08/MW1Ux4aLhmY2IPo.png" alt="image.png" loading="lazy"></p>
+<p>停止并删除这个 Docker （替换成你自己的id）：</p>
+<blockquote>
+<p>docker stop 3ddebe768d29 &amp;&amp; docker rm 3ddebe768d29</p>
+</blockquote>
+<p>再次运行，查看是否成功删除：</p>
+<blockquote>
+<p>docker ps -a</p>
+</blockquote>
+<h3 id="删除Docker镜像"><a href="#删除Docker镜像" class="headerlink" title="删除Docker镜像"></a>删除Docker镜像</h3><p>查看 Docker镜像 ID：</p>
+<blockquote>
+<p>docker images</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/09/09/Sif5MIUDepK96AH.png" alt="image.png" loading="lazy"></p>
+<p>记下你要删除的 Docker镜像 的 ID，运行（替换成你自己的id）：</p>
+<blockquote>
+<p>docker rmi 90188c4f6891</p>
+</blockquote>
+<p>再次运行，查看是否成功删除：</p>
+<blockquote>
+<p>docker images</p>
+</blockquote>
+<h2 id="systemd"><a href="#systemd" class="headerlink" title="systemd"></a>systemd</h2><p>可以说是我比较喜欢的方案，但是无论如何配置，最终都是以systemd启动失败告终</p>
+<p>参考文章：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.insidentally.com/articles/000026/">在服务器上直接独立部署 Waline，并使用 systemd 启动</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2122048?areaSource=104001.3&traceId=lf80q68lA28fjBCrcIK1d">Fluid -25- 独立部署基于 MongoDB 的 Waline</a></li>
+</ol>
+<h2 id="直接运行"><a href="#直接运行" class="headerlink" title="直接运行"></a>直接运行</h2><p>最后启动<code>main.js</code>的时候总是显示错误，可能是有些文件没有配置成功？</p>
+<p>参考文章：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://anyfork.gitee.io/blog-docs/posts/other/walineServer.html">Waline 服务端独立部署解决方案</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.tj520.top/views/articles/back-end/waline-service.html">Waline 服务端一键独立部署解决方案</a></li>
+<li><a target="_blank" rel="noopener" href="https://liubing.me/article/baota/bt-deploy-waline.html">宝塔面板独立部署 Waline 评论系统</a></li>
+<li><a target="_blank" rel="noopener" href="https://lhy.life/20220919-waline/">独立部署waline评论系统服务端</a></li>
+</ol>
+<h1 id="Railway"><a href="#Railway" class="headerlink" title="Railway"></a>Railway</h1><p><a target="_blank" rel="noopener" href="https://railway.app/?referralCode=LO2dQg">Railway</a> 支持 GitHub 账号登陆，不用伤神费脑地去规避注册时的坑了；但是有一点需要注意，如果没有绑定信用卡升级订阅，那么免费的运行时长很快就会结束</p>
+<p>按照<a target="_blank" rel="noopener" href="https://waline.js.org/guide/deploy/railway.html">官方文档</a>上写的部署就好；但官方写的很简洁，因此我会在此处补充一些没写到或者是没讲明白的地方</p>
+<h2 id="生成网址"><a href="#生成网址" class="headerlink" title="生成网址"></a>生成网址</h2><p>现在在 Railway 上部署好 waline 之后是不会自动生成网址的，需要我们手动生成，官方文档上写的比较旧，Railway 已经更换了新的界面，域名也不会自动生成了</p>
+<p>部署好 waline 之后，项目里会有两个模块，在模块 <code>app</code> -&gt; <code>Settings</code> 稍下方的位置就能看见 <code>Domains</code> ，手动生成一个网址就能完成接下来的操作<br><img src="https://s2.loli.net/2023/01/25/fZTc8PVlo9KGq1H.png" alt="image.png" loading="lazy"></p>
+<h2 id="评论通知"><a href="#评论通知" class="headerlink" title="评论通知"></a>评论通知</h2><p>如果你想收到评论通知，那么就需要添加一些变量；</p>
+<p>在 Railway 中，变量位于 <code>app</code> -&gt; <code>Variables</code> ；具体的变量可以参考官方文档<a target="_blank" rel="noopener" href="https://waline.js.org/guide/features/notification.html#%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5">邮件通知</a>一节</p>
+<p>添加完变量之后，别忘记重新部署一遍，这样新添加的变量才会生效</p>
+<h2 id="导入报错"><a href="#导入报错" class="headerlink" title="导入报错"></a>导入报错</h2><p>我从原先基于 LeanCloud 和 vercel 的 waline 中导出 json 文件，在基于 Railway 上的 waline 重新导入时发现总是会卡在54&#x2F;240，并报错，百思不得其解，waline社区成员也没人能理解我的这个错误<br><img width="1438" alt="image" src="https://user-images.githubusercontent.com/83561960/214034630-1f7d268e-70ca-4c8d-97c5-846a1f83506e.png" loading="lazy"></p>
+<p>后来我通过查看 PostgreSQL 的 Logs 发现有一个评论在导入时出现了问题，将该条评论删除后，再次导入正常；<br><img src="https://user-images.githubusercontent.com/83561960/214201241-2248afb0-6b72-455e-b828-68809d18f232.png" loading="lazy"><em>“整数超出范围”</em></p>
+<p>之后我发现在 &#x2F;links 页面的评论无法正常加载；关于这点，我通过观察能正常在 &#x2F;links 页面显示的评论发现，评论指向的链接应该是 &#x2F;links&#x2F;index.html 而不是 &#x2F;links ，只好把评论导出来批量改掉再导入回去<s>（真是折腾啊）</s></p>
+<!-- # Vercel
+
+目前 Vercel 还不能在中国大陆地区访问，所以仅作备用；**在操作之前别忘记把评论数据导出！！**
+
+先把之前 LeanCloud 的环境变量删掉
+![image.png](https://s2.loli.net/2023/01/22/EYNFmp4OuWzZ3r7.png)
+
+然后添加 MySQL 的环境变量
+<table><thead><tr><th>环境变量名称</th><th>必填</th><th>默认值</th><th>备注</th></tr></thead><tbody><tr><td><code>MYSQL_HOST</code></td><td></td><td>127.0.0.1</td><td>MySQL 服务的地址</td></tr><tr><td><code>MYSQL_PORT</code></td><td></td><td>3306</td><td>MySQL 服务的端口</td></tr><tr><td><code>MYSQL_DB</code></td><td>✅</td><td></td><td>MySQL 数据库库名</td></tr><tr><td><code>MYSQL_USER</code></td><td>✅</td><td></td><td>MySQL 数据库的用户名</td></tr><tr><td><code>MYSQL_PASSWORD</code></td><td>✅</td><td></td><td>MySQL 数据库的密码</td></tr><tr><td><code>MYSQL_PREFIX</code></td><td></td><td><code>wl_</code></td><td>MySQL 数据表的表前缀</td></tr><tr><td><code>MYSQL_CHARSET</code></td><td></td><td><code>utf8mb4</code></td><td>MySQL 数据表的字符集</td></tr><tr><td><code>MYSQL_SSL</code></td><td></td><td><code>false</code></td><td>是否使用 SSL MYSQL 连接数据库</td></tr></tbody></table> -->
+
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>写完使用 Docker 部署 waline ，这篇文章就算是落下帷幕了，不得不说，Docker 就是方便，开始采用直接部署的时候一堆报错，无奈之下才去选择的 Railway；<br>当然，在自己服务器上部署 waline 也有缺点，就是数据可能会丢失，毕竟不知道哪天自己就把服务器折腾崩了，备份是重中之重；然而人生贵在折腾，我从没想过让自己的人生循规蹈矩</p>
+<p>23.05.10 更新：最担心的事情还是发生了，放 Blog 的服务器出了些问题，只备份1月28日及之前的数据，之后的数据全军覆没😭；无奈之下重新启用 Railway</p>
+<p>23.09.09 更新：Railway 开始收费，无奈下再次回到了原点（Vercel + Leancloud国际版）</p>
+<p>预告：接下来可能会把 Blog 上的图片搬到免费的 Backblaze B2 上，不再使用免费的 SM.MS 服务</p>
+</div></section><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>XiYKi</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://dzyx.uk/2023/01/22/39/" title="从Vercel逃到Railway，再到Docker自建waline">https://dzyx.uk/2023/01/22/39/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2023/03/11/41/" rel="prev" title="未备案域名使用国内服务器建站的两种思路"><span class="icon iconify" data-icon="ri:arrow-left-s-line"></span><span class="post-nav-text">未备案域名使用国内服务器建站的两种思路</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2022/12/24/38/" rel="next" title="更换Cloudreve存储策略"><span class="post-nav-text">更换Cloudreve存储策略</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"><div id="waline"></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@waline/client@v2/dist/waline.css"><script>window.CONFIG.waline.config.path = "/2023/01/22/39/"</script><div class="js-Pjax"><script src="/js/comments/waline.js" type="module" defer></script></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2020 – 2024 </span><span class="with-love" id="animate"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> XiYKi</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.2.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.9</span></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#103E65" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:search-line"></span></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="https://fastly.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js"></script><script src="/js/search/local-search.js" defer type="module"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><span class="icon iconify" data-icon="ri:close-line"></span></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="想找些什么呢~" value=""></div><div class="search-result-container"></div></div><script>function initMourn() {
+  const date = new Date();
+  const today = (date.getMonth() + 1) + "-" + date.getDate()
+  const mourn_days = ["4-4","9-18","12-13"]
+  if (mourn_days.includes(today)) {
+    document.documentElement.style.filter = "grayscale(1)";
+  }
+}
+initMourn();</script><div class="aplayer no-destroy" id="aplayer" data-id="5195860383" data-server="netease" data-type="playlist" data-fixed="true" data-theme="#103E65" data-loop="all" data-order="list" data-preload="auto" data-volume="0.7" data-mutex data-lrctype="0" data-listmaxheight="340px" data-storagename="metingjs"></div></body></html>

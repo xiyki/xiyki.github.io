@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#103E65"><meta name="author" content="XiYKi"><meta name="copyright" content="XiYKi"><meta name="generator" content="Hexo 6.2.0"><meta name="theme" content="hexo-theme-yun"><title>部署Telegram Web的一种解决方案 | 道之远兮</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/star-markdown-css@0.4.1/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="https://fastly.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link class="aplayer-style-marker" rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script class="aplayer-script-marker" src="https://fastly.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" defer></script><script class="meting-script-marker" src="https://fastly.jsdelivr.net/npm/meting@1/dist/Meting.min.js" defer></script><link rel="icon" type="image/png" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#103E65"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"dzyx.uk","root":"/","title":"道之遠兮","version":"1.10.9","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"想找些什么呢~","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194","187, 255, 255","174, 238, 238","152, 245, 255","0, 245, 255","0, 255, 255"]},"waline":{"config":{"enable":true,"serverURL":"https://comment.dzyx.uk/","comment":false,"tips":"简洁是智慧的灵魂，昂长是肤浅的藻饰","el":"#waline","lang":"zh-CN"},"cdn":"https://fastly.jsdelivr.net/npm/@waline/client@v2/dist/waline.js","dark":"html.dark"},"vendors":{"host":"https://fastly.jsdelivr.net/npm/","darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><link rel="alternate" href="/atom.xml" title="道之远兮" type="application/atom+xml"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=G-KSW0EH0LX6"></script><script>if (CONFIG.hostname === location.hostname) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KSW0EH0LX6');
+}</script><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();</script><meta name="description" content="注意！本教程仅且只能用于研究与学习 关于Telegram Web搭建的一种解决方案；主要基于反向代理的原理实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="部署Telegram Web的一种解决方案">
+<meta property="og:url" content="https://dzyx.uk/2022/07/30/36/index.html">
+<meta property="og:site_name" content="道之远兮">
+<meta property="og:description" content="注意！本教程仅且只能用于研究与学习 关于Telegram Web搭建的一种解决方案；主要基于反向代理的原理实现">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/3bf7b316ab9baf93f5b06ac983e7c332.png">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/30156f912562e90603a4f2347e368d74.png">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/12bf6692577f42b0b2f41fd1bd13f0b6.png">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/6ed8d213ebaa34563e8615df41de44ed.png">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/35d2c0b5b11d49a0417ec01f5d6dd32e.jpg">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/03b1f9a84bff3670521d0729bed9187b.jpg">
+<meta property="article:published_time" content="2022-07-30T11:14:35.000Z">
+<meta property="article:modified_time" content="2023-01-23T11:42:45.808Z">
+<meta property="article:author" content="XiYKi">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://image.gkdworld.eu.org/imageGKD/3bf7b316ab9baf93f5b06ac983e7c332.png"><script>(function() {
+  if (CONFIG.mode !== 'auto') return
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="XiYKi"><img width="96" loading="lazy" src="/images/timg.jpg" alt="XiYKi"></a><div class="site-author-name"><a href="/about/">XiYKi</a></div><a class="site-name" href="/about/site.html">道之远兮</a><sub class="site-subtitle"></sub><div class="site-description">他往黑暗中去了</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">23</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">7</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">7</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://pan.dzyx.uk/" title="My Drive"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:cloud-line"></span></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><span class="icon iconify" data-icon="ri:rss-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/xiyki" title="GitHub" target="_blank" style="color:#181717"><span class="icon iconify" data-icon="ri:github-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:i@dzyx.uk" title="E-Mail" target="_blank" style="color:#8E71C1"><span class="icon iconify" data-icon="ri:mail-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/351940900" title="Bilibili" target="_blank" style="color:#FF8EB3"><span class="icon iconify" data-icon="ri:bilibili-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/ji-yuan-xie-41/" title="知乎" target="_blank" style="color:#0084FF"><span class="icon iconify" data-icon="ri:zhihu-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://twitter.com/xi_yki/" title="Twitter" target="_blank" style="color:#1da1f2"><span class="icon iconify" data-icon="ri:twitter-line"></span></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="小伙伴们" style="color:dodgerblue"><span class="icon iconify" data-icon="ri:genderless-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86API%E5%AD%90%E5%9F%9F%E5%90%8D"><span class="toc-number">2.1.</span> <span class="toc-text">反向代理API子域名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2Telegram-Web"><span class="toc-number">2.2.</span> <span class="toc-text">部署Telegram Web</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A7%E7%89%88"><span class="toc-number">2.2.1.</span> <span class="toc-text">旧版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E7%89%88"><span class="toc-number">2.2.2.</span> <span class="toc-text">新版</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-number">3.</span> <span class="toc-text">后记</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#103E65;"><link itemprop="mainEntityOfPage" href="https://dzyx.uk/2022/07/30/36/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="XiYKi"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="道之远兮"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">部署Telegram Web的一种解决方案</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="创建时间：2022-07-30 19:14:35" itemprop="dateCreated datePublished" datetime="2022-07-30T19:14:35+08:00">2022-07-30</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-2-line"></span></span> <time title="修改时间：2023-01-23 19:42:45" itemprop="dateModified" datetime="2023-01-23T19:42:45+08:00">2023-01-23</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><span class="icon iconify" data-icon="ri:file-word-line"></span></span> <span title="本文字数">944</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><span class="icon iconify" data-icon="ri:timer-line"></span></span> <span title="阅读时长">3m</span></span></span><div class="post-classify"><span class="post-tag"><a class="tag-item" href="/tags/%E6%95%99%E7%A8%8B/" style="--text-color:#0E834D"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">教程</span></a></span></div><div class="post-author"><div class="author-avatar"><img src="https://www.gravatar.com/avatar/92e5ea21546e6413366156510d1aaf3a?s=20&amp;d=https%3A%2F%2Fcdn.yunyoujun.cn%2Fimg%2Favatar%2Fnone.jpg"></div><span class="author-name">CHZ</span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><p><strong>注意！本教程仅且只能用于研究与学习</strong></p>
+<p>关于Telegram Web搭建的一种解决方案；主要基于反向代理的原理实现</p>
+<span id="more"></span>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>很多人也许试过反向代理Telegram Web，或者是在Github Pages这类服务上自行部署Webogram等，来达到类似“You2Php”这样的“免翻”效果，但是最终大部分都会失败；即使正常打开了Telegram Web的界面，也无法登录，会提示没有网络。 </p>
+<p>其实，这是因为Telegram Web需要几个子域名的API支持，只是简单的反向代理主域名，当然不能正常使用了。下面介绍反向代理Telegram Web的正确方式。 </p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="反向代理API子域名"><a href="#反向代理API子域名" class="headerlink" title="反向代理API子域名"></a>反向代理API子域名</h2><p>如有能力，请自行参考<a target="_blank" rel="noopener" href="https://github.com/tzchz/webogram-api">GitHub-tzchz&#x2F;webogram-api</a></p>
+<p>同样，也可以<a target="_blank" rel="noopener" href="https://vercel.com/new/clone?repository-url=https://github.com/xiyki/tgweb-api/tree/main/example">点击部署</a>在Vercal上；不用动什么配置，全部默认即可</p>
+<p>部署完成后，访问项目地址出现以下提示是正常的</p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/3bf7b316ab9baf93f5b06ac983e7c332.png" loading="lazy"></p>
+<p><strong>本文以Vercel部署为示范，其他部署方式可以相应参考。</strong></p>
+<h2 id="部署Telegram-Web"><a href="#部署Telegram-Web" class="headerlink" title="部署Telegram Web"></a>部署Telegram Web</h2><p>这里有几个项目可供选择。此处选择的是旧版的Webogram，因为这个版本操作简单，在Github Pages &#x2F; Cloudflare Pages这样的静态空间就可以部署。当然，旧版本有一些限制<del>（也有可能会是优点）</del>，如：不支持新出的点赞功能、不支持显示广告、无法更换中文等等；在使用时提示<code>Error. Please update your app to the latest version or switch to the official version of Telegram</code>或<code>The message is not supported on your version of Telegram Web. Update the app to view</code>也是正常情况，可以选择新的Telegram Web K &#x2F; Telegram Web Z；大家可以根据自己的喜好选择： </p>
+<p>Webogram：<a target="_blank" rel="noopener" href="https://github.com/zhukov/webogram/">GitHub - zhukov&#x2F;webogram: Telegram web application, GPL v3</a></p>
+<p>Telegram Web K：<a target="_blank" rel="noopener" href="https://github.com/morethanwords/tweb">GitHub - morethanwords&#x2F;tweb: Telegram Web K, GPL v3</a></p>
+<p>Telegram Web Z：<a target="_blank" rel="noopener" href="https://github.com/Ajaxy/telegram-tt">GitHub - Ajaxy&#x2F;telegram-tt: Telegram Web Z, GPL v3</a></p>
+<p><strong>本文以Webogram部署为示范，其他项目可以自行参考。</strong></p>
+<h3 id="旧版"><a href="#旧版" class="headerlink" title="旧版"></a>旧版</h3><p>先去<a target="_blank" rel="noopener" href="https://github.com/zhukov/webogram/releases/tag/v0.5.7">Releases</a>中下载压缩文件；或者将<a target="_blank" rel="noopener" href="https://github.com/zhukov/webogram/tree/gh-pages">Webogram</a>Fork一份。</p>
+<p>把程序中调用的API地址改成我们刚才反向代理的地址。Webogram的源码是在<a target="_blank" rel="noopener" href="https://github.com/zhukov/webogram/blob/gh-pages/js/app.js">&#x2F;js&#x2F;app.js</a>中修改；</p>
+<p>查找原来的API地址：</p>
+<blockquote>
+<p>“https:&#x2F;&#x2F;“+l+”.web.telegram.org&#x2F;“+c</p>
+</blockquote>
+<p>替换为刚才反向代理的地址：</p>
+<blockquote>
+<p>“https:&#x2F;&#x2F;<your-urlname>.vercel.app&#x2F;“+l+”&#x2F;“+c</p>
+</blockquote>
+<p>然后再部署到Github Pages &#x2F; Cloudflare Pages此类静态空间即可；本文以Cloudflare Pages作为示范</p>
+<p>注意⚠️：在Cloudflare Pages上传文件时，请确保<strong>每一个文件</strong>均被上传，然后再部署</p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/30156f912562e90603a4f2347e368d74.png" loading="lazy"><em>错误示范</em></p>
+<p>当使用压缩包&#x2F;文件夹上传出现以上图片中的错误时，请更换另一个上传途径</p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/12bf6692577f42b0b2f41fd1bd13f0b6.png" loading="lazy"><em>正确示范</em></p>
+<p>部署完成后，访问你的网站，它在正常情况下会显示如下</p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/6ed8d213ebaa34563e8615df41de44ed.png" loading="lazy"><em>Webogram</em></p>
+<h3 id="新版"><a href="#新版" class="headerlink" title="新版"></a>新版</h3><p>因为新版文件数量过多，Cloudflare Pages不支持该数量级的文件上传，故本文并没有新版Telegram Web的演示</p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/35d2c0b5b11d49a0417ec01f5d6dd32e.jpg" loading="lazy"><em>来自Cloudflare Pages的警告</em></p>
+<p>在<a target="_blank" rel="noopener" href="https://github.com/morethanwords/tweb">Telegram Web K</a>中，需要分别修改<code>mtproto.worker.d4c394cfcd75943f854f.chunk.js</code>和<code>mtproto.worker.d4c394cfcd75943f854f.chunk.js.map</code>两个文件；Windows上最好借助第三方工具查询，而macOS用户只需使用 command+空格 查询即可</p>
+<p>在以上两个文件中，搜索</p>
+<blockquote>
+<p>.web.telegram.org</p>
+</blockquote>
+<p>将每个文件中第二个<code>.web.telegram.org</code>改成自己反向代理的网址；以上两个文件中第一个<code>.web.telegram.org</code>则无需更改</p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/03b1f9a84bff3670521d0729bed9187b.jpg" loading="lazy"><em>依葫芦画瓢</em></p>
+<p>更改完成后，请将文件自行部署到服务器或者静态空间</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>本文由<a href="https://dzyx.uk/">XiYKi</a>与<a target="_blank" rel="noopener" href="https://www.chz.one/">CHZ</a>联合创作；</p>
+<p><del>来自<a target="_blank" rel="noopener" href="https://www.chz.one/">CHZ</a>的</del>小广告：<a target="_blank" rel="noopener" href="https://natvps.top/">两元NAT容器</a>｜<a target="_blank" rel="noopener" href="https://texting.me.uk/">英国（+44）虚拟号码</a>｜<a target="_blank" rel="noopener" href="https://cube.me.uk/#/16/detail">Azure $100</a>｜<a target="_blank" rel="noopener" href="https://cube.me.uk/#/33/detail">Office A1 无管理员账户</a>｜<a target="_blank" rel="noopener" href="https://cube.me.uk/#/30/detail">Raidrive教育版账号</a>｜<a target="_blank" rel="noopener" href="https://cube.me.uk/#/31/detail">Notion教育版账户</a>｜<a target="_blank" rel="noopener" href="https://cube.me.uk/#/41/detail">Scaleway Cloud账号</a>｜<a target="_blank" rel="noopener" href="https://cube.me.uk/#/42/detail">DeepL API free账号</a></p>
+</div></section><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>CHZ</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://dzyx.uk/2022/07/30/36/" title="部署Telegram Web的一种解决方案">https://dzyx.uk/2022/07/30/36/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2022/12/23/37/" rel="prev" title="在macOS中VScode运行python的一些问题"><span class="icon iconify" data-icon="ri:arrow-left-s-line"></span><span class="post-nav-text">在macOS中VScode运行python的一些问题</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2022/07/30/35/" rel="next" title="MacBook调教指北"><span class="post-nav-text">MacBook调教指北</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"><div id="waline"></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@waline/client@v2/dist/waline.css"><script>window.CONFIG.waline.config.path = "/2022/07/30/36/"</script><div class="js-Pjax"><script src="/js/comments/waline.js" type="module" defer></script></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2020 – 2024 </span><span class="with-love" id="animate"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> XiYKi</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.2.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.9</span></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#103E65" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:search-line"></span></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="https://fastly.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js"></script><script src="/js/search/local-search.js" defer type="module"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><span class="icon iconify" data-icon="ri:close-line"></span></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="想找些什么呢~" value=""></div><div class="search-result-container"></div></div><script>function initMourn() {
+  const date = new Date();
+  const today = (date.getMonth() + 1) + "-" + date.getDate()
+  const mourn_days = ["4-4","9-18","12-13"]
+  if (mourn_days.includes(today)) {
+    document.documentElement.style.filter = "grayscale(1)";
+  }
+}
+initMourn();</script><div class="aplayer no-destroy" id="aplayer" data-id="5195860383" data-server="netease" data-type="playlist" data-fixed="true" data-theme="#103E65" data-loop="all" data-order="list" data-preload="auto" data-volume="0.7" data-mutex data-lrctype="0" data-listmaxheight="340px" data-storagename="metingjs"></div></body></html>

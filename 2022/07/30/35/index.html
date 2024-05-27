@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#103E65"><meta name="author" content="XiYKi"><meta name="copyright" content="XiYKi"><meta name="generator" content="Hexo 6.2.0"><meta name="theme" content="hexo-theme-yun"><title>MacBook调教指北 | 道之远兮</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/star-markdown-css@0.4.1/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="https://fastly.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link class="aplayer-style-marker" rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script class="aplayer-script-marker" src="https://fastly.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" defer></script><script class="meting-script-marker" src="https://fastly.jsdelivr.net/npm/meting@1/dist/Meting.min.js" defer></script><link rel="icon" type="image/png" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#103E65"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"dzyx.uk","root":"/","title":"道之遠兮","version":"1.10.9","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"想找些什么呢~","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194","187, 255, 255","174, 238, 238","152, 245, 255","0, 245, 255","0, 255, 255"]},"waline":{"config":{"enable":true,"serverURL":"https://comment.dzyx.uk/","comment":false,"tips":"简洁是智慧的灵魂，昂长是肤浅的藻饰","el":"#waline","lang":"zh-CN"},"cdn":"https://fastly.jsdelivr.net/npm/@waline/client@v2/dist/waline.js","dark":"html.dark"},"vendors":{"host":"https://fastly.jsdelivr.net/npm/","darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><link rel="alternate" href="/atom.xml" title="道之远兮" type="application/atom+xml"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=G-KSW0EH0LX6"></script><script>if (CONFIG.hostname === location.hostname) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KSW0EH0LX6');
+}</script><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();</script><meta name="description" content="本文旨在记载MacBook Air m1版本的调教过程以及踩坑经验。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MacBook调教指北">
+<meta property="og:url" content="https://dzyx.uk/2022/07/30/35/index.html">
+<meta property="og:site_name" content="道之远兮">
+<meta property="og:description" content="本文旨在记载MacBook Air m1版本的调教过程以及踩坑经验。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2023/01/28/ahiCrRftuxzTYJl.png">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/fa3e76312b0edca0d4072aa2248517ec.png">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/c0988a5c6afcee12784c705d0306f358.png">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/0143ba1997d6c72ffaa3535116663e8d.png">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/a4a6a25970aa0c21c50b594cff922980.jpeg">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/04098fa7f2c9a5a1934a56ee6ce29aec.jpg">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/bc3b2def7f92fc638770ddb567460ad5.png">
+<meta property="og:image" content="https://github.com/HuangRunHua/FilerApp/raw/main/intro.png">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/49dd8432309eebd3c325e1b9a64480df.jpg">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/805ddbf69346b6e1c7899cf4318d8303.png">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/d3f66769a6a96bd41f8f044b12127c62.png">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/2ba7ad94349b4b93ba6680d786b29116.png">
+<meta property="og:image" content="https://s2.loli.net/2022/06/19/7zFvpV2yEcmBDKh.png">
+<meta property="og:image" content="https://image.gkdworld.eu.org/imageGKD/6036e13e28b3267901e3053e4ab1009b.png">
+<meta property="article:published_time" content="2022-07-30T02:47:29.000Z">
+<meta property="article:modified_time" content="2023-01-28T01:35:56.461Z">
+<meta property="article:author" content="XiYKi">
+<meta property="article:tag" content="折腾">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2023/01/28/ahiCrRftuxzTYJl.png"><script>(function() {
+  if (CONFIG.mode !== 'auto') return
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="XiYKi"><img width="96" loading="lazy" src="/images/timg.jpg" alt="XiYKi"></a><div class="site-author-name"><a href="/about/">XiYKi</a></div><a class="site-name" href="/about/site.html">道之远兮</a><sub class="site-subtitle"></sub><div class="site-description">他往黑暗中去了</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">23</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">7</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">7</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://pan.dzyx.uk/" title="My Drive"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:cloud-line"></span></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><span class="icon iconify" data-icon="ri:rss-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/xiyki" title="GitHub" target="_blank" style="color:#181717"><span class="icon iconify" data-icon="ri:github-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:i@dzyx.uk" title="E-Mail" target="_blank" style="color:#8E71C1"><span class="icon iconify" data-icon="ri:mail-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/351940900" title="Bilibili" target="_blank" style="color:#FF8EB3"><span class="icon iconify" data-icon="ri:bilibili-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/ji-yuan-xie-41/" title="知乎" target="_blank" style="color:#0084FF"><span class="icon iconify" data-icon="ri:zhihu-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://twitter.com/xi_yki/" title="Twitter" target="_blank" style="color:#1da1f2"><span class="icon iconify" data-icon="ri:twitter-line"></span></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="小伙伴们" style="color:dodgerblue"><span class="icon iconify" data-icon="ri:genderless-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">硬件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AD%98"><span class="toc-number">1.1.</span> <span class="toc-text">内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8"><span class="toc-number">1.2.</span> <span class="toc-text">存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BC%A0%E6%A0%87-x2F-%E8%A7%A6%E6%8E%A7%E6%9D%BF"><span class="toc-number">1.3.</span> <span class="toc-text">鼠标&#x2F;触控板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%AE%E7%9B%98"><span class="toc-number">1.4.</span> <span class="toc-text">键盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%8F%E5%B9%95"><span class="toc-number">1.5.</span> <span class="toc-text">屏幕</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E6%B1%A0"><span class="toc-number">1.6.</span> <span class="toc-text">电池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8A%AF%E7%89%87"><span class="toc-number">1.7.</span> <span class="toc-text">芯片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AC%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.8.</span> <span class="toc-text">转接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">1.9.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">软件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows"><span class="toc-number">2.1.</span> <span class="toc-text">Windows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E8%BD%AC%E6%8D%A2%E5%8A%A9%E7%90%86"><span class="toc-number">2.1.1.</span> <span class="toc-text">启动转换助理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wine%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.1.2.</span> <span class="toc-text">Wine及其相关程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">2.1.3.</span> <span class="toc-text">虚拟机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BD%93%E6%9C%BA"><span class="toc-number">2.1.4.</span> <span class="toc-text">实体机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BBWindows%E5%BA%94%E7%94%A8"><span class="toc-number">2.2.</span> <span class="toc-text">类Windows应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Filer"><span class="toc-number">2.2.1.</span> <span class="toc-text">Filer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HyperDock"><span class="toc-number">2.2.2.</span> <span class="toc-text">HyperDock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alfred"><span class="toc-number">2.2.3.</span> <span class="toc-text">Alfred</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-number">2.3.</span> <span class="toc-text">浏览器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6"><span class="toc-number">2.4.</span> <span class="toc-text">办公软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%85%E7%90%86%E8%BD%AF%E4%BB%B6"><span class="toc-number">2.5.</span> <span class="toc-text">清理软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lemon-cleaner"><span class="toc-number">2.5.1.</span> <span class="toc-text">lemon cleaner</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CleanMyMac-X"><span class="toc-number">2.5.2.</span> <span class="toc-text">CleanMyMac X</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%88%E7%AB%AF"><span class="toc-number">2.6.</span> <span class="toc-text">终端</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nuoshell"><span class="toc-number">2.6.1.</span> <span class="toc-text">nuoshell</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%B3%95"><span class="toc-number">2.7.</span> <span class="toc-text">输入法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8"><span class="toc-number">2.8.</span> <span class="toc-text">视频播放器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8"><span class="toc-number">2.9.</span> <span class="toc-text">图片查看器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="toc-number">3.</span> <span class="toc-text">写在最后</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#103E65;"><link itemprop="mainEntityOfPage" href="https://dzyx.uk/2022/07/30/35/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="XiYKi"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="道之远兮"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">MacBook调教指北</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="创建时间：2022-07-30 10:47:29" itemprop="dateCreated datePublished" datetime="2022-07-30T10:47:29+08:00">2022-07-30</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-2-line"></span></span> <time title="修改时间：2023-01-28 09:35:56" itemprop="dateModified" datetime="2023-01-28T09:35:56+08:00">2023-01-28</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><span class="icon iconify" data-icon="ri:file-word-line"></span></span> <span title="本文字数">1.8k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><span class="icon iconify" data-icon="ri:timer-line"></span></span> <span title="阅读时长">6m</span></span></span><div class="post-classify"><span class="post-tag"><a class="tag-item" href="/tags/%E6%8A%98%E8%85%BE/" style="--text-color:#4fc08d"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">折腾</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><p>本文旨在记载MacBook Air m1版本的调教过程以及踩坑经验。</p>
+<span id="more"></span>
+
+<h1 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h1><p><strong>不推荐非专业人士自行更换硬件！</strong></p>
+<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><p>内存是尤其不推荐自己动手组装的，很容易出问题；想要多大内存，买MacBook的时候选好；一般来说，没有大型文件&#x2F;游戏运行需求的，选8GB内存就够了</p>
+<p><img src="https://s2.loli.net/2023/01/28/ahiCrRftuxzTYJl.png" alt="image.png" loading="lazy"><em>16GB内存的MacBook Air</em></p>
+<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><p>苹果电脑存储卖的非常昂贵，不推荐买的时候加存储，可以去某宝上卖一个硬盘来用，性价比较高。</p>
+<p>本人的MacBook是低配的16+256，再在某宝上买了个4TB机器硬盘，总共才花了9540元，而狗东上8+512还要9499元，比8+256多出来1500元，1500足够买一块儿相当好的固态硬盘了</p>
+<p>买硬盘的时候一定要注意，附赠的数据线是否有Type-C接口的数据线；<del>没有其实也没关系，转接口早晚要买😜</del></p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/fa3e76312b0edca0d4072aa2248517ec.png" loading="lazy"><em>某宝上买的4TB机器硬盘</em></p>
+<h2 id="鼠标-x2F-触控板"><a href="#鼠标-x2F-触控板" class="headerlink" title="鼠标&#x2F;触控板"></a>鼠标&#x2F;触控板</h2><p>如果会使用触控板还是使用触控板，鼠标在macOS中只是辅助作用；初期可以配置一个鼠标，熟练之后再使用触控板也没问题，要是有钱没地方花<del>请给我</del>后期可以买个苹果官方的鼠标（死贵还巨难用，不如触控板）</p>
+<p>触控板手势实际上与Windows系统相差无几，如果熟悉Windows的触控手势，相信Mac的触控手势很快就会习惯（注：本人使用的是Windows 11以及macOS Monterey）</p>
+<p>刚接触Mac系统的时候不要买苹果官方的鼠标！那不是正常人用的鼠标；随便找一个Windows用的蓝牙鼠标给Mac用就行了，没必要花这冤枉钱</p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/c0988a5c6afcee12784c705d0306f358.png" loading="lazy"><em>买来就后悔系列</em></p>
+<p>开始使用鼠标的时候要注意滚轮的滑动方向是反着来的，网络上有很多解决方法，我就不在此处献丑了，请诸位自行<a target="_blank" rel="noopener" href="https://www.baidu.com/">百度</a>&#x2F;<a target="_blank" rel="noopener" href="https://www.google.com/">Google</a></p>
+<p><del>甩一甩就能放大的指针还是挺好玩的</del></p>
+<h2 id="键盘"><a href="#键盘" class="headerlink" title="键盘"></a>键盘</h2><p>会发光，<del>还会漏光……</del>除了装逼一无是处</p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/0143ba1997d6c72ffaa3535116663e8d.png" loading="lazy"><em>硬要说有点用处也没错</em></p>
+<h2 id="屏幕"><a href="#屏幕" class="headerlink" title="屏幕"></a>屏幕</h2><p>小，没我的联想电脑屏幕大，但是清晰度很高，且没有祖传大刘海，喜欢，好评</p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/a4a6a25970aa0c21c50b594cff922980.jpeg" loading="lazy"></p>
+<h2 id="电池"><a href="#电池" class="headerlink" title="电池"></a>电池</h2><p>还好，只要不过度使用，撑个大半天是没问题的</p>
+<h2 id="芯片"><a href="#芯片" class="headerlink" title="芯片"></a>芯片</h2><p>Apple m1芯片，网络上测评很多，不过多介绍，只能说日常使用绰绰有余</p>
+<h2 id="转接口"><a href="#转接口" class="headerlink" title="转接口"></a>转接口</h2><p>总所周知，MacBook Air m1版本有且仅有着两个极为落后的Type-C接口<del>以及一个极为先进的3.5毫米耳机接口</del>，买一个转接口显然是明智之举；同样，如果有钱可以考虑苹果官方的转接口，没钱可以看其他牌子的，实际上都一样，无非是智商税上交与否的问题</p>
+<p>我在狗东上买的转接口才25元，苹果居然要明抢138元，不推荐苹果官方的转接口👎</p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/04098fa7f2c9a5a1934a56ee6ce29aec.jpg" loading="lazy"><em>狗东上售价25元的转接口</em></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>**苹果，居然敢卖积压品给我！！！我买的MacBook Air m1是2021年生产的，到我手里的时候出厂的电池都没电了</p>
+<h1 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h1><p>在macOS上安装软件只有一个好处——不用担心烦人的弹窗广告<del>（但是我用Windows也可以没有弹窗广告啊）</del></p>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>实际上买苹果电脑的前提是有一台Windows电脑，不然真的很烦人；<del>比如爱玩Galgame的我就要哭了</del></p>
+<h3 id="启动转换助理"><a href="#启动转换助理" class="headerlink" title="启动转换助理"></a>启动转换助理</h3><p>m1芯片不能借助官方工具安装Windows；话说Microsoft都出ARM版本的Windows了，Apple不能更新一下支持ARM版本的Windows吗</p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/bc3b2def7f92fc638770ddb567460ad5.png" loading="lazy"><em>无法使用启动转换助理</em></p>
+<h3 id="Wine及其相关程序"><a href="#Wine及其相关程序" class="headerlink" title="Wine及其相关程序"></a>Wine及其相关程序</h3><p>本人测试无一成功，可能是姿势不对，求大佬指教</p>
+<h3 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h3><p>macOS上免费虚拟机软件不多，破解版软件不像Windows那样好找，放弃了</p>
+<h3 id="实体机"><a href="#实体机" class="headerlink" title="实体机"></a>实体机</h3><p>还是实实在在的Windows香！</p>
+<h2 id="类Windows应用"><a href="#类Windows应用" class="headerlink" title="类Windows应用"></a>类Windows应用</h2><p>本栏下介绍一些让macOS更“像”Windows的应用</p>
+<h3 id="Filer"><a href="#Filer" class="headerlink" title="Filer"></a>Filer</h3><p><a target="_blank" rel="noopener" href="https://github.com/HuangRunHua/FilerApp">Filer</a>可以让macOS右键菜单中可以创建一个文件，具体可以参考开发者给出的<a target="_blank" rel="noopener" href="https://github.com/HuangRunHua/FilerApp/blob/main/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md">使用说明</a>。</p>
+<p><img src="https://github.com/HuangRunHua/FilerApp/raw/main/intro.png" loading="lazy"></p>
+<h3 id="HyperDock"><a href="#HyperDock" class="headerlink" title="HyperDock"></a>HyperDock</h3><p><a target="_blank" rel="noopener" href="https://bahoom.com/hyperdock/">HyperDock</a>这个窗口管理软件可以在鼠标悬停在软件上时预览当前打开的窗口（其实我觉得没多大必要～）</p>
+<h3 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h3><p>Alfred的功能很多，我最喜欢的是它的剪辑版功能；关于Alfred的功能介绍网上已经及其详细了，故不在此献丑</p>
+<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><p><del>开机第一件事情：打开Safari下载Microsoft Edge</del></p>
+<p>浏览器这个仁者见仁智者见智吧，没必要学我安装Microsoft Edge；Safari、Firefox啥的都能用；</p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/49dd8432309eebd3c325e1b9a64480df.jpg" loading="lazy"><em>又不是不能用.jpg</em></p>
+<h2 id="办公软件"><a href="#办公软件" class="headerlink" title="办公软件"></a>办公软件</h2><p>苹果电脑自带的办公软件被我全部卸载了，安装了Microsoft Office全家桶；依然是习惯问题，建议安装自己习惯的办公软件</p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/805ddbf69346b6e1c7899cf4318d8303.png" loading="lazy"><em>macOS上的Microsoft全家桶；这何尝不是一种变相NTR（笑</em></p>
+<h2 id="清理软件"><a href="#清理软件" class="headerlink" title="清理软件"></a>清理软件</h2><h3 id="lemon-cleaner"><a href="#lemon-cleaner" class="headerlink" title="lemon cleaner"></a>lemon cleaner</h3><p>我在Windows上从不安装此类软件，都是自己手动清理的；macOS有所不同，因此下载了个腾讯的柠檬清理，苹果商店版本的就行，官网上的完全版没啥需求</p>
+<p>而如今选择柠檬清理只有一个原因——它开源了；</p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/d3f66769a6a96bd41f8f044b12127c62.png" loading="lazy"><em>Github lemon-cleaner</em></p>
+<h3 id="CleanMyMac-X"><a href="#CleanMyMac-X" class="headerlink" title="CleanMyMac X"></a>CleanMyMac X</h3><p>久负盛名的macOS清理软件，但是要付费使用；比较流氓，command+Q不能关闭软件，必须手动到菜单栏中关闭</p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/2ba7ad94349b4b93ba6680d786b29116.png" loading="lazy"></p>
+<h2 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h2><p>自从Windows Terminal出来之后，macOS的终端一下就不香了；可能是我能力有限，不能将macOS的终端配置的与Windows Terminal一样漂亮</p>
+<p><img src="https://s2.loli.net/2022/06/19/7zFvpV2yEcmBDKh.png" loading="lazy"><em>Windows Terminal</em></p>
+<p><img src="https://image.gkdworld.eu.org/imageGKD/6036e13e28b3267901e3053e4ab1009b.png" loading="lazy"><em>Mac终端</em></p>
+<p>连接服务器又要下载两个软件，一个命令行连接，一个桌面连接，实在是无奈之举；Windows上自带的系统工具（Windows Terminal）则都能解决</p>
+<h3 id="nuoshell"><a href="#nuoshell" class="headerlink" title="nuoshell"></a>nuoshell</h3><p><a target="_blank" rel="noopener" href="https://www.nuoshell.com/">nuoshell</a>是一款支持Apple m1芯片的SSH客户端工具，我用它在macOS来代替Windows Terminal的服务器连接功能；<del>不过我还是喜欢Windows Terminal</del></p>
+<h2 id="输入法"><a href="#输入法" class="headerlink" title="输入法"></a>输入法</h2><p>无论Windows还是macOS，我认为原生输入法比任何第三方输入法都要好</p>
+<h2 id="视频播放器"><a href="#视频播放器" class="headerlink" title="视频播放器"></a>视频播放器</h2><p>苹果自带的播放器不能说不行吧，只能说烂的不能再烂了，格式一应俱缺，完全不会用，去苹果商店随手下了个软件替代它了</p>
+<h2 id="图片查看器"><a href="#图片查看器" class="headerlink" title="图片查看器"></a>图片查看器</h2><p>不知道macOS上有啥好的照片查看器，原来Windows上自带的照片查看器就挺好用，基础功能齐全；这点建议Apple向Microsoft多学学</p>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>macOS体验一下还可以，轻办公也没问题，电脑重度用户还是选择Windows的好；</p>
+<p>至于广大UP主们推荐MacBook也很简单，因为他们需要剪辑视频，macOS在剪辑视频此点上还是较Windows有很大优势的，所以希望这么麻烦的文章看下来可以让你回心转意；<del>不要像我一样脑子一热就买了台MacBook Air</del></p>
+</div></section><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>XiYKi</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://dzyx.uk/2022/07/30/35/" title="MacBook调教指北">https://dzyx.uk/2022/07/30/35/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2022/07/30/36/" rel="prev" title="部署Telegram Web的一种解决方案"><span class="icon iconify" data-icon="ri:arrow-left-s-line"></span><span class="post-nav-text">部署Telegram Web的一种解决方案</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2022/06/19/34/" rel="next" title="差点忘了自己还有个Blog"><span class="post-nav-text">差点忘了自己还有个Blog</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"><div id="waline"></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@waline/client@v2/dist/waline.css"><script>window.CONFIG.waline.config.path = "/2022/07/30/35/"</script><div class="js-Pjax"><script src="/js/comments/waline.js" type="module" defer></script></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2020 – 2024 </span><span class="with-love" id="animate"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> XiYKi</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.2.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.9</span></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#103E65" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:search-line"></span></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="https://fastly.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js"></script><script src="/js/search/local-search.js" defer type="module"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><span class="icon iconify" data-icon="ri:close-line"></span></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="想找些什么呢~" value=""></div><div class="search-result-container"></div></div><script>function initMourn() {
+  const date = new Date();
+  const today = (date.getMonth() + 1) + "-" + date.getDate()
+  const mourn_days = ["4-4","9-18","12-13"]
+  if (mourn_days.includes(today)) {
+    document.documentElement.style.filter = "grayscale(1)";
+  }
+}
+initMourn();</script><div class="aplayer no-destroy" id="aplayer" data-id="5195860383" data-server="netease" data-type="playlist" data-fixed="true" data-theme="#103E65" data-loop="all" data-order="list" data-preload="auto" data-volume="0.7" data-mutex data-lrctype="0" data-listmaxheight="340px" data-storagename="metingjs"></div></body></html>
